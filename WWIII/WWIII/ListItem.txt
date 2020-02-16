@@ -1,0 +1,13 @@
+//Chaque ligne est de ce format :
+//id priceBuy priceSell name /*les stats de l'item*/
+Potion 
+0 10 5 petite_potion_de_vie
+0 30 5 grande_potion_de_vie
+Weapon
+1 100 7 AK-47
+1 70 5 sniper
+1 50 3 shotgun
+Armor
+2 30 5 armure_de_cuire
+2 60 10 armure_de_fer
+2 90 15 armure_de_diamand
