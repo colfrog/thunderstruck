@@ -1,43 +1,43 @@
 #include "Item.h"
 
 Item::Item() {
-	id = -1;
-	name = "";
-	priceSell = 0;
-	priceBuy = 0;
+	m_id = -1;
+	m_name = "";
+	m_price_sell = 0;
+	m_price_buy = 0;
 }
 
 Item::~Item() {
 
 }
 
-void Item::setId(int item) {
-	if (item < 0 || item > 2) {
-		cout << "Cette catégorie d'item n'existe pas\n";
-	}
-	else {
-		id = item;
-	}
+void Item::set_id(int id) {
+		m_id = id;
 }
-void Item::setName(string n) {
-	name = n;
+void Item::set_name(string name) {
+	m_name = name;
 }
-void Item::setPriceBuy(int price) {
-	priceBuy = abs(price);
+void Item::set_price_buy(int price_buy) {
+	m_price_buy = price_buy;
 }
-void Item::setPriceSell(int price) {
-	priceSell = abs(price);
+void Item::set_price_sell(int price_sell) {
+	m_price_sell = price_sell;
 }
 
-int Item::getId() {
-	return id;
+int Item::get_id() {
+	return m_id;
 }
-string Item::getName() {
-	return name;
+string Item::get_name() {
+	return m_name;
 }
-unsigned int Item::getPriceBuy() {
-	return priceBuy;
+int Item::get_price_buy() {
+	return m_price_buy;
 }
-unsigned int Item::getPriceSell() {
-	return priceSell;
+int Item::get_price_sell() {
+	return m_price_sell;
+}
+
+void Item::afficher() {
+	cout << left << setw(8) << m_id << "Nom : " << setw(29) << m_name << "Prit d'achat : " << setw(10) << m_price_buy;
+	cout << "Prit de vente : " << setw(10) << m_price_sell << endl;
 }

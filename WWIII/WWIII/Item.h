@@ -2,10 +2,17 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
+#include <Windows.h>
 
-#define POTION 0
-#define WEAPON 1
-#define ARMOR 2
+/** Catégorie d'item :
+*	1.Potion =>	POTION (valeur:1 entier)
+*	2.Weapon => WEAPON (valeur:2)
+*	3.Defense => DEFENSE (Valeur:3 entier)
+********************************************/
+#define POTION 1
+#define WEAPON 2
+#define DEFENSE 3
 
 using namespace std;
 
@@ -14,20 +21,21 @@ public:
 	Item();
 	~Item();
 
-	void setId(int item);
-	void setName(string n);
-	void setPriceBuy(int price);
-	void setPriceSell(int price);
+	void set_id(int id);
+	void set_name(string name);
+	void set_price_buy(int price_buy);
+	void set_price_sell(int price_sell);
 
-	int getId();
-	string getName();
-	unsigned int getPriceBuy();
-	unsigned int getPriceSell();
+	int get_id();
+	string get_name();
+	int get_price_buy();
+	int get_price_sell();
 
-private:
-	//categorie de l'item
-	int id;
-	string name;
-	unsigned int priceBuy;
-	unsigned int priceSell;
+	virtual void afficher();
+protected:
+	//categorie de l'item suivi de son identifiant personnel
+	int m_id;
+	string m_name;
+	int m_price_buy;
+	int m_price_sell;
 };
