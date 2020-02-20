@@ -53,7 +53,7 @@ Lorsque VS2017 exécute cmake (par lui-même), il ajoute tous les tests dans sa 
 
 Si vous avez un éditeur de texte, cherchez une extension cmake.
 
-À partir de la ligne de commande, dans thunderstruck:
+Pour compiler à partir de la ligne de commande, dans thunderstruck:
 
 ```sh
 $ mkdir build
@@ -65,3 +65,5 @@ $ make
 Pour recompiler, sauf si CMakeLists.txt a changé, vous avez seulement à rééxécuter `make` dans le répertoire build.
 
 Si CMakeLists.txt a changé, il faut rééxécuter `cmake ..` dans le répertoire build avant.
+
+Pour exécuter les tests, exécuter `make test` dans le répertoire build.
