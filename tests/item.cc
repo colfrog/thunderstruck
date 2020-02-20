@@ -5,13 +5,12 @@ using namespace std;
 
 int main() {
 	//Test de la classe Item
-	Item potion;
-	potion.setId(POTION);
-	potion.setName("potion de vie");
-	potion.setPriceBuy(-2);
-	potion.setPriceSell(1000);
+	Item item;
+	item.set_id(000);
+	item.set_name("item");
+	item.set_price_buy(-2);
+	item.set_price_sell(1000);
 
-	cout << potion.getId() << " " << potion.getName() << " " <<
-		potion.getPriceBuy() << " " << potion.getPriceSell() << endl;
+	item.afficher();
 	return 0;
 }
