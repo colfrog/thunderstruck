@@ -1,7 +1,0 @@
-﻿  Shop.cpp
-d:\githubproject\thunderstruck\thunderstruck\wwiii\wwiii\shop.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-d:\githubproject\thunderstruck\thunderstruck\wwiii\wwiii\shop.cpp(114): warning C4018: '<': signed/unsigned mismatch
-d:\githubproject\thunderstruck\thunderstruck\wwiii\wwiii\shop.cpp(136): warning C4018: '<': signed/unsigned mismatch
-d:\githubproject\thunderstruck\thunderstruck\wwiii\wwiii\shop.cpp(143): warning C4018: '<': signed/unsigned mismatch
-d:\githubproject\thunderstruck\thunderstruck\wwiii\wwiii\shop.cpp(144): warning C4018: '<': signed/unsigned mismatch
-  WWIII.vcxproj -> D:\GitHubProject\ThunderStruck\thunderstruck\WWIII\Debug\WWIII.exe
