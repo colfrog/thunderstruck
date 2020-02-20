@@ -15,7 +15,7 @@
 //Nom du fichier pour la liste de tous les items du jeu
 #define N0M_FICHIER "listes_des_items.txt"
 
-/*********** Catégorie d'item : *************
+/*********** Catï¿½gorie d'item : *************
 *	1.Potion =>	POTION (valeur:1 entier)
 *	2.Weapon => WEAPON (valeur:2)
 *	3.Defense => DEFENSE (Valeur:3 entier)
@@ -32,39 +32,41 @@ public:
 	vector<Weapon>  get_list_weapon();
 	vector<Defense>  get_list_defense();
 
-	//Méthode pour vendre une potion du joueur au Shop
+	//Mï¿½thode pour vendre une potion du joueur au Shop
 	void sell_potion(Potion potion);
-	//Méthode pour vendre une arme du joueur au Shop
+	//Mï¿½thode pour vendre une arme du joueur au Shop
 	void sell_weapon(Weapon weapon);
-	//Méthode pour vendre une defense du joueur au Shop
+	//Mï¿½thode pour vendre une defense du joueur au Shop
 	void sell_defense(Defense armure);
 
-	//Méthode pour acheter une potion du Shop
+	//Mï¿½thode pour acheter une potion du Shop
 	Potion buy_potion(int id);
-	//Méthode pour acheter une arme du Shop
+	//Mï¿½thode pour acheter une arme du Shop
 	Weapon buy_weapon(int id);
-	//Méthode pour acheter une armure du Shop
+	//Mï¿½thode pour acheter une armure du Shop
 	Defense buy_defense(int id);
 
-	//Méthode pour afficher tous les items du shop
+	//Mï¿½thode pour afficher tous les items du shop
 	void show_list();
 
-	//Méthode pour afficher les stats d'un item
+	//Mï¿½thode pour afficher les stats d'un item
 	//id est l'id de l'item
 	//void showStatsItem(int id);
 
-	//Méthode pour réorganiser la liste de la catégorie d'item en entré en ordre alphabétique
+	//Mï¿½thode pour rï¿½organiser la liste de la catï¿½gorie d'item en entrï¿½ en ordre alphabï¿½tique
 	void reorganize_shop(int id);
 
-private:
-	//Méthode pour trouver l'id en entré de la potion si celle-ci est dans la liste
-	int find_potion(int id);
-	//Méthode pour trouver l'id en entré de l'arme si celle-ci est dans la liste
-	int find_weapon(int id);
-	//Méthode pour trouver l'id en entré de la defense si celle-ci est dans la liste
-	int find_defense(int id);
-	//Méthode pour trouver la catégorie d'item qu'est l'id en entré
+	//Mï¿½thode pour trouver la catï¿½gorie d'item qu'est l'id en entrï¿½
 	int find_category(int id);
+
+private:
+	//Mï¿½thode pour trouver l'id en entrï¿½ de la potion si celle-ci est dans la liste
+	int find_potion(int id);
+	//Mï¿½thode pour trouver l'id en entrï¿½ de l'arme si celle-ci est dans la liste
+	int find_weapon(int id);
+	//Mï¿½thode pour trouver l'id en entrï¿½ de la defense si celle-ci est dans la liste
+	int find_defense(int id);
+	
 	vector<Potion> m_list_potion;
 	vector<Weapon> m_list_weapon;
 	vector<Defense> m_list_defense;
