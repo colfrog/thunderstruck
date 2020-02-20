@@ -47,14 +47,14 @@ public:
 	Defense buy_defense(int id);
 
 	//Méthode pour afficher tous les items du shop
-	void showList();
+	void show_list();
 
 	//Méthode pour afficher les stats d'un item
 	//id est l'id de l'item
 	//void showStatsItem(int id);
 
 	//Méthode pour réorganiser la liste de la catégorie d'item en entré en ordre alphabétique
-	void reorganizeShop(int id);
+	void reorganize_shop(int id);
 
 private:
 	//Méthode pour trouver l'id en entré de la potion si celle-ci est dans la liste

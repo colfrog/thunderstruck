@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <Windows.h>
 
 /** Catégorie d'item :
 *	1.Potion =>	POTION (valeur:1 entier)

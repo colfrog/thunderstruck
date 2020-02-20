@@ -14,8 +14,8 @@ int main() {
 	int defense_id = DEFENSE * pow(10, 2) + 06;/**/
 
 	cout << "Test des items vide" << endl;
-	arme.afficher();
 	potion.afficher();
+	arme.afficher();
 	defense.afficher();
 	cout << endl << endl;
 
