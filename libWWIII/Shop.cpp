@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Shop.h"
 
 //À modifier quand la classe Personnage
@@ -90,10 +92,10 @@ cout << "Initialisation de valeur temporaire" << endl;*/
 
 			
 		}
-		showList();
-		reorganizeShop(POTION);
-		reorganizeShop(WEAPON);
-		reorganizeShop(DEFENSE);
+		show_list();
+		reorganize_shop(POTION);
+		reorganize_shop(WEAPON);
+		reorganize_shop(DEFENSE);
 
 		file.close();
 	} else {
@@ -122,17 +124,17 @@ vector<Defense> Shop::get_list_defense() {
 void Shop::sell_potion(Potion potion) {
 	m_list_potion.push_back(potion);
 
-	reorganizeShop(potion.get_id());
+	reorganize_shop(potion.get_id());
 }
 void Shop::sell_weapon(Weapon weapon) {
 	m_list_weapon.push_back(weapon);
 
-	reorganizeShop(weapon.get_id());
+	reorganize_shop(weapon.get_id());
 }
 void Shop::sell_defense(Defense armure) {
 	m_list_defense.push_back(armure);
 
-	reorganizeShop(armure.get_id());
+	reorganize_shop(armure.get_id());
 }
 
 Potion Shop::buy_potion(int id) {
@@ -178,7 +180,7 @@ Defense Shop::buy_defense(int id) {
 	return defense;
 }
 
-void Shop::showList() {
+void Shop::show_list() {
 	cout << "\n====================================================================================================================================================================\n";
 	cout << "Liste de potion\n";
 	for (unsigned int i = 0; i < m_list_potion.size(); i++) {
@@ -231,7 +233,7 @@ void Shop::showList() {
 	
 }*/
 
-void Shop::reorganizeShop(int id) {
+void Shop::reorganize_shop(int id) {
 	//Vector d'entier qui va réorganiser les items de la catégorie de l'id en ordre du moinx cher au plus cher pour le prix d'achat
 	vector<int> price_buy;
 	int category = find_category(id);

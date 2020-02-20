@@ -6,12 +6,12 @@ using namespace std;
 int main() {
 	//Test de la classe Item
 	Item potion;
-	potion.setId(POTION);
-	potion.setName("potion de vie");
-	potion.setPriceBuy(-2);
-	potion.setPriceSell(1000);
+	potion.set_id(POTION);
+	potion.set_name("potion de vie");
+	potion.set_price_buy(-2);
+	potion.set_price_sell(1000);
 
-	cout << potion.getId() << " " << potion.getName() << " " <<
-		potion.getPriceBuy() << " " << potion.getPriceSell() << endl;
+	cout << potion.get_id() << " " << potion.get_name() << " " <<
+		potion.get_price_buy() << " " << potion.get_price_sell() << endl;
 	return 0;
 }
