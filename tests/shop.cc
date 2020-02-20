@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 #include <assert.h>
 #include <Shop.h>
@@ -15,7 +16,7 @@ int main() {
 	int arme_id = WEAPON * pow(10, 2) + 04, nb_list_arme;
 	int defense_id = DEFENSE * pow(10, 2) + 06, nb_list_defense;/**/
 
-	//Test les items initialisé
+	//Test les items initialisï¿½
 		/*cout << "Test des items vide" << endl;
 
 		potion.afficher();
@@ -30,7 +31,7 @@ int main() {
 		defense.get_price_buy() == 0 && defense.get_armure() == 0 && defense.get_evasion() == 0);
 
 	
-	//Test le magasin initialisé
+	//Test le magasin initialisï¿½
 		/*cout << "Test du magasin cree" << endl;
 
 		magasin.show_list();
@@ -48,7 +49,7 @@ int main() {
 		assert(magasin.get_list_defense().at(i).get_price_buy() > magasin.get_list_defense().at(i - 1).get_price_buy());
 	}
 
-	//Test de la fonction acheter selon différents items
+	//Test de la fonction acheter selon diffï¿½rents items
 		/*cout << "Test d'acheter une arme du magasin" << endl;
 		arme = magasin.buy_weapon(arme_id);
 		cout << endl << endl;

@@ -9,6 +9,8 @@ project(thunderstruck LANGUAGES CXX VERSION ${THUNDERSTRUCK_VERSION})
 cmake_minimum_required(VERSION 3.12)
 # Activer le système de tests de CMake
 enable_testing()
+# Activer les symboles de déboguage
+set(CMAKE_BUILD_TYPE Debug)
 
 # Set le standard C++ à 2017 et enforce-le
 set(CMAKE_CXX_STANDARD 17)
