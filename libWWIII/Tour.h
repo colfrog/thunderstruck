@@ -16,7 +16,7 @@ public:
 
 	void set_player(Player player);
 
-	void step();
+	virtual void step();
 
 private:
 	Player m_player;

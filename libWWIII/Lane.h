@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Lane
+class Lane : public Element
 {
 public:
 	Lane();
@@ -19,6 +19,8 @@ public:
 	void set_laneId(int laneId);
 	void set_distance(int distance);
 	void set_nbEnnemi(int nbEnnemi);
+
+	virtual void step();
 
 private:
 	int m_laneId;
