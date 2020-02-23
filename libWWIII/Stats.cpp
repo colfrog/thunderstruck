@@ -20,7 +20,7 @@ int Stats::get_kills() {
 void Stats::set_score(int score) {
 	m_score = score;
 }
-int Stats::set_kills(int kills) {
+void Stats::set_kills(int kills) {
 	m_kills = kills;
 }
 

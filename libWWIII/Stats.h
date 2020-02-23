@@ -16,7 +16,7 @@ public:
 	int get_kills();
 
 	void set_score(int score);
-	int set_kills(int kills);
+	void set_kills(int kills);
 
 	void afficher();
 
