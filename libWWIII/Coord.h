@@ -14,7 +14,7 @@ public:
 	bool operator==(const Coord &) const;
 	Coord operator+(const Coord &) const;
 	Coord operator-(const Coord &) const;
-	Coord &operator=(const Coord &) const;
+	Coord operator=(const Coord &) const;
 
 private:
 	int m_x;

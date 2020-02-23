@@ -1,13 +1,11 @@
 
 #include "Player.h"
 
-Player::Player() {
-	name = "";
+Player::Player() : Personnage() {
 	stats = Stats();
 	argent = 0;
 }
-Player::Player(string n) {
-	name = n;
+Player::Player(string n) : Personnage(n) {
 	stats = Stats();
 	argent = 0;
 }
@@ -20,13 +18,6 @@ Stats Player::getStats() {
 }
 void Player::setStats(Stats st) {
 	stats = st;
-}
-
-string Player::getName() {
-	return name;
-}
-void Player::setName(string n) {
-	name = n;
 }
 
 int Player::getArgent() {

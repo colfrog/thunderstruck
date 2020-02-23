@@ -9,6 +9,7 @@ int main() {
 	//Tests de la classe Shop
 	int test = 0;
 	Shop magasin;
+	Player player;
 	Potion potion, potion_vide;
 	Weapon arme, arme_vide;
 	Defense defense, defense_vide;/**/
@@ -87,5 +88,10 @@ int main() {
 	defense = magasin.buy_defense(defense_id);
 	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
 
+	player.setWeapon(arme);
+	player.setDefense(defense);
+
+	player = magasin.enter_shop(player);
+	system("pause");
 	return 0;
 }
