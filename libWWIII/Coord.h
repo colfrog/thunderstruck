@@ -1,3 +1,5 @@
+#pragma once
+
 class Coord {
 public:
 	Coord(int x, int y) : m_x(x), m_y(y) {}
@@ -14,7 +16,7 @@ public:
 	bool operator==(const Coord &) const;
 	Coord operator+(const Coord &) const;
 	Coord operator-(const Coord &) const;
-	Coord &operator=(const Coord &) const;
+	Coord operator=(const Coord &) const;
 
 private:
 	int m_x;

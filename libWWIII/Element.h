@@ -1,3 +1,4 @@
+#pragma once
 #include "Coord.h"
 
 class Element {
