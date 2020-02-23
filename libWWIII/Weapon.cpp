@@ -3,7 +3,7 @@
 Weapon::Weapon() : Item()
 {
 	m_attack = 0;
-	m_frequence = 0;
+	m_frequence = 1;
 }
 
 Weapon::~Weapon()
