@@ -26,7 +26,8 @@ int main() {
 	assert(potion.get_id() == -1 && potion.get_name() == "" && potion.get_price_sell() == 0 &&
 		potion.get_price_buy() == 0 && potion.get_hp_restore() == 0);
 	assert(arme.get_id() == -1 && arme.get_name() == "" && arme.get_price_sell() == 0 &&
-		arme.get_price_buy() == 0 && arme.get_attack() == 0 && arme.get_frequence() == 0);
+		arme.get_price_buy() == 0 && arme.get_attack() == 0 && arme.get_frequence() == 0 
+		&& arme.get_upgrade_attack() == 0 && arme.get_upgrade_frequence() == 0);
 	assert(defense.get_id() == -1 && defense.get_name() == "" && defense.get_price_sell() == 0 &&
 		defense.get_price_buy() == 0 && defense.get_armure() == 0 && defense.get_evasion() == 0);
 
@@ -86,5 +87,8 @@ int main() {
 	defense = magasin.buy_defense(defense_id);
 	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
 
+	magasin.show_list();
+
+	system("pause");
 	return 0;
 }
