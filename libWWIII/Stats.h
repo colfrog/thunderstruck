@@ -17,9 +17,9 @@ public:
 
 	void set_score(int score);
 	void set_kills(int kills);
+	void set_stats(int kills, int score);
 
 	void afficher();
-
 private:
 	int m_score;
 	int m_kills;

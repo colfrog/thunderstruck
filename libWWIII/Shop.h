@@ -10,7 +10,7 @@
 #include "Defense.h"
 
 //Nom du fichier pour la liste de tous les items du jeu
-#define N0M_FICHIER "listes_des_items.txt"
+#define N0M_FICHIER "D:/GitHubProject/ThunderStruck/thunderstruck/libWWIII/listes_des_items.txt"
 
 /*********** Cat�gorie d'item : *************
 *	1.Potion =>	POTION (valeur:1 entier)
