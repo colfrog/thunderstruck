@@ -4,10 +4,12 @@
 Player::Player() : Personnage() {
 	stats = Stats();
 	argent = 0;
+	hp_regen = 0;
 }
 Player::Player(string n) : Personnage(n) {
 	stats = Stats();
 	argent = 0;
+	hp_regen = 0;
 }
 Player::~Player() {
 
@@ -25,4 +27,12 @@ int Player::getArgent() {
 }
 void Player::setArgent(int arg) {
 	argent = arg;
+}
+
+void Player::step() {
+	hp_regen++;
+	if (hp_regen == 10) {
+		setHP(getHp() + 1);
+		hp_regen = 0;
+	}
 }

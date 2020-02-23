@@ -15,8 +15,9 @@ public:
 	int getArgent();
 	void setArgent(int arg);
 
-	virtual void step() {};
+	virtual void step();
 private:
 	Stats stats;
 	int argent;
+	int hp_regen;
 };
