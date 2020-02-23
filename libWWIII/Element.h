@@ -1,5 +1,9 @@
 #pragma once
+
+#include <memory>
+
 #include "Coord.h"
+#include "Niveau.h"
 
 class Element {
 public:
@@ -14,7 +18,9 @@ public:
 
 	void set_position(Coord position);
 	void set_position(int x, int y);
+	void set_niveau(std::shared_ptr<Niveau> m_niveau);
 
 private:
 	Coord m_position;
+	std::shared_ptr<Niveau> m_niveau;
 };
