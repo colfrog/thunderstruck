@@ -1,6 +1,6 @@
 #include "Lane.h"
 
-Lane::Lane()
+Lane::Lane(Direction dir) : m_dir(dir)
 {
 	m_laneId = 0;
 	m_distance = 100;
@@ -19,6 +19,9 @@ int Lane::get_laneId() {
 }
 int Lane::get_nbEnnemi() {
 	return m_nbEnnemi;
+}
+Direction Lane::get_direction() {
+	return m_dir;
 }
 
 void Lane::set_laneId(int laneId) {
