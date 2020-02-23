@@ -8,14 +8,10 @@ public:
 	Enemy(string n);
 	~Enemy();
 
-	string getName();
-	void setName(string n);
-
 	int getDrop();
 	void setDrop(int dr);
 
 private:
-	string name;
 	int drop;
 
 };
