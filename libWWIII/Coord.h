@@ -1,7 +1,8 @@
 class Coord {
 public:
-	Coord(int x, int y) : m_x(x), m_y(y) {};
-	~Coord() {};
+	Coord(int x, int y) : m_x(x), m_y(y) {}
+	Coord() {}
+	~Coord() {}
 
 	int x();
 	int y();

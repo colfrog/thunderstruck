@@ -1,0 +1,19 @@
+#include "Coord.h"
+
+class Element {
+public:
+	Element(Coord position) : m_position(position) {}
+	Element(int x, int y) : m_position(Coord(x, y)) {}
+	Element() {}
+	~Element() {}
+
+	virtual void step() = 0;
+
+	Coord position();
+
+	void set_position(Coord position);
+	void set_position(int x, int y);
+
+private:
+	Coord m_position;
+};
