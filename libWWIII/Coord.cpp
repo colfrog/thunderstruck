@@ -37,3 +37,7 @@ Coord Coord::operator+(const Coord &other) const {
 Coord Coord::operator-(const Coord &other) const {
 	return Coord(m_x - other.m_x, m_y - other.m_y);
 }
+
+Coord Coord::operator=(const Coord &other) const {
+	return other;
+}
