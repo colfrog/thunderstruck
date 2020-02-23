@@ -1,5 +1,5 @@
 # La version de Thunderstruck est définie ici
-set(THUNDERSTRUCK_VERSION 0.0.3)
+set(THUNDERSTRUCK_VERSION 0.0.4)
 
 # Définir le projet comme nouveau pour utiliser la version 0.0.1
 cmake_policy(SET CMP0048 NEW)
