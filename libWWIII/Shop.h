@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef SHOP.H
-
-
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -72,6 +69,3 @@ private:
 	vector<Defense> m_list_defense;
 	//seller (Personnage)
 };
-
-#endif // !1/**/
-

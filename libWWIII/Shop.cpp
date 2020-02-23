@@ -21,7 +21,7 @@ cout << "Initialisation de valeur temporaire" << endl;*/
 			file.get(category_char);
 			//opération pour trouver quelle type d'item est l'id actuel lu dans le fichier
 
-			if (' ' == category_char || '/n' == category_char) {
+			if (' ' == category_char || '\n' == category_char) {
 
 			}
 			else if ('1' == category_char) { //Potion
