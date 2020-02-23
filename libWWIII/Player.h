@@ -15,6 +15,7 @@ public:
 	int getArgent();
 	void setArgent(int arg);
 
+	void step() = 0;
 private:
 	Stats stats;
 	int argent;

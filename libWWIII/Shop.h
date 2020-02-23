@@ -8,6 +8,8 @@
 #include "Potion.h"
 #include "Weapon.h"
 #include "Defense.h"
+#include "Personnage.h"
+#include "Player.h"
 
 //Nom du fichier pour la liste de tous les items du jeu
 #define N0M_FICHIER "D:/GitHubProject/ThunderStruck/thunderstruck/libWWIII/listes_des_items.txt"
@@ -67,5 +69,5 @@ private:
 	vector<Potion> m_list_potion;
 	vector<Weapon> m_list_weapon;
 	vector<Defense> m_list_defense;
-	//seller (Personnage)
+	//Personnage seller;
 };

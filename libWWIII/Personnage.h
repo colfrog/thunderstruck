@@ -22,7 +22,7 @@ public:
 	Weapon getWeapon();
 	void setWeapon(Weapon w);
 
-
+	virtual void step() {};
 private:
 	string name;
 	unsigned long hp;
