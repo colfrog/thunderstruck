@@ -1,22 +1,14 @@
 #include "Enemy.h"
 
-Enemy::Enemy() {
+Enemy::Enemy() : Personnage() {
 	name = "";
 	drop = 1;
 }
-Enemy::Enemy(string n) {
-	name = n;
+Enemy::Enemy(string n) : Personnage(n) {
 	drop = 1;
 }
 Enemy::~Enemy() {
 
-}
-
-string Enemy::getName() {
-	return name;
-}
-void Enemy::setName(string n) {
-	name = n;
 }
 
 int Enemy::getDrop() {

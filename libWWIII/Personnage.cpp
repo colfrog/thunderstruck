@@ -1,6 +1,13 @@
 #include "Personnage.h"
 
-Personnage::Personnage() {
+Personnage::Personnage() : Element() {
+	name = "";
+	hp = 100;
+	defense = Defense();
+	weapon = Weapon();
+}
+Personnage::Personnage(string n) : Element() {
+	name = n;
 	hp = 100;
 	defense = Defense();
 	weapon = Weapon();
@@ -8,6 +15,14 @@ Personnage::Personnage() {
 Personnage::~Personnage() {
 
 }
+
+string Personnage::getName() {
+	return name;
+}
+void Personnage::setName(string n) {
+	name = n;
+}
+
 unsigned long Personnage::getHp() {
 	return hp;
 }
