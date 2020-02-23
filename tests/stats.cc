@@ -15,5 +15,9 @@ int main() {
 
 	assert(score.get_score() == 250 && score.get_kills() == 10);
 
+	score.set_stats(70, 70 * 25);
+
+	assert(score.get_score() == 70 * 25 && score.get_kills() == 70);
+
 	return 0;
 }
