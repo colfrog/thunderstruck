@@ -80,21 +80,15 @@ int main() {
 		potion.afficher();
 		defense.afficher();*/	
 	arme = magasin.buy_weapon(arme_id);
-
-	// TODO
-	// assert(arme.get_id() == arme_id && magasin.buy_weapon(arme_id).get_id() == arme_vide.get_id()) ;
+	assert(arme.get_id() == arme_id && magasin.buy_weapon(arme_id).get_id() == arme_vide.get_id()) ;
 
 	potion = magasin.buy_potion(defense_id);
 	assert(potion.get_id() == -1);
 	potion = magasin.buy_potion(potion_id);
-
-	// TODO
-	// assert(potion.get_id() == potion_id && magasin.buy_potion(potion_id).get_id() == potion_vide.get_id());
+	assert(potion.get_id() == potion_id && magasin.buy_potion(potion_id).get_id() == potion_vide.get_id());
 
 	defense = magasin.buy_defense(defense_id);
-
-	// TODO
-	// assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
+	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
 
 	//Test de la méthode enter_shop
 	/*player.setWeapon(arme);

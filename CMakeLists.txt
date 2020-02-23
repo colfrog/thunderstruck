@@ -19,6 +19,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Compile libWWIII comme une librairie
 file(GLOB WWIII_SOURCE_FILES "libWWIII/*.cpp" "libWWIII/*.h")
 add_library(WWIII STATIC ${WWIII_SOURCE_FILES})
+# Installe la liste des items dans le fichier de compilation
+configure_file(libWWIII/listes_des_items.txt
+	${CMAKE_CURRENT_BINARY_DIR}/listes_des_items.txt COPYONLY)
 
 # Compile la demo comme exécutable lié à libWWIII
 file(GLOB DEMO_SOURCE_FILES "demo/*.cpp" "demo/*.h")

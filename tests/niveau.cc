@@ -18,8 +18,8 @@ void test_prob() {
 	std::cout << "Moves: " << moves << ":" << test_size << std::endl;
 	std::cout << "Drops: " << drops << ":" << test_size << std::endl;
 
-	/* Je suis satisfait si le résultat est en bas de 30% */
-	assert(moves < (test_size * 0.3) && drops < (test_size * 0.3));
+	/* Je suis satisfait si le résultat est en bas de 35% */
+	assert(moves < (test_size * 0.35) && drops < (test_size * 0.35));
 }
 
 void test_progression() {
