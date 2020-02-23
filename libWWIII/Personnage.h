@@ -7,7 +7,11 @@ class Personnage : public Element
 {
 public:
 	Personnage();
+	Personnage(string n);
 	~Personnage();
+
+	string getName();
+	void setName(string n);
 
 	unsigned long getHp();
 	void setHP(unsigned long HP);
@@ -18,8 +22,9 @@ public:
 	Weapon getWeapon();
 	void setWeapon(Weapon w);
 
-
+	virtual void step() {};
 private:
+	string name;
 	unsigned long hp;
 	Defense defense;
 	Weapon weapon;

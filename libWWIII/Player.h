@@ -12,14 +12,11 @@ public:
 	Stats getStats();
 	void setStats(Stats st);
 
-	string getName();
-	void setName(string n);
-
 	int getArgent();
 	void setArgent(int arg);
 
+	void step() {};
 private:
 	Stats stats;
-	string name;
 	int argent;
 };

@@ -2,11 +2,12 @@
 
 #include "Shop.h"
 
-//À modifier quand la classe Personnage
+
 Shop::Shop() {
-/*cout << "Début du constructeur" << endl;
-Sleep(2000);
-cout << "Initialisation de valeur temporaire" << endl;*/
+	m_seller = Personnage("Melania Trump");
+	m_seller.getWeapon().set_attack(20);
+
+
 	ifstream file;
 	file.open(N0M_FICHIER, ios_base::in);
 	Potion actual_potion;
@@ -106,12 +107,10 @@ cout << "Initialisation de valeur temporaire" << endl;*/
 	}
 }
 
-//À Modifier quand la classe Personnage va être implémenter
 Shop::~Shop() {
 	m_list_potion.clear();
 	m_list_weapon.clear();
 	m_list_defense.clear();
-	//delete seller
 }
 
 vector<Potion> Shop::get_list_potion() {
@@ -310,6 +309,151 @@ void Shop::reorganize_shop(int id) {
 	} else {
 		cout << "La liste d'item de cette catégorie n'existe pas.";
 	}/**/
+}
+
+Player Shop::enter_shop(Player player) {
+	cout << "Bienvenue dans mon magasion!\n";
+	cout << "Mon nom est " << m_seller.getName() << endl;
+	cout << endl;
+
+	char option = 'A';
+	char item_sell = 'D';
+	int nb_insult = 0;
+
+	do  {
+		cout << "Choisir une option : \n";
+		cout << "A) Acheter une arme\n";
+		cout << "B) Vendre une arme\n";
+		cout << "C) Insulter le vendeur\n";
+		cout << "Q) Quitter le magasin\n";
+		cin >> option;
+		option = toupper(option);
+
+
+		switch (option)
+		{
+		case 'A':
+			int id, index, prix;
+			show_list();
+
+			cout << "Entrer l'id de l'item que vous voulez acheter\n";
+
+			cin >> id;
+
+			if (find_category(id) == POTION) {
+				index = find_potion(id);
+				prix = get_list_potion().at(index).get_price_buy();
+
+				if (player.getArgent() < prix) {
+					cout << "Vous n'avez pas assez d'argent pour acheter cet item\n";
+				}
+				else {
+					Potion potion = buy_potion(id);
+					player.setArgent(player.getArgent() - prix);
+					if (player.getHp() + potion.get_hp_restore() > 100) {
+						player.setHP(100);
+					}
+					else {
+						player.setHP(player.getHp() + potion.get_hp_restore());
+					}
+					cout << "Vous venez d'acheter la potion " << potion.get_name() << endl;
+				}
+			}
+			else if (find_category(id) == WEAPON) {
+				index = find_weapon(id);
+				prix = get_list_weapon().at(index).get_price_buy();
+
+				if (player.getArgent() < prix) {
+					cout << "Vous n'avez pas assez d'argent pour acheter cet item\n";
+				}
+				else {
+					Weapon arme = buy_weapon(id);
+					player.setArgent(player.getArgent() - prix);
+					player.setWeapon(arme);
+					cout << "Vous venez d'acheter l'arme " << player.getWeapon().get_name() << endl;
+				}
+			}
+			else if (find_category(id) == DEFENSE) {
+				index = find_defense(id);
+				prix = get_list_defense().at(index).get_price_buy();
+
+				if (player.getArgent() < prix) {
+					cout << "Vous n'avez pas assez d'argent pour acheter cet item\n";
+				}
+				else {
+					Defense defense = buy_defense(id);
+					player.setArgent(player.getArgent() - prix);
+					player.setDefense(defense);
+					cout << "Vous venez d'acheter la defense " << player.getDefense().get_name() << endl;
+				}
+			}
+			else {
+				cout << "L'id saisi n'existe pas\n";
+			}
+
+			cout << endl;
+
+			break;
+		case 'B':
+			do {
+				cout << "Quel item voulez-vous vendre?\n";
+				cout << "A) Votre arme\nB) Votre defense\nC) Aucun item\n";
+
+				cin >> item_sell;
+				item_sell = toupper(item_sell);
+				int prix; 
+				Weapon arme;
+				Defense def;
+
+				switch (item_sell)
+				{
+				case 'A':
+					
+					prix = player.getWeapon().get_price_sell();
+					player.setArgent(player.getArgent() + prix);
+					sell_weapon(player.getWeapon());
+					player.setWeapon(arme);
+					cout << "Vous venez de vendre votre arme\n";
+					break;
+				case 'B':
+					prix = player.getDefense().get_price_sell();
+					player.setArgent(player.getArgent() + prix);
+					sell_defense(player.getDefense());
+					player.setDefense(def);
+					cout << "Vous venez de vendre votre defense\n";
+					break;
+				case 'C':
+					break;
+				default:
+					cout << "Cette option n'existe! Veuillez entrer une option existante.\n";
+					break;
+				}
+			} while (item_sell != 'C');
+			cout << endl;
+			break;
+		case 'C':
+			nb_insult++;
+			if (nb_insult < 3) {
+				cout << "Vous venez d'insulter " << m_seller.getName() << endl;
+				cout << m_seller.getName() << " commence a se facher\n";
+			}
+			else {
+				cout << "Vous venez d'insulter " << m_seller.getName() << endl;
+				cout << m_seller.getName() << " est fache et elle vous giffle\n";
+				player.setHP(player.getHp() - m_seller.getWeapon().get_attack());
+				cout << "Vous vous prenez " << m_seller.getWeapon().get_attack() << " points de degats\n";
+			}
+			cout << endl;
+			break;
+		case 'Q':
+			break;
+		default:
+			cout << "Cette option n'existe pas\n";
+				break;
+		}		
+	} while (option != 'Q');
+
+	return player;
 }
 
 int Shop::find_potion(int id) {
