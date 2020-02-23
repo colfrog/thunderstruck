@@ -88,10 +88,11 @@ int main() {
 	defense = magasin.buy_defense(defense_id);
 	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
 
-	player.setWeapon(arme);
+	//Test de la méthode enter_shop
+	/*player.setWeapon(arme);
 	player.setDefense(defense);
 
 	player = magasin.enter_shop(player);
-	system("pause");
+	system("pause");*/
 	return 0;
 }

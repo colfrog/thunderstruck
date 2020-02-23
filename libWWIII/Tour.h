@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Element.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -11,9 +12,12 @@ public:
 	Tour();
 	~Tour();
 
-	/*Player get_player();
+	Player get_player();
 
-	void set_player(Player player);*/
+	void set_player(Player player);
+
+	void step();
+
 private:
-	// Player m_player;
+	Player m_player;
 };

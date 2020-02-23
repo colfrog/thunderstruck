@@ -6,14 +6,10 @@
 using namespace std;
 
 int main() {
-	/*Tour tour;
+	Tour tour;
 
-	assert(score.get_score() == 0 && score.get_kills() == 0);
+	assert(tour.get_player().getName() == "" && tour.get_player().getHp() == 100);
 
-	score.set_kills(10);
-	score.set_score(250);
-
-	assert(score.get_score() == 250 && score.get_kills() == 10);*/
 
 	return 0;
 }
