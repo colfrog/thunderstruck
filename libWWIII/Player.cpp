@@ -30,7 +30,7 @@ void Player::setName(string n) {
 }
 
 int Player::getArgent() {
-	return arg;
+	return argent;
 }
 void Player::setArgent(int arg) {
 	argent = arg;
