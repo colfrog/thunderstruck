@@ -21,7 +21,7 @@ void Player::setStats(Stats st) {
 }
 
 int Player::getArgent() {
-	return arg;
+	return argent;
 }
 void Player::setArgent(int arg) {
 	argent = arg;

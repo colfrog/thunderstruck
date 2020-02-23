@@ -23,6 +23,10 @@ void Stats::set_score(int score) {
 void Stats::set_kills(int kills) {
 	m_kills = kills;
 }
+void Stats::set_stats(int kills, int score) {
+	m_kills = kills;
+	m_score = score;
+}
 
 void Stats::afficher() {
 	cout << "======================================================================" << endl;

@@ -1,7 +1,6 @@
 #include "Enemy.h"
 
 Enemy::Enemy() : Personnage() {
-	name = "";
 	drop = 1;
 }
 Enemy::Enemy(string n) : Personnage(n) {

@@ -14,7 +14,7 @@ cout << "Initialisation de valeur temporaire" << endl;*/
 	Defense actual_defense;
 	string name;
 	char  category_char,id_char[3];
-	int id[2], sell, buy, attribut1, attribut2;
+	int id[2], sell, buy, attribut1, attribut2, upgrade1, upgrade2;
 
 	if (file.is_open()) {
 		while (!file.eof()) {
@@ -54,13 +54,17 @@ cout << "Initialisation de valeur temporaire" << endl;*/
 				actual_weapon.set_id(WEAPON * pow(10, 2) + id[0] * pow(10, 1) + id[1]);
 				// attribut1 est l'attribut pour les degats d'attaque de l'arme
 				// attribut2 est l'attribut pour la frequence d'attaque de l'arme
-				file >> buy >> sell >> name >> attribut1 >> attribut2;
+				//	upgrade1 est la variable pour l'upgrade de l'attack
+				//	upgrade2 est la variable pour l'upgrade de la frequence
+				file >> buy >> sell >> name >> attribut1 >> attribut2 >> upgrade1 >> upgrade2;
 
 				actual_weapon.set_name(name);
 				actual_weapon.set_price_buy(buy);
 				actual_weapon.set_price_sell(sell);
 				actual_weapon.set_attack(attribut1);
 				actual_weapon.set_frequence(attribut2);
+				actual_weapon.set_upgrade_attack(upgrade1);
+				actual_weapon.set_upgrade_frequence(upgrade2);
 
 				m_list_weapon.push_back(actual_weapon);
 				file.ignore();
@@ -92,7 +96,6 @@ cout << "Initialisation de valeur temporaire" << endl;*/
 
 			
 		}
-		show_list();
 		reorganize_shop(POTION);
 		reorganize_shop(WEAPON);
 		reorganize_shop(DEFENSE);

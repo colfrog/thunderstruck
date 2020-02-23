@@ -11,6 +11,8 @@ public:
 	int getDrop();
 	void setDrop(int dr);
 
+	void step();
+
 private:
 	int drop;
 
