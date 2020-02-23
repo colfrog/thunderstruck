@@ -8,12 +8,12 @@ using namespace std;
 int main() {
 	Stats score;
 
-	assert(score.get_score() == 0 && score.get_nb_ennemi_dead() == 0);
+	assert(score.get_score() == 0 && score.get_kills() == 0);
 
-	score.set_nb_ennemi_dead(10);
+	score.set_kills(10);
 	score.set_score(250);
 
-	assert(score.get_score() == 250 && score.get_nb_ennemi_dead() == 10);
+	assert(score.get_score() == 250 && score.get_kills() == 10);
 
 	return 0;
 }
