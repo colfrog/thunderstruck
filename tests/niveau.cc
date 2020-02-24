@@ -6,7 +6,7 @@ void test_prob() {
 	/* 10% de chances de drop et de move, niveaux de 1 à 25 */
 	Niveau n(0, 25);
 
-	int test_size = 1000000;
+	int test_size = 1000;
 	int moves = 0;
 	int drops = 0;
 
