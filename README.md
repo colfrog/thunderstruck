@@ -82,7 +82,7 @@ devraient être ajoutées au fur et à mesure qu'on construit le jeu.
 
 La classe Jeu contient aussi une liste d'éléments.
 Chaque [Élément](libWWIII/Element.h) peut être soit
-un [Personnage](libWWIII/Personnage.h], une [Tour](libWWIII/Tour.h),
+un [Personnage](libWWIII/Personnage.h), une [Tour](libWWIII/Tour.h),
 ou une [Lane](libWWIII/Lane.h). Lorsque le jeu avance d'un pas,
 la méthode virtuelle step de chaque élément est appelée pour que chaque
 objet dans le jeu accomplisse un action. La classe Jeu expose le Niveau
