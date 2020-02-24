@@ -209,7 +209,7 @@ void Player::enter_shop() {
 
 void Player::step() {
 	hp_regen++;
-	if (hp_regen == 10) {
+	if (hp_regen == 10 && getHp() > 0 && getHp() < 100) {
 		setHP(getHp() + 1);
 		hp_regen = 0;
 	}
