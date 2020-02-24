@@ -19,6 +19,7 @@ public:
 	);
 	~Niveau() {}
 
+	void show();
 	bool should_drop();
 	bool should_move();
 	void update_probs();
@@ -34,8 +35,6 @@ public:
 
 	/* Setters */
 	void set_niveau(int niveau);
-	void set_drop_prob(double prob);
-	void set_move_prob(double prob);
 	void set_drop_bonus(double bonus);
 	void set_move_bonus(double bonus);
 

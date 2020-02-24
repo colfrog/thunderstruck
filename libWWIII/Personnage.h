@@ -29,10 +29,10 @@ public:
 
 	virtual void step() {};
 
-private:
+protected:
 	string name;
 	unsigned long hp;
 	Defense defense;
 	Weapon weapon;
-	Direction dir;
+	Direction m_dir;
 };

@@ -13,7 +13,7 @@ enum class Direction {
 
 namespace DirTools {
 	/* Vecteurs de déplacement */
-	const std::map<Direction, Coord> vectors = {
+	static std::map<Direction, Coord> vectors = {
 		{Direction::UP, Coord(0, -1)},
 		{Direction::DOWN, Coord(0, 1)},
 		{Direction::LEFT, Coord(-1, 0)},
@@ -21,7 +21,7 @@ namespace DirTools {
 	};
 
 	/* Opposés */
-	const std::map<Direction, Direction> opposites = {
+	static std::map<Direction, Direction> opposites = {
 		{Direction::UP, Direction::DOWN},
 		{Direction::DOWN, Direction::UP},
 		{Direction::LEFT, Direction::RIGHT},
@@ -29,7 +29,7 @@ namespace DirTools {
 	};
 
 	/* Vers la gauche */
-	const std::map<Direction, Direction> lefts = {
+	static std::map<Direction, Direction> lefts = {
 		{Direction::UP, Direction::LEFT},
 		{Direction::DOWN, Direction::RIGHT},
 		{Direction::LEFT, Direction::DOWN},
@@ -37,7 +37,7 @@ namespace DirTools {
 	};
 
 	/* Vers la droite */
-	const std::map<Direction, Direction> rights = {
+	static std::map<Direction, Direction> rights = {
 		{Direction::UP, Direction::RIGHT},
 		{Direction::DOWN, Direction::LEFT},
 		{Direction::LEFT, Direction::UP},
