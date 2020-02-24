@@ -2,6 +2,13 @@
 
 #include <random>
 
+/*
+ * Choses à rajouter éventuellement:
+ * 	- Facteur de drop (pour dropper plus d'or)
+ * 	- Facteur de dégât (pour faire plus de dégât)
+ * 	- Probabilité de spawn
+ */
+
 class Niveau {
 public:
 	Niveau(
