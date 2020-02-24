@@ -21,7 +21,8 @@ private:
 	const int m_frequence_jeu;
 	const int m_niveau_depart;
 	const int m_niveau_max;
+
 	std::shared_ptr<Niveau> m_niveau; // Partagé avec les Elements
 	std::list<std::unique_ptr<Element>> m_elems;
-	std::unique_ptr<Tour> m_tour;
+	std::unique_ptr<Tour> m_tour = nullptr;
 };

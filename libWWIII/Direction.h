@@ -12,6 +12,12 @@ enum class Direction {
 };
 
 namespace DirTools {
+	/* Liste des directions */
+	static Direction dirs[] = {
+		Direction::UP, Direction::DOWN,
+		Direction::LEFT, Direction::RIGHT
+	};
+
 	/* Vecteurs de déplacement */
 	static std::map<Direction, Coord> vectors = {
 		{Direction::UP, Coord(0, -1)},

@@ -10,7 +10,7 @@ public:
 	Element(Coord position) : m_position(position) {}
 	Element(int x, int y) : m_position(Coord(x, y)) {}
 	Element() {}
-	~Element() {}
+	virtual ~Element() {}
 
 	virtual void step() = 0;
 
