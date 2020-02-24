@@ -43,3 +43,15 @@ Weapon Personnage::getWeapon() {
 void Personnage::setWeapon(Weapon w) {
 	weapon = w;
 }
+
+Direction Personnage::direction() {
+	return m_dir;
+}
+
+void Personnage::turn_left() {
+	m_dir = DirTools::lefts[m_dir];
+}
+
+void Personnage::turn_right() {
+	m_dir = DirTools::rights[m_dir];
+}

@@ -1,4 +1,5 @@
 #pragma once
+#include "Direction.h"
 #include "Defense.h"
 #include "Weapon.h"
 #include "Element.h"
@@ -22,10 +23,16 @@ public:
 	Weapon getWeapon();
 	void setWeapon(Weapon w);
 
+	Direction direction();
+	void turn_left();
+	void turn_right();
+
 	virtual void step() {};
-private:
+
+protected:
 	string name;
 	unsigned long hp;
 	Defense defense;
 	Weapon weapon;
+	Direction m_dir;
 };

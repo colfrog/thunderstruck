@@ -25,9 +25,7 @@ void test_prob() {
 void test_progression() {
 	Niveau n(0, 100, 10, 10);
 	do {
-		std::cout << "Niveau " << n.niveau() << std::endl;
-		std::cout << "\tProbabilité de drop: " << n.drop_prob() << std::endl;
-		std::cout << "\tProbabilité d'avancement: " << n.move_prob() << std::endl;
+		n.show();
 		n.prochain();
 	} while (n.niveau() < 100);
 

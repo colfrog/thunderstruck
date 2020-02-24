@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Niveau.h"
 
 Niveau::Niveau(int niveau, int niveau_max, double dp, double mp) :
@@ -15,6 +16,12 @@ Niveau::Niveau(int niveau, int niveau_max, double dp, double mp) :
 	std::random_device rd;
 	m_randgen = std::default_random_engine(rd());
 	m_unidist = std::uniform_int_distribution<int>(0, 100);
+}
+
+void Niveau::show() {
+	std::cout << "Niveau " << m_niveau << std::endl;
+	std::cout << "\tProbabilité de drop: " << m_drop_prob << std::endl;
+	std::cout << "\tProbabilité d'avancement: " << m_move_prob << std::endl;
 }
 
 bool Niveau::should_drop() {
@@ -62,16 +69,16 @@ int Niveau::niveau() const {
 	return m_niveau;
 }
 
-double Niveau::drop_prob() const {
-	return m_drop_prob;
+double Niveau::drop_bonus() const {
+	return m_drop_bonus;
 }
 
 double Niveau::move_prob() const {
 	return m_move_prob;
 }
 
-double Niveau::drop_bonus() const {
-	return m_drop_bonus;
+double Niveau::drop_prob() const {
+	return m_drop_prob;
 }
 
 double Niveau::move_bonus() const {
