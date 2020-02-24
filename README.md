@@ -67,3 +67,56 @@ Pour recompiler, sauf si CMakeLists.txt a changé, vous avez seulement à rééx
 Si CMakeLists.txt a changé, il faut rééxécuter `cmake ..` dans le répertoire build avant.
 
 Pour exécuter les tests, exécuter `make test` dans le répertoire build.
+
+## Fonctionnement de libWWIII
+
+libWWIII présente une interface à un jeu par la classe [Jeu](libWWIII/Jeu.h).
+
+Cette classe contient un objet [Niveau](libWWIII/Niveau.h).
+Niveau contient un int qui représente le niveau actuel, et calcule
+les variables qui dépendent de ce niveau. Ces variables sont des choses
+comme la probabilité de dropper un item, le montant d'or à dropper,
+la probabilité d'avancer (essentiellement la vitesse), le dégât infligé
+par les ennemis et leur probabilité de spawner. De nouvelles variables
+devraient être ajoutées au fur et à mesure qu'on construit le jeu.
+
+La classe Jeu contient aussi une liste d'éléments.
+Chaque [Élément](libWWIII/Element.h) peut être soit
+un [Personnage](libWWIII/Personnage.h], une [Tour](libWWIII/Tour.h),
+ou une [Lane](libWWIII/Lane.h). Lorsque le jeu avance d'un pas,
+la méthode virtuelle step de chaque élément est appelée pour que chaque
+objet dans le jeu accomplisse un action. La classe Jeu expose le Niveau
+à chaque Élément pour qu'ils aient accès aux variables.
+
+Chaque Personnage a une direction (où avancer, tirer), un nombre de vie,
+un nom et des attribus.
+
+L'action de la Tour est d'activer l'action du [Player](libWWIII/Player.h),
+un Personnage. L'action du Player est de tranquillement regénérer sa vie.
+Le Player sera exposé par la classe Jeu et manipulé directement
+par le programme.
+
+Le Player contient un [Shop](libWWIII/Shop.h). Le Shop contient une liste
+pour chaque type d'[Item](libWWIII/Item.h). Ces types sont la classe
+[Defense](libWWIII/Defense.h), [Weapon](libWWIII/Weapon.h) et
+[Potion](libWWIII/Potion.h). Chacune a ses propres attribus et utilités,
+et le Player contient une liste de chacune. Le premier de la liste est équipé.
+
+La classe [Lane](libWWIII/Lane.h) contient une liste
+d'[Enemy](libWWIII/Enemy.h), un autre Personnage.
+Puisque Lane et Enemy contiennent tous les deux un pointeur au Niveau
+du fait qu'ils sont des Éléments, Lane peut utiliser Niveau pour décider
+quand spawner les Enemy, et il incrémente le niveau après avoir spawné
+un certain nombre d'Enemy. Les Enemy sont tués par le Player qui contient
+un pointeur à chaque Lane pour pouvoir les attaquer. Alors, l'attaque
+inflicte du dégât à l'Enemy à l'avant selon le Weapon.
+
+L'action de la classe Lane est d'actionner chaque Enemy, du plus à l'avant
+aux plus à l'arrière, et d'ensuite décider d'en spawner un nouveau à l'aide
+de Niveau.
+
+L'action d'un Enemy est de demander au Niveau de le laisser avancer.
+Lorsqu'il arrive au bout de la Lane, ce qu'il peut faire en ayant en mémoire
+la distance de la Lane et un compteur de pas, il inflige du dégât à la Tour
+si sa vie est supérieure à 0, ou au Player sinon. Il le fait en gardant un
+pointeur à la Tour, qui inflige le dégât au Player si sa vie est 0.
