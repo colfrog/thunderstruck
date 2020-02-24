@@ -9,7 +9,6 @@
 #include "Weapon.h"
 #include "Defense.h"
 #include "Personnage.h"
-#include "Player.h"
 #include <ctype.h>
 
 //Nom du fichier pour la liste de tous les items du jeu
@@ -31,6 +30,7 @@ public:
 	vector<Potion>  get_list_potion();
 	vector<Weapon>  get_list_weapon();
 	vector<Defense>  get_list_defense();
+	Personnage get_seller();
 
 	//Méthode pour vendre une potion du joueur au Shop
 	void sell_potion(Potion potion);
@@ -49,26 +49,19 @@ public:
 	//Méthode pour afficher tous les items du shop
 	void show_list();
 
-	//Méthode pour afficher les stats d'un item
-	//id est l'id de l'item
-	//void showStatsItem(int id);
-
 	//Méthode pour réorganiser la liste de la catégorie d'item en entré en ordre alphabétique
 	void reorganize_shop(int id);
 
 	//Méthode pour trouver la catégorie d'item qu'est l'id en entré
 	int find_category(int id);
-
-	Player enter_shop(Player player);
-
-private:
 	//Méthode pour trouver l'id en entré de la potion si celle-ci est dans la liste
 	int find_potion(int id);
 	//Méthode pour trouver l'id en entré de l'arme si celle-ci est dans la liste
 	int find_weapon(int id);
 	//Méthode pour trouver l'id en entré de la defense si celle-ci est dans la liste
 	int find_defense(int id);
-	
+
+private:
 	vector<Potion> m_list_potion;
 	vector<Weapon> m_list_weapon;
 	vector<Defense> m_list_defense;
