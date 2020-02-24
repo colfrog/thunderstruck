@@ -62,14 +62,6 @@ int Niveau::niveau() const {
 	return m_niveau;
 }
 
-double Niveau::drop_prob() const {
-	return m_drop_prob;
-}
-
-double Niveau::move_prob() const {
-	return m_move_prob;
-}
-
 double Niveau::drop_bonus() const {
 	return m_drop_bonus;
 }
