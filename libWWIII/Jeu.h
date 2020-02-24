@@ -1,7 +1,9 @@
 #include <list>
 #include <memory>
 
+#include "Element.h"
 #include "Niveau.h"
+#include "Tour.h"
 
 class Jeu {
 public:
@@ -11,14 +13,15 @@ public:
 	int niveau_actuel() const;
 	void set_niveau(int niveau);
 
+	Tour &tour();
+
 private:
 	void prochain_niveau();
-
-	const double m_base_drop_prob = 10;
-	const double m_base_move_prob = 10;
 
 	const int m_frequence_jeu;
 	const int m_niveau_depart;
 	const int m_niveau_max;
 	std::shared_ptr<Niveau> m_niveau; // Partagé avec les Elements
+	std::list<std::unique_ptr<Element>> m_elems;
+	std::unique_ptr<Tour> m_tour;
 };

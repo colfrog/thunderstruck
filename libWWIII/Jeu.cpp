@@ -5,8 +5,7 @@ Jeu::Jeu(int niveau_depart, int niveau_max, int f) :
 	m_niveau_max(niveau_max),
 	m_frequence_jeu(f)
 {
-	Niveau n = Niveau(m_niveau_depart, m_niveau_max,
-			m_base_drop_prob, m_base_move_prob);
+	Niveau n = Niveau(m_niveau_depart, m_niveau_max);
 	m_niveau = std::make_shared<Niveau>(n);
 }
 
