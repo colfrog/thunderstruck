@@ -2,17 +2,18 @@
 #include <iostream>
 #include <assert.h>
 #include <Shop.h>
+#include "Player.h"
 
 using namespace std;
 
 int main() {
 	//Tests de la classe Shop
-	int test = 0;
+	/*int test = 0;
 	Shop magasin;
 	Potion potion, potion_vide;
 	Weapon arme, arme_vide;
 	Defense defense, defense_vide;/**/
-	int potion_id = POTION * pow(10, 2) + 01, nb_list_potion;
+	/*int potion_id = POTION * pow(10, 2) + 01, nb_list_potion;
 	int arme_id = WEAPON * pow(10, 2) + 04, nb_list_arme;
 	int defense_id = DEFENSE * pow(10, 2) + 06, nb_list_defense;/**/
 
@@ -23,7 +24,7 @@ int main() {
 		arme.afficher();
 		defense.afficher();
 		cout << endl << endl;*/
-	assert(potion.get_id() == -1 && potion.get_name() == "" && potion.get_price_sell() == 0 &&
+	/*assert(potion.get_id() == -1 && potion.get_name() == "" && potion.get_price_sell() == 0 &&
 		potion.get_price_buy() == 0 && potion.get_hp_restore() == 0);
 	assert(arme.get_id() == -1 && arme.get_name() == "" && arme.get_price_sell() == 0 &&
 		arme.get_price_buy() == 0 && arme.get_attack() == 0 && arme.get_frequence() == 1 
@@ -37,7 +38,7 @@ int main() {
 
 		magasin.show_list();
 		cout << endl << endl;*/
-	for (int i = 1; i < magasin.get_list_potion().size(); i++) {
+	/*for (int i = 1; i < magasin.get_list_potion().size(); i++) {
 		assert(magasin.find_category(magasin.get_list_potion().at(i).get_id()) == POTION);
 		assert(magasin.get_list_potion().at(i).get_price_buy() > magasin.get_list_potion().at(i - 1).get_price_buy());
 	}
@@ -78,7 +79,7 @@ int main() {
 		arme.afficher();
 		potion.afficher();
 		defense.afficher();*/	
-	arme = magasin.buy_weapon(arme_id);
+	/*arme = magasin.buy_weapon(arme_id);
 	assert(arme.get_id() == arme_id && magasin.buy_weapon(arme_id).get_id() == arme_vide.get_id()) ;
 
 	potion = magasin.buy_potion(defense_id);
@@ -87,7 +88,24 @@ int main() {
 	assert(potion.get_id() == potion_id && magasin.buy_potion(potion_id).get_id() == potion_vide.get_id());
 
 	defense = magasin.buy_defense(defense_id);
-	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
+	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());*/
+
+	Player player1, player2("Claudette");
+	Weapon arme;
+	Defense defense;
+
+	assert(player1.getName() == "" && player2.getName() == "Claudette");
+
+	//Test de la méthode enter_shop
+	arme = player1.getShop().buy_weapon(WEAPON * pow(10, 2) + 04);
+	defense = player1.getShop().buy_defense(DEFENSE * pow(10, 2) + 06);
+
+	player2.setWeapon(arme);
+	player2.setDefense(defense);
+	player2.setArgent(1000);
+
+	player2.enter_shop();
+	system("pause");
 
 	return 0;
 }

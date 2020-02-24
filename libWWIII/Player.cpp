@@ -47,9 +47,9 @@ void Player::enter_shop() {
 
 	do {
 		cout << "Choisir une option : \n";
-		cout << "A) Acheter une arme\n";
-		cout << "B) Vendre une arme\n";
-		cout << "C) Améliorer l'arme\n";
+		cout << "A) Acheter un item\n";
+		cout << "B) Vendre un item\n";
+		cout << "C) Ameliorer l'arme\n";
 		cout << "D) Insulter le vendeur\n";
 		cout << "Q) Quitter le magasin\n";
 		cin >> option;
@@ -132,39 +132,52 @@ void Player::enter_shop() {
 				switch (item_sell)
 				{
 				case 'A':
-					prix = getWeapon().get_price_sell();
-					setArgent(getArgent() + prix);
-					shop.sell_weapon(getWeapon());
-					setWeapon(arme);
-					cout << "Vous venez de vendre votre arme\n";
+					if (getDefense().get_id() != -1) {
+						prix = getWeapon().get_price_sell();
+						setArgent(getArgent() + prix);
+						shop.sell_weapon(getWeapon());
+						setWeapon(arme);
+						cout << "Vous venez de vendre votre arme\n";
+					}
+					else {
+						cout << "Vous n'avez plus d'arme sur vous!\n";
+					}
+					
 					break;
 				case 'B':
-					prix = getDefense().get_price_sell();
-					setArgent(getArgent() + prix);
-					shop.sell_defense(getDefense());
-					setDefense(def);
-					cout << "Vous venez de vendre votre defense\n";
+					if (getDefense().get_id() != -1) {
+						prix = getDefense().get_price_sell();
+						setArgent(getArgent() + prix);
+						shop.sell_defense(getDefense());
+						setDefense(def);
+						cout << "Vous venez de vendre votre defense\n";
+					}
+					else {
+						cout << "Vous n'avez plus de defense sur vous!\n";
+					}
+					
 					break;
 				case 'C':
+
 					break;
 				default:
 					cout << "Cette option n'existe! Veuillez entrer une option existante.\n";
 					break;
 				}
-			} while (item_sell != 'C');
+			} while (item_sell != 'C' && item_sell != 'B' && item_sell != 'A');
 			cout << endl;
 
 			break;
-		case 'c':
+		case 'C':
 			prix = getWeapon().get_price_buy() / 10;
 
 			if (getArgent() < prix) {
-				cout << "Vous n'avez pas assez d'argent pour améliorer votre arme\n";
+				cout << "Vous n'avez pas assez d'argent pour amï¿½liorer votre arme\n";
 			}
 			else {
 				setArgent(getArgent() - prix);
 				getWeapon().upgrade_weapon();
-				cout << "Vous venez d'acheter l'arme " << getWeapon().get_name() << endl;
+				cout << "Vous venez d'amelioer votre arme " << endl;
 			}
 			cout << endl;
 
