@@ -3,10 +3,10 @@
 #include <iostream>
 
 void test_prob() {
-	/* 25% de chances de drop et de move, niveaux de 1 à 25 */
-	Niveau n(1, 25, 25, 25);
+	/* 10% de chances de drop et de move, niveaux de 1 à 25 */
+	Niveau n(0, 25);
 
-	int test_size = 1000;
+	int test_size = 1000000;
 	int moves = 0;
 	int drops = 0;
 
@@ -15,15 +15,18 @@ void test_prob() {
 		drops += n.should_drop();
 	}
 
+	n.show();
 	std::cout << "Moves: " << moves << ":" << test_size << std::endl;
 	std::cout << "Drops: " << drops << ":" << test_size << std::endl;
 
-	/* Je suis satisfait si le résultat est en bas de 35% */
-	assert(moves < (test_size * 0.35) && drops < (test_size * 0.35));
+	/* Je suis satisfait si le résultat est en bas de 12% */
+	assert(moves < (test_size * 0.12) && drops < (test_size * 0.12));
+	/* Je suis satisfait si le résultat est en haut de 8% */
+	assert(moves > (test_size * 0.08) && drops > (test_size * 0.08));
 }
 
 void test_progression() {
-	Niveau n(0, 100, 10, 10);
+	Niveau n(0, 100);
 	do {
 		n.show();
 		n.prochain();

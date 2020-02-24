@@ -33,3 +33,6 @@ void Lane::set_distance(int distance) {
 void Lane::set_nbEnnemi(int nbEnnemi) {
 	m_nbEnnemi = nbEnnemi;
 }
+
+void Lane::step() {
+}

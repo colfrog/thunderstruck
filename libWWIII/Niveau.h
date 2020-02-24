@@ -11,18 +11,12 @@
 
 class Niveau {
 public:
-	Niveau(
-		int niveau_depart = 0,
-		int niveau_max = 25,
-		double dp = 10,
-		double mp = 10
-	);
+	Niveau(int niveau_depart = 0, int niveau_max = 25);
 	~Niveau() {}
 
 	void show();
 	bool should_drop();
 	bool should_move();
-	void update_probs();
 	void reset_bonus();
 	void prochain();
 
@@ -40,21 +34,16 @@ public:
 
 private:
 	bool decide(double prob);
-	double calc_drop_prob() const;
-	double calc_move_prob() const;
 
 	int m_niveau;
 	int m_niveau_max;
 
-	double m_drop_prob;
-	double m_move_prob;
-	double m_drop_prob_step;
-	double m_move_prob_step;
-
-	const double m_base_drop_prob;
-	const double m_base_move_prob;
+	const double m_base_drop_prob = 10;
+	const double m_base_move_prob = 10;
 	const double m_max_drop_prob = 70;
 	const double m_max_move_prob = 100;
+	double m_drop_prob_step;
+	double m_move_prob_step;
 
 	double m_drop_bonus = 0;
 	double m_move_bonus = 0;
