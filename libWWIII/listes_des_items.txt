@@ -1,14 +1,14 @@
 //Chaque ligne est de ce format :
-//id priceBuy priceSell name /*les stats de l'item*/
+//id priceBuy priceSell name /*les stats de l'item*/ /*les upgrades de l'item*/
 Potion 
 101 10 5 petite_potion_de_vie 20
 102 30 10 moyenne_potion_de_vie 45
 103 60 15 grande_potion_de_vie 120
 Weapon
-201 100 7 AK-47 50 20
-202 70 5 sniper 1000 1
-203 50 3 shotgun 200 3
-204 250 20 railgun 250 	8
+201 100 7 AK-47 50 20 2 1
+202 70 5 sniper 1000 1 0 2
+203 50 3 shotgun 200 3 5 1
+204 250 20 railgun 250 8 2 2
 //shuriken
 //arc à flèche
 //lance pierre

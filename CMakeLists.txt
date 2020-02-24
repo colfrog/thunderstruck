@@ -1,5 +1,5 @@
 # La version de Thunderstruck est définie ici
-set(THUNDERSTRUCK_VERSION 0.0.2)
+set(THUNDERSTRUCK_VERSION 0.0.4)
 
 # Définir le projet comme nouveau pour utiliser la version 0.0.1
 cmake_policy(SET CMP0048 NEW)
@@ -19,6 +19,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Compile libWWIII comme une librairie
 file(GLOB WWIII_SOURCE_FILES "libWWIII/*.cpp" "libWWIII/*.h")
 add_library(WWIII STATIC ${WWIII_SOURCE_FILES})
+# Installe la liste des items dans le fichier de compilation
+configure_file(libWWIII/listes_des_items.txt
+	${CMAKE_CURRENT_BINARY_DIR}/listes_des_items.txt COPYONLY)
 
 # Compile la demo comme exécutable lié à libWWIII
 file(GLOB DEMO_SOURCE_FILES "demo/*.cpp" "demo/*.h")
