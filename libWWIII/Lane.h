@@ -6,6 +6,8 @@
 
 #include "Direction.h"
 #include "Element.h"
+#include "Enemy.h"
+#include <vector>
 
 using namespace std;
 
@@ -24,6 +26,9 @@ public:
 	void set_distance(int distance);
 	void set_nbEnnemi(int nbEnnemi);
 
+	Enemy changer_typeEnemy(string name, int drop);
+	Enemy changer_typeEnemy(string name, int drop, Weapon weapon, Defense defense);
+
 	virtual void step();
 
 private:
@@ -31,4 +36,5 @@ private:
 	int m_laneId;
 	int m_distance;
 	int m_nbEnnemi;
+	vector<Enemy> m_list_enemy;
 };
