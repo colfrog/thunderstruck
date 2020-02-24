@@ -20,7 +20,7 @@ public:
 	void set_position(int x, int y);
 	void set_niveau(std::shared_ptr<Niveau> m_niveau);
 
-private:
+protected:
 	Coord m_position;
 	std::shared_ptr<Niveau> m_niveau;
 };
