@@ -29,6 +29,13 @@ void Player::setArgent(int arg) {
 	argent = arg;
 }
 
+Shop Player::getShop() {
+	return shop;
+}
+void Player::setShop(Shop s) {
+	shop = s;
+}
+
 void Player::step() {
 	hp_regen++;
 	if (hp_regen == 10) {

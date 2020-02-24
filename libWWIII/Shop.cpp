@@ -5,7 +5,7 @@
 
 Shop::Shop() {
 	m_seller = Personnage("Melania Trump");
-	m_seller.getWeapon().set_attack(20);
+	m_seller.getWeapon().set_attack(5);
 
 
 	ifstream file;
@@ -440,8 +440,8 @@ Player Shop::enter_shop(Player player) {
 			else {
 				cout << "Vous venez d'insulter " << m_seller.getName() << endl;
 				cout << m_seller.getName() << " est fache et elle vous giffle\n";
-				player.setHP(player.getHp() - m_seller.getWeapon().get_attack());
-				cout << "Vous vous prenez " << m_seller.getWeapon().get_attack() << " points de degats\n";
+				player.setHP(player.getHp() - m_seller.getWeapon().get_attack()*nb_insult);
+				cout << "Vous vous prenez " << m_seller.getWeapon().get_attack()*nb_insult << " points de degats\n";
 			}
 			cout << endl;
 			break;
