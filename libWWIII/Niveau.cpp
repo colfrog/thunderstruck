@@ -79,3 +79,13 @@ void Niveau::set_drop_bonus(double bonus) {
 void Niveau::set_move_bonus(double bonus) {
 	m_move_bonus = bonus;
 }
+
+Niveau Niveau::operator+(const int level) {
+	for (int i = 0; i < level; i++) {
+		prochain();
+	}
+	return *this;
+}
+Niveau Niveau::operator=(const Niveau &niveau) {
+	return niveau;
+}

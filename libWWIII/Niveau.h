@@ -19,6 +19,7 @@ public:
 	bool should_move();
 	void reset_bonus();
 	void prochain();
+	//void prochain();
 
 	/* Getters */
 	int niveau() const;
@@ -31,6 +32,11 @@ public:
 	void set_niveau(int niveau);
 	void set_drop_bonus(double bonus);
 	void set_move_bonus(double bonus);
+
+	//Remplacer l'objet actuel par un objet ayant augmenter du nombre de level de l'entier en parametre d'entre
+//Contrainte les enties plus petit que 0 ne peuvent pas dimninuer le niveau. Alors il  est retourner le niveau actuel dans si le parametre en entre est un negatif.
+	Niveau operator+(int level) const;
+	Niveau operator=(const Niveau &Niveau) const;
 
 private:
 	bool decide(double prob);
