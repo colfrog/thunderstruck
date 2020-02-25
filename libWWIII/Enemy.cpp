@@ -1,7 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy() : Personnage() {}
-Enemy::Enemy(string n) : Personnage(n) {}
+Enemy::Enemy(const Jeu *jeu, string n) : Personnage(jeu, n) {}
 Enemy::~Enemy() {}
 
 int Enemy::get_drop() {

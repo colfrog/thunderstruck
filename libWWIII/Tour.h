@@ -9,7 +9,7 @@ using namespace std;
 
 class Tour : public Element {
 public:
-	Tour();
+	Tour(const Jeu *jeu, std::string player_name = "");
 	~Tour();
 
 	Player get_player();

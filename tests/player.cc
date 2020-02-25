@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-	Player player1, player2("Claudette");
+	Player player1(nullptr), player2(nullptr, "Claudette");
 	Weapon arme;
 	Defense defense;
 

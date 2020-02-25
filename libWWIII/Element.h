@@ -5,10 +5,14 @@
 #include "Coord.h"
 #include "Niveau.h"
 
+class Jeu;
+
 class Element {
 public:
-	Element(Coord position) : m_position(position) {}
-	Element(int x, int y) : m_position(Coord(x, y)) {}
+	Element(const Jeu *jeu, Coord position = Coord(0, 0)) :
+		m_jeu(jeu),
+		m_position(position)
+	{}
 	Element() {}
 	virtual ~Element() {}
 
@@ -18,9 +22,8 @@ public:
 
 	void set_position(Coord position);
 	void set_position(int x, int y);
-	void set_niveau(std::shared_ptr<Niveau> m_niveau);
 
 protected:
 	Coord m_position;
-	std::shared_ptr<Niveau> m_niveau;
+	const Jeu *m_jeu;
 };

@@ -14,7 +14,7 @@ using namespace std;
 class Lane : public Element
 {
 public:
-	Lane(Direction dir = Direction::UP);
+	Lane(const Jeu *jeu, Direction dir = Direction::UP);
 	~Lane();
 
 	int get_lane_id();

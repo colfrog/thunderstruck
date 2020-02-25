@@ -10,7 +10,7 @@ void callback() {
 }
 
 int main() {
-	Jeu jeu;
+	Jeu jeu("John Doe");
 	tour = &jeu.tour();
 	jeu.run(callback);
 

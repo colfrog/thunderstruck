@@ -4,8 +4,7 @@
 class Enemy : public Personnage
 {
 public:
-	Enemy();
-	Enemy(string n);
+	Enemy(const Jeu *jeu, string n = "");
 	~Enemy();
 
 	int get_drop();
@@ -15,5 +14,4 @@ public:
 
 private:
 	int m_drop;
-
 };

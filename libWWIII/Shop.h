@@ -24,7 +24,7 @@ using namespace std;
 
 class Shop {
 public:
-	Shop();
+	Shop(const Jeu *jeu = nullptr);
 	~Shop();
 
 	vector<Potion>  get_list_potion();
@@ -66,4 +66,5 @@ private:
 	vector<Weapon> m_list_weapon;
 	vector<Defense> m_list_defense;
 	Personnage m_seller;
+	const Jeu *m_jeu;
 };

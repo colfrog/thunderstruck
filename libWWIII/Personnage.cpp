@@ -1,9 +1,9 @@
 #include "Personnage.h"
 
-Personnage::Personnage() : Element() {}
-Personnage::Personnage(string n) : Element() {
-	m_name = n;
-}
+Personnage::Personnage(const Jeu *jeu, string n) :
+	Element(jeu),
+	m_name(n)
+{}
 Personnage::~Personnage() {}
 
 string Personnage::get_name() {

@@ -1,6 +1,9 @@
 #include "Lane.h"
 
-Lane::Lane(Direction dir) : m_dir(dir) {}
+Lane::Lane(const Jeu *jeu, Direction dir) :
+	Element(jeu),
+	m_dir(dir)
+{}
 
 Lane::~Lane() {}
 
@@ -25,12 +28,12 @@ void Lane::set_distance(int distance) {
 }
 
 Enemy Lane::make_enemy(string name, int drop) {
-	Enemy enemy(name);
+	Enemy enemy(m_jeu, name);
 	enemy.set_drop(drop);
 	return enemy;
 }
 Enemy Lane::make_enemy(string name, int drop, Weapon weapon, Defense defense) {
-	Enemy enemy(name);
+	Enemy enemy(m_jeu, name);
 	enemy.set_drop(drop);
 	enemy.set_weapon(weapon);
 	enemy.set_defense(defense);

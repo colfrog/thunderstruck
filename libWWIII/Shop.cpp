@@ -3,10 +3,8 @@
 #include "Shop.h"
 
 
-Shop::Shop() {
-	m_seller = Personnage("Melania Trump");
+Shop::Shop(const Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 	m_seller.get_weapon().set_attack(5);
-
 
 	ifstream file;
 	file.open(N0M_FICHIER, ios_base::in);

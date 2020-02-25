@@ -7,8 +7,7 @@
 class Personnage : public Element
 {
 public:
-	Personnage();
-	Personnage(string n);
+	Personnage(const Jeu *jeu, string n);
 	~Personnage();
 
 	string get_name();
