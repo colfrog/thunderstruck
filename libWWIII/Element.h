@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-
+#include <vector>
 #include "Coord.h"
 #include "Niveau.h"
 
@@ -19,6 +19,7 @@ public:
 	virtual void step() = 0;
 
 	Coord position();
+	Niveau actualLevel();
 
 	void set_position(Coord position);
 	void set_position(int x, int y);

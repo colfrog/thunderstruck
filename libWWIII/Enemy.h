@@ -13,6 +13,8 @@ public:
 	int get_drop();
 	void set_drop(int dr);
 
+	void levelUp();
+
 	virtual void step();
 
 private:

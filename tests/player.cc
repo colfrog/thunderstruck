@@ -12,7 +12,7 @@ int main() {
 
 	assert(player1.get_name() == "" && player2.get_name() == "Claudette");
 
-	//Test de la méthode enter_shop
+	//Test de la mï¿½thode enter_shop
 	arme = player1.get_shop().buy_weapon(WEAPON * pow(10, 2) + 04);
 	defense = player1.get_shop().buy_defense(DEFENSE * pow(10, 2) + 06);
 
@@ -20,8 +20,8 @@ int main() {
 	player2.set_defense(defense);
 
 	/*
-	 * Décommenter pour tester le shop mais ne pas commit
-	 * pour ne pas bloquer l'exécution du test automatique
+	 * Dï¿½commenter pour tester le shop mais ne pas commit
+	 * pour ne pas bloquer l'exï¿½cution du test automatique
 	 */
 	// player2.enter_shop();
 	return 0;
