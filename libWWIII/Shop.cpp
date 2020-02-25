@@ -5,7 +5,7 @@
 
 Shop::Shop() {
 	m_seller = Personnage("Melania Trump");
-	m_seller.getWeapon().set_attack(5);
+	m_seller.get_weapon().set_attack(5);
 
 
 	ifstream file;

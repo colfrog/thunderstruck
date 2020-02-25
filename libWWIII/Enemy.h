@@ -8,12 +8,12 @@ public:
 	Enemy(string n);
 	~Enemy();
 
-	int getDrop();
-	void setDrop(int dr);
+	int get_drop();
+	void set_drop(int dr);
 
 	virtual void step();
 
 private:
-	int drop;
+	int m_drop;
 
 };

@@ -6,7 +6,7 @@
 Tour *tour;
 
 void callback() {
-	std::cout << tour->get_player().getHp() << std::endl;
+	std::cout << tour->get_player().get_hp() << std::endl;
 }
 
 int main() {
