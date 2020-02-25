@@ -8,10 +8,10 @@ public:
 	Weapon();
 	~Weapon();
 	
-	long get_attack();
-	long get_frequence();
-	long get_upgrade_attack();
-	long get_upgrade_frequence();
+	long get_attack() const;
+	long get_frequence() const;
+	long get_upgrade_attack() const;
+	long get_upgrade_frequence() const;
 
 	void set_attack(long attack);
 	void set_frequence(long frequence);

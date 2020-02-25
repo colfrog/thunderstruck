@@ -13,16 +13,16 @@ Weapon::~Weapon()
 	
 }
 
-long Weapon::get_attack() {
+long Weapon::get_attack() const {
 	return m_attack;
 }
-long Weapon::get_frequence() {
+long Weapon::get_frequence() const {
 	return m_frequence;
 }
-long Weapon::get_upgrade_attack() {
+long Weapon::get_upgrade_attack() const {
 	return m_upgrade_attack;
 }
-long Weapon::get_upgrade_frequence() {
+long Weapon::get_upgrade_frequence() const {
 	return m_upgrade_frequence;
 }
 
