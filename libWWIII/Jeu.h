@@ -7,6 +7,7 @@
 #include "Element.h"
 #include "Niveau.h"
 #include "Tour.h"
+#include "Lane.h"
 
 class Jeu {
 public:
@@ -24,8 +25,10 @@ public:
 	int niveau_actuel() const;
 	const Niveau &niveau() const;
 	Tour &tour();
+	Lane &lane(Direction dir);
 
 	void set_niveau(int niveau);
+	void add_element(Element *elem);
 
 private:
 	void prochain_niveau();
@@ -38,5 +41,6 @@ private:
 
 	Niveau m_niveau;
 	Tour m_tour;
+	Lane m_left_lane, m_right_lane, m_up_lane, m_down_lane;
 	std::list<Element *> m_elems;
 };
