@@ -10,6 +10,9 @@ public:
 	Personnage(const Jeu *jeu, string n);
 	~Personnage();
 
+	/* dommage retourne les dégâts pris */
+	int dommage(Weapon &w);
+
 	string get_name();
 	void set_name(string n);
 

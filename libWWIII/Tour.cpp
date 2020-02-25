@@ -6,7 +6,7 @@ Tour::Tour(const Jeu *jeu, std::string player_name) :
 {}
 Tour::~Tour() {}
 
-Player Tour::get_player() {
+Player Tour::player() {
 	return m_player;
 }
 
