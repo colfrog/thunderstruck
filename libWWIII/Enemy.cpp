@@ -23,6 +23,6 @@ void Enemy::levelUp() {
 
 void Enemy::step() {
 	if (actualLevel().should_move()) {
-		position().set_coords(position().x + 1);
+		position() = (position() + 1);
 	}
 }

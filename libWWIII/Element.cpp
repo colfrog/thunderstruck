@@ -19,5 +19,3 @@ Coord Element::position() {
 Niveau Element::actualLevel() {
 	return m_niveau;
 }
-
-

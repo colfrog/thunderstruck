@@ -35,8 +35,8 @@ public:
 
 	//Remplacer l'objet actuel par un objet ayant augmenter du nombre de level de l'entier en parametre d'entre
 //Contrainte les enties plus petit que 0 ne peuvent pas dimninuer le niveau. Alors il  est retourner le niveau actuel dans si le parametre en entre est un negatif.
-	Niveau operator+(int level) const;
-	Niveau operator=(const Niveau &Niveau) const;
+	Niveau operator+(int level);
+	Niveau operator=(const Niveau &Niveau);
 
 private:
 	bool decide(double prob);

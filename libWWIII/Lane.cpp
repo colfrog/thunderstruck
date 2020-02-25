@@ -4,7 +4,8 @@ Lane::Lane(Direction dir) : m_dir(dir)
 {
 	m_laneId = 0;
 	m_distance = 100;
-	m_nbEnnemi = 0;
+	m_total_nbEnemy = 0;
+	m_actual_nbEnemy = 0;
 }
 
 Lane::~Lane()
@@ -19,7 +20,7 @@ int Lane::get_laneId() {
 	return m_laneId;
 }
 int Lane::get_nbEnnemi() {
-	return m_nbEnnemi;
+	return m_total_nbEnemy;
 }
 Direction Lane::get_direction() {
 	return m_dir;
@@ -43,21 +44,22 @@ bool Lane::all_dead() {
 Enemy Lane::changer_typeEnemy(string name, int drop) {
 	Enemy enemy(name);
 	enemy.setDrop(drop);
+	return enemy;
 }
 Enemy Lane::changer_typeEnemy(string name, int drop, Weapon weapon, Defense defense) {
 	Enemy enemy(name);
 	enemy.setDrop(drop);
 	enemy.setWeapon(weapon);
 	enemy.setDefense(defense);
+	return enemy;
 }
 
 void Lane::step() {
 	Enemy enemy = changer_typeEnemy("Iranien", 10);
-	int spawn = rand() % 10 + 1 + (actualLevel().niveau()/2);
-
+	int spawn = rand() % 10 + 1;
 	for (int i = 0; i < m_actual_nbEnemy; i++) {
 		// Fait avancer l'enemy s'il peut bouger et s'il n'est pas arriver à la distance de la tour
-		if (m_list_enemy.at(i).actualLevel().should_move() == true && m_list_enemy.at(i).position().x < get_distance()) {
+		if (m_list_enemy.at(i).actualLevel().should_move() == true && m_list_enemy.at(i).position().x() < get_distance()) {
 			m_list_enemy.at(i).step();
 		}
 	}
