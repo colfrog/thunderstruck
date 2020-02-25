@@ -6,6 +6,16 @@ Personnage::Personnage(const Jeu *jeu, string n) :
 {}
 Personnage::~Personnage() {}
 
+int Personnage::dommage(Weapon &w) {
+	if (m_hp >= w.get_attack()) {
+		m_hp -= w.get_attack();
+	}
+	else {
+		m_hp = 0;
+	}
+	return w.get_attack();
+}
+
 string Personnage::get_name() {
 	return m_name;
 }

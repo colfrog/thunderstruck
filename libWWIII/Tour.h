@@ -13,7 +13,7 @@ public:
 	~Tour();
 
 	/* dommage retourne les dégâts pris */
-	int dommage(const Weapon &w);
+	int dommage(Weapon &w);
 
 	Player player();
 	unsigned int hp();
