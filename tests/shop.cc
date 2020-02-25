@@ -34,10 +34,10 @@ int main() {
 
 	
 	//Test le magasin initialisé
-		cout << "Test du magasin cree" << endl;
+	cout << "Test du magasin cree" << endl;
 
-		magasin.show_list();
-		cout << endl << endl;
+	magasin.show_list();
+	cout << endl << endl;
 	for (int i = 1; i < magasin.get_list_potion().size(); i++) {
 		assert(magasin.find_category(magasin.get_list_potion().at(i).get_id()) == POTION);
 		assert(magasin.get_list_potion().at(i).get_price_buy() > magasin.get_list_potion().at(i - 1).get_price_buy());
@@ -80,19 +80,18 @@ int main() {
 	potion.afficher();
 	defense.afficher();	
 
-	arme = magasin.buy_weapon(arme_id);
-	// TODO
-	// assert(arme.get_id() == arme_id && magasin.buy_weapon(arme_id).get_id() == arme_vide.get_id()) ;
+	// Test d'achat d'arme
+	assert(arme.get_id() == arme_id && magasin.buy_weapon(arme_id).get_id() == arme_vide.get_id()) ;
+	// Test d'achat de potion
+	assert(potion.get_id() == potion_id && magasin.buy_potion(potion_id).get_id() == potion_vide.get_id());
+	// Test d'achat de defense
+	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
 
+	// Test d'achat invalide
 	potion = magasin.buy_potion(defense_id);
 	assert(potion.get_id() == -1);
-	potion = magasin.buy_potion(potion_id);
-	// TODO
-	// assert(potion.get_id() == potion_id && magasin.buy_potion(potion_id).get_id() == potion_vide.get_id());
 
 	defense = magasin.buy_defense(defense_id);
-	// TODO
-	// assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
 
 	return 0;
 }
