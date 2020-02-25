@@ -8,7 +8,7 @@ using namespace std;
 int main() {
 	Tour tour(nullptr);
 
-	assert(tour.get_player().get_name() == "" && tour.get_player().get_hp() == 100);
+	assert(tour.player().get_name() == "" && tour.player().get_hp() == 100);
 
 
 	return 0;
