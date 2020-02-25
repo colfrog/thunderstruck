@@ -16,3 +16,13 @@ int Enemy::getDrop() {
 void Enemy::setDrop(int dr) {
 	drop = dr;
 }
+
+void Enemy::levelUp() {
+	actualLevel() =	actualLevel() + 1;
+}
+
+void Enemy::step() {
+	if (actualLevel().should_move()) {
+		position().set_coords(position().x + 1);
+	}
+}
