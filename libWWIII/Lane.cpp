@@ -19,6 +19,10 @@ int Lane::get_enemy_count() {
 Direction Lane::get_direction() {
 	return m_dir;
 }
+Coord Lane::get_end_position() {
+	// TODO: Rajouter à la distance si la tour est tombée
+	return m_position + DirTools::vectors[m_dir]*m_distance;
+}
 
 void Lane::set_lane_id(int lane_id) {
 	m_lane_id = lane_id;
@@ -28,13 +32,13 @@ void Lane::set_distance(int distance) {
 }
 
 Enemy Lane::make_enemy(string name, int drop) {
-	Enemy enemy(m_jeu, name);
+	Enemy enemy(m_jeu, this, name);
+	enemy.set_direction(DirTools::opposites[m_dir]);
 	enemy.set_drop(drop);
 	return enemy;
 }
 Enemy Lane::make_enemy(string name, int drop, Weapon weapon, Defense defense) {
-	Enemy enemy(m_jeu, name);
-	enemy.set_drop(drop);
+	Enemy enemy = make_enemy(name, drop);
 	enemy.set_weapon(weapon);
 	enemy.set_defense(defense);
 	return enemy;

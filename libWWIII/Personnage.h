@@ -23,6 +23,7 @@ public:
 	void set_weapon(Weapon w);
 
 	Direction direction();
+	void set_direction(Direction dir);
 	void turn_left();
 	void turn_right();
 

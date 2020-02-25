@@ -38,6 +38,10 @@ Direction Personnage::direction() {
 	return m_dir;
 }
 
+void Personnage::set_direction(Direction dir) {
+	m_dir = dir;
+}
+
 void Personnage::turn_left() {
 	m_dir = DirTools::lefts[m_dir];
 }

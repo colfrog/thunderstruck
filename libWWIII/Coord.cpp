@@ -30,6 +30,10 @@ bool Coord::operator==(const Coord &other) const {
 	return m_x == other.m_x && m_y == other.m_y;
 }
 
+Coord Coord::operator*(const int factor) const {
+	return Coord(factor*m_x, factor*m_y);
+}
+
 Coord Coord::operator+(const Coord &other) const {
 	return Coord(m_x + other.m_x, m_y + other.m_y);
 }

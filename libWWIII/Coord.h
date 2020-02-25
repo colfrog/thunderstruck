@@ -14,6 +14,7 @@ public:
 	int distance(const Coord &) const;
 
 	bool operator==(const Coord &) const;
+	Coord operator*(const int) const;
 	Coord operator+(const Coord &) const;
 	Coord operator-(const Coord &) const;
 	Coord operator=(const Coord &) const;
