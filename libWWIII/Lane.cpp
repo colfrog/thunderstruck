@@ -1,71 +1,50 @@
 #include "Lane.h"
 
-Lane::Lane(Direction dir) : m_dir(dir)
-{
-	m_laneId = 0;
-	m_distance = 100;
-	m_total_nbEnemy = 0;
-	m_actual_nbEnemy = 0;
-}
+Lane::Lane(const Jeu *jeu, Direction dir) :
+	Element(jeu),
+	m_dir(dir)
+{}
 
-Lane::~Lane()
-{
-	m_list_enemy.clear();
-}
+Lane::~Lane() {}
 
 int Lane::get_distance(){
 	return m_distance;
 }
-int Lane::get_laneId() {
-	return m_laneId;
+int Lane::get_lane_id() {
+	return m_lane_id;
 }
-int Lane::get_nbEnnemi() {
-	return m_total_nbEnemy;
+int Lane::get_enemy_count() {
+	return m_enemies.size();
 }
 Direction Lane::get_direction() {
 	return m_dir;
 }
+Coord Lane::get_end_position() {
+	// TODO: Rajouter à la distance si la tour est tombée
+	return m_position + DirTools::vectors[m_dir]*m_distance;
+}
 
-void Lane::set_laneId(int laneId) {
-	m_laneId = laneId;
+void Lane::set_lane_id(int lane_id) {
+	m_lane_id = lane_id;
 }
 void Lane::set_distance(int distance) {
 	m_distance = distance;
 }
-void Lane::set_nbEnnemi(int nbEnnemi) {
-	m_total_nbEnemy = nbEnnemi;
-	m_list_enemy.clear();
-}
 
-bool Lane::all_dead() {
-	return m_total_nbEnemy - m_actual_nbEnemy == 0;
-}
-
-Enemy Lane::changer_typeEnemy(string name, int drop) {
-	Enemy enemy(name);
-	enemy.setDrop(drop);
+Enemy Lane::make_enemy(string name, int drop) {
+	Enemy enemy(m_jeu, this, name);
+	enemy.set_direction(DirTools::opposites[m_dir]);
+	enemy.set_drop(drop);
 	return enemy;
 }
-Enemy Lane::changer_typeEnemy(string name, int drop, Weapon weapon, Defense defense) {
-	Enemy enemy(name);
-	enemy.setDrop(drop);
-	enemy.setWeapon(weapon);
-	enemy.setDefense(defense);
+Enemy Lane::make_enemy(string name, int drop, Weapon weapon, Defense defense) {
+	Enemy enemy = make_enemy(name, drop);
+	enemy.set_weapon(weapon);
+	enemy.set_defense(defense);
 	return enemy;
 }
 
 void Lane::step() {
-	Enemy enemy = changer_typeEnemy("Iranien", 10);
-	int spawn = rand() % 10 + 1;
-	for (int i = 0; i < m_actual_nbEnemy; i++) {
-		// Fait avancer l'enemy s'il peut bouger et s'il n'est pas arriver � la distance de la tour
-		if (m_list_enemy.at(i).actualLevel().should_move() == true && m_list_enemy.at(i).position().x() < get_distance()) {
-			m_list_enemy.at(i).step();
-		}
-	}
-	//Fait spawner un nouvelle enemy si la variable est plus grande que 5 et que le nombre d'enemis est plus petit que le total d'enemis pour cette lane
-	if (m_actual_nbEnemy < m_total_nbEnemy && spawn > 5) {
-		m_list_enemy.push_back(enemy);
-		m_actual_nbEnemy++;
-	}
+	for (Enemy e : m_enemies)
+		e.step();
 }

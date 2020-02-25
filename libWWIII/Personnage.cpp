@@ -1,51 +1,45 @@
 #include "Personnage.h"
 
-Personnage::Personnage() : Element() {
-	name = "";
-	hp = 100;
-	defense = Defense();
-	weapon = Weapon();
-}
-Personnage::Personnage(string n) : Element() {
-	name = n;
-	hp = 100;
-	defense = Defense();
-	weapon = Weapon();
-}
-Personnage::~Personnage() {
+Personnage::Personnage(const Jeu *jeu, string n) :
+	Element(jeu),
+	m_name(n)
+{}
+Personnage::~Personnage() {}
 
+string Personnage::get_name() {
+	return m_name;
+}
+void Personnage::set_name(string n) {
+	m_name = n;
 }
 
-string Personnage::getName() {
-	return name;
+unsigned long Personnage::get_hp() {
+	return m_hp;
 }
-void Personnage::setName(string n) {
-	name = n;
-}
-
-unsigned long Personnage::getHp() {
-	return hp;
-}
-void Personnage::setHP(unsigned long HP) {
-	hp = HP;
+void Personnage::set_hp(unsigned long hp) {
+	m_hp = hp;
 }
 
-Defense Personnage::getDefense() {
-	return defense;
+Defense Personnage::get_defense() {
+	return m_defense;
 }
-void Personnage::setDefense(Defense def) {
-	defense = def;
+void Personnage::set_defense(Defense def) {
+	m_defense = def;
 }
 
-Weapon Personnage::getWeapon() {
-	return weapon;
+Weapon Personnage::get_weapon() {
+	return m_weapon;
 }
-void Personnage::setWeapon(Weapon w) {
-	weapon = w;
+void Personnage::set_weapon(Weapon w) {
+	m_weapon = w;
 }
 
 Direction Personnage::direction() {
 	return m_dir;
+}
+
+void Personnage::set_direction(Direction dir) {
+	m_dir = dir;
 }
 
 void Personnage::turn_left() {

@@ -1,44 +1,33 @@
 
 #include "Player.h"
 
-Player::Player() : Personnage() {
-	stats = Stats();
-	argent = 0;
-	hp_regen = 0;
-}
-Player::Player(string n) : Personnage(n) {
-	stats = Stats();
-	argent = 0;
-	hp_regen = 0;
-}
-Player::~Player() {
+Player::Player(const Jeu *jeu, string n) : Personnage(jeu, n), m_shop(jeu) {}
+Player::~Player() {}
 
+Stats Player::get_stats() {
+	return m_stats;
+}
+void Player::set_stats(Stats st) {
+	m_stats = st;
 }
 
-Stats Player::getStats() {
-	return stats;
+int Player::get_argent() {
+	return m_argent;
 }
-void Player::setStats(Stats st) {
-	stats = st;
-}
-
-int Player::getArgent() {
-	return argent;
-}
-void Player::setArgent(int arg) {
-	argent = arg;
+void Player::set_argent(int arg) {
+	m_argent = arg;
 }
 
-Shop Player::getShop() {
-	return shop;
+Shop Player::get_shop() {
+	return m_shop;
 }
-void Player::setShop(Shop s) {
-	shop = s;
+void Player::set_shop(Shop s) {
+	m_shop = s;
 }
 
 void Player::enter_shop() {
 	cout << "Bienvenue dans mon magasion!\n";
-	cout << "Mon nom est " << shop.get_seller().getName() << endl;
+	cout << "Mon nom est " << m_shop.get_seller().get_name() << endl;
 	cout << endl;
 
 	char option = 'A';
@@ -60,57 +49,57 @@ void Player::enter_shop() {
 		{
 		case 'A':
 			int id, index;
-			shop.show_list();
+			m_shop.show_list();
 
 			cout << "Entrer l'id de l'item que vous voulez acheter\n";
 
 			cin >> id;
 
-			if (shop.find_category(id) == POTION) {
-				index = shop.find_potion(id);
-				prix = shop.get_list_potion().at(index).get_price_buy();
+			if (m_shop.find_category(id) == POTION) {
+				index = m_shop.find_potion(id);
+				prix = m_shop.get_list_potion().at(index).get_price_buy();
 
-				if (getArgent() < prix) {
+				if (get_argent() < prix) {
 					cout << "Vous n'avez pas assez d'argent pour acheter cet item\n";
 				}
 				else {
-					Potion potion = shop.buy_potion(id);
-					setArgent(getArgent() - prix);
-					if (getHp() + potion.get_hp_restore() > 100) {
-						setHP(100);
+					Potion potion = m_shop.buy_potion(id);
+					set_argent(get_argent() - prix);
+					if (get_hp() + potion.get_hp_restore() > 100) {
+						set_hp(100);
 					}
 					else {
-						setHP(getHp() + potion.get_hp_restore());
+						set_hp(get_hp() + potion.get_hp_restore());
 					}
 					cout << "Vous venez d'acheter la potion " << potion.get_name() << endl;
 				}
 			}
-			else if (shop.find_category(id) == WEAPON) {
-				index = shop.find_weapon(id);
-				prix = shop.get_list_weapon().at(index).get_price_buy();
+			else if (m_shop.find_category(id) == WEAPON) {
+				index = m_shop.find_weapon(id);
+				prix = m_shop.get_list_weapon().at(index).get_price_buy();
 
-				if (getArgent() < prix) {
+				if (get_argent() < prix) {
 					cout << "Vous n'avez pas assez d'argent pour acheter cet item\n";
 				}
 				else {
-					Weapon arme = shop.buy_weapon(id);
-					setArgent(getArgent() - prix);
-					setWeapon(arme);
-					cout << "Vous venez d'acheter l'arme " << getWeapon().get_name() << endl;
+					Weapon arme = m_shop.buy_weapon(id);
+					set_argent(get_argent() - prix);
+					set_weapon(arme);
+					cout << "Vous venez d'acheter l'arme " << get_weapon().get_name() << endl;
 				}
 			}
-			else if (shop.find_category(id) == DEFENSE) {
-				index = shop.find_defense(id);
-				prix = shop.get_list_defense().at(index).get_price_buy();
+			else if (m_shop.find_category(id) == DEFENSE) {
+				index = m_shop.find_defense(id);
+				prix = m_shop.get_list_defense().at(index).get_price_buy();
 
-				if (getArgent() < prix) {
+				if (get_argent() < prix) {
 					cout << "Vous n'avez pas assez d'argent pour acheter cet item\n";
 				}
 				else {
-					Defense defense = shop.buy_defense(id);
-					setArgent(getArgent() - prix);
-					setDefense(defense);
-					cout << "Vous venez d'acheter la defense " << getDefense().get_name() << endl;
+					Defense defense = m_shop.buy_defense(id);
+					set_argent(get_argent() - prix);
+					set_defense(defense);
+					cout << "Vous venez d'acheter la defense " << get_defense().get_name() << endl;
 				}
 			}
 			else {
@@ -132,11 +121,11 @@ void Player::enter_shop() {
 				switch (item_sell)
 				{
 				case 'A':
-					if (getDefense().get_id() != -1) {
-						prix = getWeapon().get_price_sell();
-						setArgent(getArgent() + prix);
-						shop.sell_weapon(getWeapon());
-						setWeapon(arme);
+					if (get_defense().get_id() != -1) {
+						prix = get_weapon().get_price_sell();
+						set_argent(get_argent() + prix);
+						m_shop.sell_weapon(get_weapon());
+						set_weapon(arme);
 						cout << "Vous venez de vendre votre arme\n";
 					}
 					else {
@@ -145,11 +134,11 @@ void Player::enter_shop() {
 					
 					break;
 				case 'B':
-					if (getDefense().get_id() != -1) {
-						prix = getDefense().get_price_sell();
-						setArgent(getArgent() + prix);
-						shop.sell_defense(getDefense());
-						setDefense(def);
+					if (get_defense().get_id() != -1) {
+						prix = get_defense().get_price_sell();
+						set_argent(get_argent() + prix);
+						m_shop.sell_defense(get_defense());
+						set_defense(def);
 						cout << "Vous venez de vendre votre defense\n";
 					}
 					else {
@@ -169,14 +158,14 @@ void Player::enter_shop() {
 
 			break;
 		case 'C':
-			prix = getWeapon().get_price_buy() / 10;
+			prix = get_weapon().get_price_buy() / 10;
 
-			if (getArgent() < prix) {
+			if (get_argent() < prix) {
 				cout << "Vous n'avez pas assez d'argent pour am�liorer votre arme\n";
 			}
 			else {
-				setArgent(getArgent() - prix);
-				getWeapon().upgrade_weapon();
+				set_argent(get_argent() - prix);
+				get_weapon().upgrade_weapon();
 				cout << "Vous venez d'amelioer votre arme " << endl;
 			}
 			cout << endl;
@@ -186,14 +175,14 @@ void Player::enter_shop() {
 			nb_insult++;
 
 			if (nb_insult < 3) {
-				cout << "Vous venez d'insulter " << shop.get_seller().getName() << endl;
-				cout << shop.get_seller().getName() << " commence a se facher\n";
+				cout << "Vous venez d'insulter " << m_shop.get_seller().get_name() << endl;
+				cout << m_shop.get_seller().get_name() << " commence a se facher\n";
 			}
 			else {
-				cout << "Vous venez d'insulter " << shop.get_seller().getName() << endl;
-				cout << shop.get_seller().getName() << " est fache et elle vous giffle\n";
-				setHP(getHp() - shop.get_seller().getWeapon().get_attack()*nb_insult);
-				cout << "Vous vous prenez " << shop.get_seller().getWeapon().get_attack()*nb_insult << " points de degats\n";
+				cout << "Vous venez d'insulter " << m_shop.get_seller().get_name() << endl;
+				cout << m_shop.get_seller().get_name() << " est fache et elle vous giffle\n";
+				set_hp(get_hp() - m_shop.get_seller().get_weapon().get_attack()*nb_insult);
+				cout << "Vous vous prenez " << m_shop.get_seller().get_weapon().get_attack()*nb_insult << " points de degats\n";
 			}
 			cout << endl;
 
@@ -208,9 +197,9 @@ void Player::enter_shop() {
 }
 
 void Player::step() {
-	hp_regen++;
-	if (hp_regen == 10 && getHp() > 0 && getHp() < 100) {
-		setHP(getHp() + 1);
-		hp_regen = 0;
+	m_hp_regen++;
+	if (m_hp_regen == 10 && get_hp() > 0 && get_hp() < 100) {
+		set_hp(get_hp() + 1);
+		m_hp_regen = 0;
 	}
 }

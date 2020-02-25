@@ -7,32 +7,32 @@
 class Personnage : public Element
 {
 public:
-	Personnage();
-	Personnage(string n);
+	Personnage(const Jeu *jeu, string n);
 	~Personnage();
 
-	string getName();
-	void setName(string n);
+	string get_name();
+	void set_name(string n);
 
-	unsigned long getHp();
-	void setHP(unsigned long HP);
+	unsigned long get_hp();
+	void set_hp(unsigned long hp);
 
-	Defense getDefense();
-	void setDefense(Defense def);
+	Defense get_defense();
+	void set_defense(Defense def);
 	
-	Weapon getWeapon();
-	void setWeapon(Weapon w);
+	Weapon get_weapon();
+	void set_weapon(Weapon w);
 
 	Direction direction();
+	void set_direction(Direction dir);
 	void turn_left();
 	void turn_right();
 
 	virtual void step() {};
 
 protected:
-	string name;
-	unsigned long hp;
-	Defense defense;
-	Weapon weapon;
-	Direction m_dir;
+	string m_name = "";
+	unsigned long m_hp = 100;
+	Defense m_defense;
+	Weapon m_weapon;
+	Direction m_dir = Direction::UP;
 };

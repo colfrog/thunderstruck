@@ -2,18 +2,23 @@
 #include <chrono>
 
 #include "Jeu.h"
-#include "Lane.h"
 
-Jeu::Jeu(int niveau_depart, int niveau_max, int f) :
+Jeu::Jeu(std::string player_name, int niveau_depart, int niveau_max, int f) :
 	m_niveau_depart(niveau_depart),
 	m_niveau_max(niveau_max),
-	m_frequence_jeu(f)
+	m_frequence_jeu(f),
+	m_niveau(Niveau(m_niveau_depart, m_niveau_max)),
+	m_tour(Tour(this, player_name)),
+	m_left_lane(Lane(this, Direction::LEFT)),
+	m_right_lane(Lane(this, Direction::RIGHT)),
+	m_up_lane(Lane(this, Direction::UP)),
+	m_down_lane(Lane(this, Direction::DOWN))
 {
-	Niveau n = Niveau(m_niveau_depart, m_niveau_max);
-	m_niveau = std::make_shared<Niveau>(n);
-
-	for (int i = 0; i < 4; i++)
-		m_elems.push_back(new Lane(DirTools::dirs[i]));
+	m_elems.push_back(&m_tour);
+	m_elems.push_back(&m_up_lane);
+	m_elems.push_back(&m_down_lane);
+	m_elems.push_back(&m_left_lane);
+	m_elems.push_back(&m_right_lane);
 }
 
 Jeu::~Jeu() {
@@ -28,7 +33,6 @@ void Jeu::run(std::function<void()> callback) {
 			elem->step();
 
 		callback();
-		m_tour->step();
 
 		std::this_thread::sleep_for(
 			std::chrono::microseconds(1000000/m_frequence_jeu));
@@ -44,17 +48,40 @@ void Jeu::stop() {
 }
 
 int Jeu::niveau_actuel() const {
-	return m_niveau->niveau();
+	return m_niveau.niveau();
+}
+
+const Niveau &Jeu::niveau() const {
+	return m_niveau;
+}
+
+Lane &Jeu::lane(Direction dir) {
+	switch (dir) {
+		case Direction::UP:
+			return m_up_lane;
+		case Direction::DOWN:
+			return m_down_lane;
+		case Direction::LEFT:
+			return m_left_lane;
+		case Direction::RIGHT:
+			return m_right_lane;
+		default:
+			return m_up_lane;
+	}
 }
 
 void Jeu::set_niveau(int niveau) {
-	m_niveau->set_niveau(niveau);
+	m_niveau.set_niveau(niveau);
+}
+
+void Jeu::add_element(Element *elem) {
+	m_elems.push_back(elem);
 }
 
 void Jeu::prochain_niveau() {
-	m_niveau->prochain();
+	m_niveau.prochain();
 }
 
 Tour &Jeu::tour() {
-	return *m_tour;
+	return m_tour;
 }

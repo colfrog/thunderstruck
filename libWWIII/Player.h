@@ -7,27 +7,26 @@
 class Player : public Personnage
 {
 public:
-	Player();
-	Player(string n);
+	Player(const Jeu *jeu, string n = "");
 	~Player();
 
-	Stats getStats();
-	void setStats(Stats st);
+	Stats get_stats();
+	void set_stats(Stats st);
 
-	int getArgent();
-	void setArgent(int arg);
+	int get_argent();
+	void set_argent(int arg);
 
-	Shop getShop();
-	void setShop(Shop s);
+	Shop get_shop();
+	void set_shop(Shop s);
 
-	//Méthode pour entrer dans le magasin
+	// Méthode pour entrer dans le magasin
 	void enter_shop();
 
 	virtual void step();
 private:
-	Stats stats;
-	int argent;
-	int hp_regen;
+	Stats m_stats;
+	int m_argent = 0;
+	int m_hp_regen = 0;
 	
-	Shop shop;
+	Shop m_shop;
 };

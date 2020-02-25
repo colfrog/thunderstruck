@@ -1,3 +1,5 @@
+#pragma once
+
 #include <list>
 #include <memory>
 #include <functional>
@@ -5,10 +7,15 @@
 #include "Element.h"
 #include "Niveau.h"
 #include "Tour.h"
+#include "Lane.h"
 
 class Jeu {
 public:
-	Jeu(int niveau_depart = 0, int niveau_max = 25, int f = 10);
+	Jeu(std::string player_name,
+		int niveau_depart = 0,
+		int niveau_max = 25,
+		int f = 10
+	);
 	~Jeu();
 
 	void run(std::function<void()> callback);
@@ -16,9 +23,12 @@ public:
 	bool running();
 
 	int niveau_actuel() const;
+	const Niveau &niveau() const;
 	Tour &tour();
+	Lane &lane(Direction dir);
 
 	void set_niveau(int niveau);
+	void add_element(Element *elem);
 
 private:
 	void prochain_niveau();
@@ -29,7 +39,8 @@ private:
 	const int m_niveau_depart;
 	const int m_niveau_max;
 
-	std::shared_ptr<Niveau> m_niveau; // Partagé avec les Elements
+	Niveau m_niveau;
+	Tour m_tour;
+	Lane m_left_lane, m_right_lane, m_up_lane, m_down_lane;
 	std::list<Element *> m_elems;
-	const std::unique_ptr<Tour> m_tour = std::unique_ptr<Tour>(new Tour());
 };

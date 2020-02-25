@@ -1,20 +1,19 @@
 #include "Enemy.h"
 
-Enemy::Enemy() : Personnage() {
-	drop = 1;
-}
-Enemy::Enemy(string n) : Personnage(n) {
-	drop = 1;
-}
-Enemy::~Enemy() {
+Enemy::Enemy(const Jeu *jeu, const Lane *lane, string n) :
+	Personnage(jeu, n),
+	m_lane(lane)
+{}
+Enemy::~Enemy() {}
 
+int Enemy::get_drop() {
+	return m_drop;
+}
+void Enemy::set_drop(int dr) {
+	m_drop = dr;
 }
 
-int Enemy::getDrop() {
-	return drop;
-}
-void Enemy::setDrop(int dr) {
-	drop = dr;
+void Enemy::step() {
 }
 
 void Enemy::levelUp() {

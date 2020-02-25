@@ -1,21 +1,23 @@
 #pragma once
 
 #include "Personnage.h"
+
+class Lane;
+
 class Enemy : public Personnage
 {
 public:
-	Enemy();
-	Enemy(string n);
+	Enemy(const Jeu *jeu, const Lane *lane, string n = "");
 	~Enemy();
 
-	int getDrop();
-	void setDrop(int dr);
+	int get_drop();
+	void set_drop(int dr);
 
 	void levelUp();
 
 	virtual void step();
 
 private:
-	int drop;
-
+	int m_drop;
+	const Lane *m_lane;
 };

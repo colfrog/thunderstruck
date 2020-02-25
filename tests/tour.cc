@@ -6,9 +6,9 @@
 using namespace std;
 
 int main() {
-	Tour tour;
+	Tour tour(nullptr);
 
-	assert(tour.get_player().getName() == "" && tour.get_player().getHp() == 100);
+	assert(tour.get_player().get_name() == "" && tour.get_player().get_hp() == 100);
 
 
 	return 0;
