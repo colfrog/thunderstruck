@@ -17,6 +17,7 @@ public:
 	void show();
 	bool should_drop();
 	bool should_move();
+	bool should_spawn();
 	void reset_bonus();
 	void prochain();
 	//void prochain();
@@ -25,6 +26,7 @@ public:
 	int niveau() const;
 	double drop_prob() const;
 	double move_prob() const;
+	double spawn_prob() const;
 	double drop_bonus() const;
 	double move_bonus() const;
 
@@ -46,10 +48,13 @@ private:
 
 	const double m_base_drop_prob = 10;
 	const double m_base_move_prob = 10;
+	const double m_base_spawn_prob = 50;
 	const double m_max_drop_prob = 70;
 	const double m_max_move_prob = 100;
+	const double m_max_spawn_prob = 100;
 	double m_drop_prob_step;
 	double m_move_prob_step;
+	double m_spawn_prob_step;
 
 	double m_drop_bonus = 0;
 	double m_move_bonus = 0;
