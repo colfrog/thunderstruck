@@ -25,6 +25,6 @@ public:
 	virtual void show() const;
 
 private:
-	unsigned int m_hp = 100;
+	unsigned int m_hp = 10;
 	Player m_player;
 };
