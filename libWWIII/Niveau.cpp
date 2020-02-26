@@ -28,6 +28,10 @@ bool Niveau::should_move() {
 	return decide(move_prob());
 }
 
+bool Niveau::should_spawn() {
+	return decide(spawn_prob());
+}
+
 void Niveau::reset_bonus() {
 	m_drop_bonus = 0;
 	m_move_bonus = 0;
@@ -56,6 +60,10 @@ double Niveau::drop_prob() const {
 
 double Niveau::move_prob() const {
 	return m_base_move_prob + m_move_prob_step*double(m_niveau) + m_move_bonus;
+}
+
+double Niveau::spawn_prob() const {
+	return m_base_spawn_prob + m_spawn_prob_step * double(m_niveau);
 }
 
 double Niveau::drop_bonus() const {
