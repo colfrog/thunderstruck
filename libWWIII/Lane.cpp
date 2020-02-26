@@ -8,6 +8,13 @@ Lane::Lane(Jeu *jeu, Direction dir) :
 
 Lane::~Lane() {}
 
+int Lane::damage(const Weapon &w, int mod) {
+	if (m_enemies.empty())
+		return 0;
+
+	return m_enemies.front().damage(w, mod);
+}
+
 bool Lane::is_empty(const Coord &position) {
 	for (const Enemy &e : m_enemies)
 		if (position == e.position())

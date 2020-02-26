@@ -17,6 +17,7 @@ public:
 	Lane(Jeu *jeu, Direction dir = Direction::UP);
 	~Lane();
 
+	int damage(const Weapon &w, int mod = 0);
 	bool is_empty(const Coord &position);
 	bool reached_end(const Enemy *e);
 	void remove_top_enemy();
