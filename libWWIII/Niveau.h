@@ -14,7 +14,7 @@ public:
 	Niveau(int niveau_depart = 0, int niveau_max = 25);
 	~Niveau() {}
 
-	void show();
+	void show() const;
 	bool should_drop();
 	bool should_move();
 	bool should_spawn();

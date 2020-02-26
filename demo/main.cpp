@@ -3,15 +3,17 @@
 #include "Shop.h"
 #include "Jeu.h"
 
-Tour *tour;
+Jeu *jeup;
+Tour *tourp;
 
 void callback() {
-	std::cout << tour->player().get_hp() << std::endl;
+	jeup->show();
 }
 
 int main() {
 	Jeu jeu("John Doe");
-	tour = &jeu.tour();
+	jeup = &jeu;
+	tourp = &jeu.tour();
 	jeu.run(callback);
 
 	return 0;

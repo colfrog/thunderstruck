@@ -13,14 +13,28 @@ int Enemy::get_drop() {
 void Enemy::set_drop(int dr) {
 	m_drop = dr;
 }
+void Enemy::set_next_enemy(Enemy *next_enemy) {
+	m_next_enemy = next_enemy;
+}
 
 void Enemy::step() {
 	Coord next_position = m_position + DirTools::vectors[m_dir];
-	if (m_lane->is_empty(next_position) && m_jeu->niveau().should_move())
-		m_position = next_position;
+	if (m_lane->is_empty(next_position)) {
+		/* Mouvement moins avancé */
+		if (m_jeu->niveau().should_move())
+			m_position = next_position;
 
-	if (m_lane->reached_end(this)) {
-		m_jeu->tour().damage(m_weapon);
-		m_lane->remove_top_enemy();
+		/*
+		 * TODO: Mouvement plus avancé
+		 * Les collisions sont mal gérées
+		 */
+		/*
+		if (m_jeu->niveau().should_move()) {
+			m_position = next_position;
+		} else if (m_next_enemy != nullptr) {
+			m_next_enemy->step();
+			return step();
+		}
+		*/
 	}
 }

@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <sstream>
 
 #include "Coord.h"
 
@@ -16,8 +17,14 @@ void Coord::set_coords(int x, int y) {
 	m_y = y;
 }
 
-void Coord::show() {
-	std::cout << "Coord(" << m_x << ", " << m_y << ")" << std::endl;
+void Coord::show() const {
+	std::cout << to_string() << std::endl;
+}
+
+std::string Coord::to_string() const {
+	std::stringstream ss;
+	ss << "Coord(" << m_x << ", " << m_y << ")";
+	return ss.str();
 }
 
 int Coord::distance(const Coord &other) const {

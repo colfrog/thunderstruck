@@ -23,6 +23,7 @@ public:
 	void enter_shop();
 
 	virtual void step();
+
 private:
 	Stats m_stats;
 	int m_argent = 0;

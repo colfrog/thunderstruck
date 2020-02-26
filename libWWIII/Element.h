@@ -17,6 +17,7 @@ public:
 	virtual ~Element() {}
 
 	virtual void step() = 0;
+	virtual void show() const = 0;
 
 	Coord position() const;
 

@@ -27,8 +27,9 @@ bool Lane::reached_end(const Enemy *e) {
 	return e->position() == get_end_position();
 }
 
-void Lane::remove_top_enemy() {
+void Lane::remove_front_enemy() {
 	m_enemies.pop_front();
+	m_enemies.front().set_next_enemy(nullptr);
 }
 
 bool Lane::can_spawn() {
@@ -36,7 +37,13 @@ bool Lane::can_spawn() {
 }
 
 void Lane::spawn() {
-	Enemy e = make_enemy("Zombie", 10);
+	Weapon w;
+	w.set_attack(1);
+	Defense d;
+	Enemy e = make_enemy("Zombie", 10, w, d);
+	if (!m_enemies.empty())
+		e.set_next_enemy(&m_enemies.back());
+
 	m_enemies.push_back(e);
 }
 
@@ -47,12 +54,12 @@ void Lane::set_distance(int distance) {
 	m_distance = distance;
 }
 
-Direction Lane::get_direction() {
+Direction Lane::get_direction() const {
 	return m_dir;
 }
-Coord Lane::get_end_position() {
+Coord Lane::get_end_position() const {
 	// TODO: Rajouter à la distance si la tour est tombée
-	return m_position + DirTools::vectors[m_dir]*m_distance;
+	return m_position + DirTools::vectors[DirTools::opposites[m_dir]]*m_distance;
 }
 int Lane::get_distance(){
 	return m_distance;
@@ -84,4 +91,19 @@ void Lane::step() {
 
 	for (Enemy &e : m_enemies)
 		e.step();
+
+	Enemy &front = m_enemies.front();
+	if (reached_end(&front)) {
+		m_jeu->tour().damage(front.get_weapon());
+		remove_front_enemy();
+	}
+}
+
+void Lane::show() const {
+	std::cout << "Lane " << DirTools::dir_names[m_dir] <<
+		": position " << m_position.to_string() <<
+		", end_position " << get_end_position().to_string() << std::endl;
+
+	for (const Enemy &e : m_enemies)
+		e.show();
 }

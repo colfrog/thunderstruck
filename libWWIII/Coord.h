@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class Coord {
 public:
@@ -10,7 +11,8 @@ public:
 	int y();
 	void set_coords(int x, int y);
 
-	void show();
+	void show() const;
+	std::string to_string() const;
 	int distance(const Coord &) const;
 
 	bool operator==(const Coord &) const;

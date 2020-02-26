@@ -47,6 +47,12 @@ void Jeu::stop() {
 	m_running = false;
 }
 
+void Jeu::show() const {
+	m_niveau.show();
+	for (Element *elem : m_elems)
+		elem->show();
+}
+
 int Jeu::niveau_actuel() const {
 	return m_niveau.niveau();
 }

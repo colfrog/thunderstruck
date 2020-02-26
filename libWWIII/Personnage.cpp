@@ -65,3 +65,11 @@ void Personnage::turn_left() {
 void Personnage::turn_right() {
 	m_dir = DirTools::rights[m_dir];
 }
+
+void Personnage::show() const {
+	std::cout << "Personnage: " << m_name << " - " << m_hp << " hp, " <<
+		m_weapon.get_attack() << " attack, " <<
+		m_defense.get_armure() << " defense, " <<
+		"direction(" << DirTools::dir_names[m_dir] << "), " <<
+		m_position.to_string() << std::endl;
+}

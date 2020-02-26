@@ -10,10 +10,10 @@ Defense::~Defense()
 {
 }
 
-float Defense::get_evasion() {
+float Defense::get_evasion() const {
 	return m_evasion;
 }
-int  Defense::get_armure() {
+int  Defense::get_armure() const {
 	return m_armure;
 }
 

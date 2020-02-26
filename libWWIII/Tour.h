@@ -22,8 +22,9 @@ public:
 	void set_player(Player player);
 
 	virtual void step();
+	virtual void show() const;
 
 private:
-	unsigned int m_hp;
+	unsigned int m_hp = 100;
 	Player m_player;
 };

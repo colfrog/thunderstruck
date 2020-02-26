@@ -14,13 +14,14 @@ public:
 	Jeu(std::string player_name,
 		int niveau_depart = 0,
 		int niveau_max = 25,
-		int f = 10
+		int f = 100
 	);
 	~Jeu();
 
 	void run(std::function<void()> callback);
 	void stop();
 	bool running();
+	void show() const;
 
 	int niveau_actuel() const;
 	Niveau &niveau();

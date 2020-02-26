@@ -18,6 +18,13 @@ namespace DirTools {
 		Direction::LEFT, Direction::RIGHT
 	};
 
+	static std::map<Direction, std::string> dir_names = {
+		{Direction::UP, "haut"},
+		{Direction::DOWN, "bas"},
+		{Direction::LEFT, "gauche"},
+		{Direction::RIGHT, "droite"}
+	};
+
 	/* Vecteurs de déplacement */
 	static std::map<Direction, Coord> vectors = {
 		{Direction::UP, Coord(0, -1)},

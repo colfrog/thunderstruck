@@ -8,8 +8,8 @@ public:
 	Defense();
 	~Defense();
 	
-	float get_evasion();
-	int  get_armure();
+	float get_evasion() const;
+	int  get_armure() const;
 
 	void set_evasion(int evasion);
 	void set_armure(int armure);

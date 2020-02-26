@@ -14,10 +14,11 @@ Niveau::Niveau(int niveau, int niveau_max) :
 	m_unidist = std::uniform_int_distribution<int>(0, 100);
 }
 
-void Niveau::show() {
+void Niveau::show() const {
 	std::cout << "Niveau " << m_niveau << std::endl;
 	std::cout << "\tProbabilité de drop: " << drop_prob() << std::endl;
 	std::cout << "\tProbabilité d'avancement: " << move_prob() << std::endl;
+	std::cout << "\tProbabilité de spawner: " << spawn_prob() << std::endl;
 }
 
 bool Niveau::should_drop() {

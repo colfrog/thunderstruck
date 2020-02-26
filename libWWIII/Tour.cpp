@@ -3,7 +3,14 @@
 Tour::Tour(Jeu *jeu, std::string player_name) :
 	Element(jeu),
 	m_player(Player(jeu, player_name))
-{}
+{
+	Weapon w;
+	w.set_attack(100);
+	Defense d;
+	d.set_armure(1);
+	m_player.set_weapon(w);
+	m_player.set_defense(d);
+}
 Tour::~Tour() {}
 
 /* damage retourne les dégâts pris */
@@ -37,4 +44,9 @@ void Tour::set_player(Player player) {
 
 void Tour::step() {
 	m_player.step();
+}
+
+void Tour::show() const {
+	std::cout << "Tour: " << m_hp << " hp" << std::endl;
+	m_player.show();
 }

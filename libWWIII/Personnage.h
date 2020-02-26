@@ -31,6 +31,7 @@ public:
 	void turn_right();
 
 	virtual void step() {};
+	void show() const;
 
 protected:
 	string m_name = "";
