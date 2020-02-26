@@ -1,19 +1,25 @@
 #include "Personnage.h"
 
-Personnage::Personnage(const Jeu *jeu, string n) :
+Personnage::Personnage(Jeu *jeu, string n) :
 	Element(jeu),
 	m_name(n)
 {}
 Personnage::~Personnage() {}
 
-int Personnage::dommage(Weapon &w) {
-	if (m_hp >= w.get_attack()) {
-		m_hp -= w.get_attack();
-	}
-	else {
+int Personnage::damage(const Weapon &w, int mod) {
+	int damage = w.get_attack() + mod;
+	int armor = m_defense.get_armure();
+	unsigned int hp_initial = m_hp;
+
+	if (armor >= damage)
+		return 0;
+
+	if (m_hp >= damage)
+		m_hp -= w.get_attack() - armor + mod;
+	else
 		m_hp = 0;
-	}
-	return w.get_attack();
+
+	return hp_initial - m_hp;
 }
 
 string Personnage::get_name() {

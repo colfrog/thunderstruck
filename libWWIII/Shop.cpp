@@ -3,7 +3,7 @@
 #include "Shop.h"
 
 
-Shop::Shop(const Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
+Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 	m_seller.get_weapon().set_attack(5);
 
 	ifstream file;

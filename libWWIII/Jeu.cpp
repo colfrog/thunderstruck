@@ -51,7 +51,7 @@ int Jeu::niveau_actuel() const {
 	return m_niveau.niveau();
 }
 
-const Niveau &Jeu::niveau() const {
+Niveau &Jeu::niveau() {
 	return m_niveau;
 }
 

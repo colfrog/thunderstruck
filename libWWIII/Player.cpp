@@ -1,7 +1,7 @@
 
 #include "Player.h"
 
-Player::Player(const Jeu *jeu, string n) : Personnage(jeu, n), m_shop(jeu) {}
+Player::Player(Jeu *jeu, string n) : Personnage(jeu, n), m_shop(jeu) {}
 Player::~Player() {}
 
 Stats Player::get_stats() {

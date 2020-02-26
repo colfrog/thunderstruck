@@ -7,11 +7,11 @@
 class Personnage : public Element
 {
 public:
-	Personnage(const Jeu *jeu, string n);
+	Personnage(Jeu *jeu, string n);
 	~Personnage();
 
 	/* dommage retourne les dégâts pris */
-	int dommage(Weapon &w);
+	int damage(const Weapon &w, int mod = 0);
 
 	string get_name();
 	void set_name(string n);

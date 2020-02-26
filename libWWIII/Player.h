@@ -7,7 +7,7 @@
 class Player : public Personnage
 {
 public:
-	Player(const Jeu *jeu, string n = "");
+	Player(Jeu *jeu, string n = "");
 	~Player();
 
 	Stats get_stats();

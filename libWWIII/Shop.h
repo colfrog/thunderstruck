@@ -24,7 +24,7 @@ using namespace std;
 
 class Shop {
 public:
-	Shop(const Jeu *jeu = nullptr);
+	Shop(Jeu *jeu = nullptr);
 	~Shop();
 
 	vector<Potion>  get_list_potion();

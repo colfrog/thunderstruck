@@ -7,7 +7,7 @@ class Lane;
 class Enemy : public Personnage
 {
 public:
-	Enemy(const Jeu *jeu, const Lane *lane, string n = "");
+	Enemy(Jeu *jeu, Lane *lane, string n = "");
 	~Enemy();
 
 	int get_drop();
@@ -17,5 +17,5 @@ public:
 
 private:
 	int m_drop;
-	const Lane *m_lane;
+	Lane *m_lane;
 };

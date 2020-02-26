@@ -8,6 +8,6 @@ void Element::set_position(int x, int y) {
 	m_position = Coord(x, y);
 }
 
-Coord Element::position() {
+Coord Element::position() const {
 	return m_position;
 }

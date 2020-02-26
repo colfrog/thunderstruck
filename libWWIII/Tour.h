@@ -9,11 +9,11 @@ using namespace std;
 
 class Tour : public Element {
 public:
-	Tour(const Jeu *jeu, std::string player_name = "");
+	Tour(Jeu *jeu, std::string player_name = "");
 	~Tour();
 
 	/* dommage retourne les dégâts pris */
-	int dommage(Weapon &w);
+	int damage(const Weapon &w, int mod = 0);
 
 	Player player();
 	unsigned int hp();

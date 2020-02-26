@@ -23,7 +23,7 @@ public:
 	bool running();
 
 	int niveau_actuel() const;
-	const Niveau &niveau() const;
+	Niveau &niveau();
 	Tour &tour();
 	Lane &lane(Direction dir);
 

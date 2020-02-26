@@ -1,24 +1,24 @@
 #include "Tour.h"
 
-Tour::Tour(const Jeu *jeu, std::string player_name) :
+Tour::Tour(Jeu *jeu, std::string player_name) :
 	Element(jeu),
 	m_player(Player(jeu, player_name))
 {}
 Tour::~Tour() {}
 
-/* dommage retourne les dégâts pris */
-int Tour::dommage(Weapon &w) {
-	int damage = w.get_attack();
+/* damage retourne les dégâts pris */
+int Tour::damage(const Weapon &w, int mod) {
+	int damage = w.get_attack() + mod;
 	if (m_hp > damage) {
+		/* On attaque la tour */
 		m_hp -= damage;	
-	}
-	else {
+		return damage;
+	} else {
+		/* On attaque le joueur */
 		damage -= m_hp;
 		m_hp = 0;
-		w.set_attack(damage);
-		m_player.dommage(w);
+		return m_player.damage(w, damage - w.get_attack());
 	}
-	return damage;
 }
 
 Player Tour::player() {
