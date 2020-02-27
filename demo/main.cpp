@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "Direction.h"
 #include "Shop.h"
 #include "Jeu.h"
 
