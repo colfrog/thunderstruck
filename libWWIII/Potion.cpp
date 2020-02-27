@@ -19,5 +19,5 @@ void Potion::set_hp_restore(long hpRestore) {
 
 void Potion::afficher() {
 	cout << left << setw(8) << m_id << "Potion : " << setw(30) << m_name << "Prit d'achat : " << setw(10) << m_price_buy;
-	cout << "Prit de vente : " << setw(10) << m_price_sell << "Nombre d'Hp restore : " << m_hp_restore << "\n";
+	cout << "Prit de vente : " << setw(10) << m_price_sell << "Nombre d'Hp restore : " << setw(11) << m_hp_restore;
 }

@@ -92,7 +92,6 @@ Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 			else {
 				getline(file, name);
 			}
-
 			
 		}
 		reorganize_shop(POTION);
@@ -145,7 +144,7 @@ Potion Shop::buy_potion(int id) {
 	int index = find_potion(id);
 
 	if (index == -1) {
-		cout << "La potion " << id << " n'est pas dans le magasin." << endl;
+		potion.set_id(-1);
 	}
 	else {
 		potion = m_list_potion.at(index);
@@ -159,7 +158,7 @@ Weapon Shop::buy_weapon(int id) {
 	int index = find_weapon(id);
 
 	if (index == -1) {
-		cout << "L'arme " << id << " n'est pas dans le magasin." << endl;
+		weapon.set_id(-1);
 	}
 	else {
 		weapon = m_list_weapon.at(index);
@@ -173,7 +172,7 @@ Defense Shop::buy_defense(int id) {
 	int index = find_defense(id);
 
 	if (index == -1) {
-		cout << "La potion " << id << " n'est pas dans le magasin." << endl;
+		defense.set_id(-1);
 	}
 	else {
 		defense = m_list_defense.at(index);
@@ -184,25 +183,28 @@ Defense Shop::buy_defense(int id) {
 }
 
 void Shop::show_list() {
-	cout << "\n====================================================================================================================================================================\n";
-	cout << "Liste de potion\n";
+	cout << "===========================================================================================================================================================================\n";
+	cout << "=	Liste de potion " << setw(148) << "=\n";
 	for (unsigned int i = 0; i < m_list_potion.size(); i++) {
+		cout << "=	";
 		m_list_potion.at(i).afficher();
+		cout << right << setw(33) << "=\n";
 	}
-	cout << endl;
-	cout << "====================================================================================================================================================================\n";
-	cout << "Liste d'arme\n";
+	cout << "===========================================================================================================================================================================\n";
+	cout << "=	Liste d'arme " << setw(151) << "=\n";
 	for (unsigned int i = 0; i < m_list_weapon.size(); i++) {
+		cout << "=	";
 		m_list_weapon.at(i).afficher();
+		cout << right << setw(4) << "=\n";
 	}
-	cout << endl;
-	cout << "====================================================================================================================================================================\n";
-	cout << "Liste de defense\n";
+	cout << "===========================================================================================================================================================================\n";
+	cout << "=	Liste de defense " << setw(147) << "=\n";
 	for (unsigned int i = 0; i < m_list_defense.size(); i++) {
+		cout << "=	";
 		m_list_defense.at(i).afficher();
+		cout << right << setw(2) << "=\n";
 	}
-	cout << endl;
-	cout << "====================================================================================================================================================================\n\n";
+	cout << "===========================================================================================================================================================================\n";
 }
 
 void Shop::reorganize_shop(int id) {
@@ -285,6 +287,7 @@ void Shop::reorganize_shop(int id) {
 
 int Shop::find_potion(int id) {
 	int index = -1;
+
 	for (unsigned int i = 0; i < m_list_potion.size(); i++) {
 		if (m_list_potion.at(i).get_id() == id) {
 			index = i;
@@ -296,6 +299,7 @@ int Shop::find_potion(int id) {
 }
 int Shop::find_weapon(int id) {
 	int index = -1;
+
 	for (unsigned int i = 0; i < m_list_weapon.size(); i++) {
 		if (m_list_weapon.at(i).get_id() == id) {
 			index = i;
@@ -307,13 +311,13 @@ int Shop::find_weapon(int id) {
 }
 int Shop::find_defense(int id) {
 	int index = -1;
+
 	for (unsigned int i = 0; i < m_list_defense.size(); i++) {
 		if (m_list_defense.at(i).get_id() == id) {
 			index = i;
 			i = m_list_defense.size();
 		}
 	}
-
 	return index;
 }
 

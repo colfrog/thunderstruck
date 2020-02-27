@@ -69,11 +69,12 @@ int main() {
 	cout << "Test d'acheter une potion du magasin" << endl;
 	potion = magasin.buy_potion(potion_id);
 
-	cout << "Test d'acheter une potion du magasin" << endl;
+	cout << "Test d'acheter une defense du magasin" << endl;
 	defense = magasin.buy_defense(defense_id);
 	
 	magasin.show_list();
-	cout << endl << endl;
+	
+	cout << endl;
 
 	cout << "Test des items achetes" << endl;
 	arme.afficher();
@@ -86,12 +87,19 @@ int main() {
 	assert(potion.get_id() == potion_id && magasin.buy_potion(potion_id).get_id() == potion_vide.get_id());
 	// Test d'achat de defense
 	assert(defense.get_id() == defense_id && magasin.buy_defense(defense_id).get_id() == defense_vide.get_id());
-
+	
 	// Test d'achat invalide
 	potion = magasin.buy_potion(defense_id);
 	assert(potion.get_id() == -1);
 
+	arme = magasin.buy_weapon(defense_id);
+	assert(arme.get_id() == -1);
+
 	defense = magasin.buy_defense(defense_id);
+	assert(defense.get_id() == -1);
+
+	magasin.show_list();
+	system("pause");
 
 	return 0;
 }

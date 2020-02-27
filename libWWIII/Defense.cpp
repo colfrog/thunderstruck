@@ -27,5 +27,5 @@ void Defense::set_armure(int armure) {
 void Defense::afficher() {
 	cout << left << setw(8) << m_id << "Defense : " << setw(29) << m_name << "Prit d'achat : " << setw(10) << m_price_buy;
 	cout << "Prit de vente : " << setw(10) << m_price_sell << "Point d'armure : " << setw(12) << m_armure;
-	cout << "Pourcentage d'evasion : " << m_evasion << endl;
+	cout << "Pourcentage d'evasion : " << setw(11) <<  m_evasion;
 }

@@ -39,7 +39,7 @@ void Player::enter_shop() {
 		cout << "A) Acheter un item\n";
 		cout << "B) Vendre un item\n";
 		cout << "C) Ameliorer l'arme\n";
-		cout << "D) Insulter le vendeur\n";
+		cout << "D) Insulter la vendeuse\n";
 		cout << "Q) Quitter le magasin\n";
 		cin >> option;
 		option = toupper(option);
@@ -48,14 +48,15 @@ void Player::enter_shop() {
 		switch (option)
 		{
 		case 'A':
-			int id, index;
+			int id, category, index;
 			m_shop.show_list();
-
-			cout << "Entrer l'id de l'item que vous voulez acheter\n";
+			cout << "\nArgent : " << m_argent << "\n\n";
+			cout << "Entrer l'id de l'item que vous voulez acheter : \n";
 
 			cin >> id;
+			category = m_shop.find_category(id);
 
-			if (m_shop.find_category(id) == POTION) {
+			if (category == POTION && m_shop.find_potion(id) > -1) {
 				index = m_shop.find_potion(id);
 				prix = m_shop.get_list_potion().at(index).get_price_buy();
 
@@ -72,9 +73,9 @@ void Player::enter_shop() {
 						set_hp(get_hp() + potion.get_hp_restore());
 					}
 					cout << "Vous venez d'acheter la potion " << potion.get_name() << endl;
-				}
+				}	
 			}
-			else if (m_shop.find_category(id) == WEAPON) {
+			else if (category == WEAPON && m_shop.find_weapon(id) > -1) {
 				index = m_shop.find_weapon(id);
 				prix = m_shop.get_list_weapon().at(index).get_price_buy();
 
@@ -88,7 +89,7 @@ void Player::enter_shop() {
 					cout << "Vous venez d'acheter l'arme " << get_weapon().get_name() << endl;
 				}
 			}
-			else if (m_shop.find_category(id) == DEFENSE) {
+			else if (category == DEFENSE && m_shop.find_defense(id) > -1) {
 				index = m_shop.find_defense(id);
 				prix = m_shop.get_list_defense().at(index).get_price_buy();
 
@@ -110,6 +111,7 @@ void Player::enter_shop() {
 			break;
 		case 'B':
 			do {
+				cout << "\nArgent : " << m_argent << "\n\n";
 				cout << "Quel item voulez-vous vendre?\n";
 				cout << "A) Votre arme\nB) Votre defense\nC) Aucun item\n";
 
@@ -158,6 +160,7 @@ void Player::enter_shop() {
 
 			break;
 		case 'C':
+			cout << "\nArgent : " << m_argent << "\n\n";
 			prix = get_weapon().get_price_buy() / 10;
 
 			if (get_argent() < prix) {

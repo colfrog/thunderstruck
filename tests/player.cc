@@ -18,12 +18,13 @@ int main() {
 
 	player2.set_weapon(arme);
 	player2.set_defense(defense);
+	player2.set_argent(1000);
 
 	/*
 	 * D�commenter pour tester le shop mais ne pas commit
 	 * pour ne pas bloquer l'ex�cution du test automatique
 	 */
-	// player2.enter_shop();
+	player2.enter_shop();
 	return 0;
 }
 

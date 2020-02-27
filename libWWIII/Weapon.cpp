@@ -13,26 +13,26 @@ Weapon::~Weapon()
 	
 }
 
-long Weapon::get_attack() const {
+int Weapon::get_attack() const {
 	return m_attack;
 }
 long Weapon::get_frequence() const {
 	return m_frequence;
 }
-long Weapon::get_upgrade_attack() const {
+int Weapon::get_upgrade_attack() const {
 	return m_upgrade_attack;
 }
 long Weapon::get_upgrade_frequence() const {
 	return m_upgrade_frequence;
 }
 
-void Weapon::set_attack(long a) {
+void Weapon::set_attack(int a) {
 	m_attack = a;
 }
 void Weapon::set_frequence(long f) {
 	m_frequence = f;
 }
-void Weapon::set_upgrade_attack(long upgrade) {
+void Weapon::set_upgrade_attack(int upgrade) {
 	m_upgrade_attack = upgrade;
 }
 void Weapon::set_upgrade_frequence(long upgrade) {
@@ -47,5 +47,5 @@ void Weapon::upgrade_weapon() {
 void Weapon::afficher() {
 	cout << left << setw(8) << m_id << "Arme : " << setw(32) << m_name << "Prit d'achat : " << setw(10) << m_price_buy;
 	cout << "Prit de vente : " << setw(10) << m_price_sell << "Degat d'attaque : " << setw(11) << m_attack;
-	cout << "Frequence d'attaque : " << m_frequence << endl;
+	cout << "Frequence d'attaque : " << setw(11) << m_frequence;
 }
