@@ -21,7 +21,9 @@ int main() {
 		cout << "Test des items vide" << endl;
 
 		potion.afficher();
+		cout << endl;
 		arme.afficher();
+		cout << endl;
 		defense.afficher();
 		cout << endl << endl;
 	assert(potion.get_id() == -1 && potion.get_name() == "" && potion.get_price_sell() == 0 &&
@@ -34,7 +36,7 @@ int main() {
 
 	
 	//Test le magasin initialisé
-	cout << "Test du magasin cree" << endl;
+	cout << "Test du magasin cree" << endl << endl;
 
 	magasin.show_list();
 	cout << endl << endl;
@@ -78,8 +80,12 @@ int main() {
 
 	cout << "Test des items achetes" << endl;
 	arme.afficher();
+	cout << endl;
 	potion.afficher();
+	cout << endl;
 	defense.afficher();	
+	cout << endl;
+
 
 	// Test d'achat d'arme
 	assert(arme.get_id() == arme_id && magasin.buy_weapon(arme_id).get_id() == arme_vide.get_id()) ;

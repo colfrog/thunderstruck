@@ -4,8 +4,6 @@
 
 
 Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
-	m_seller.get_weapon().set_attack(5);
-
 	ifstream file;
 	file.open(N0M_FICHIER, ios_base::in);
 	Potion actual_potion;
@@ -14,6 +12,10 @@ Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 	string name;
 	char  category_char,id_char[3];
 	int id[2], sell, buy, attribut1, attribut2, upgrade1, upgrade2;
+
+	actual_weapon.set_attack(10);
+
+	m_seller.set_weapon(actual_weapon);
 
 	if (file.is_open()) {
 		while (!file.eof()) {

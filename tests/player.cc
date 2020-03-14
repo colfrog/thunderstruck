@@ -24,7 +24,7 @@ int main() {
 	 * D�commenter pour tester le shop mais ne pas commit
 	 * pour ne pas bloquer l'ex�cution du test automatique
 	 */
-	// player2.enter_shop();
+	player2.enter_shop();
 	return 0;
 }
 
