@@ -2,7 +2,7 @@
 #include <iostream>
 #include <assert.h>
 #include <Shop.h>
-#include "Player.h"
+#include <Elements/Player.h>
 
 using namespace std;
 

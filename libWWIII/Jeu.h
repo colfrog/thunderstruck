@@ -4,10 +4,10 @@
 #include <memory>
 #include <functional>
 
-#include "Element.h"
 #include "Niveau.h"
-#include "Tour.h"
-#include "Lane.h"
+#include "Elements/Element.h"
+#include "Elements/Tour.h"
+#include "Elements/Lane.h"
 
 class Jeu {
 public:

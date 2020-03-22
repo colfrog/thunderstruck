@@ -1,12 +1,12 @@
 # La version de Thunderstruck est définie ici
-set(THUNDERSTRUCK_VERSION 0.0.5)
+set(THUNDERSTRUCK_VERSION 0.0.6)
 
 # Définir le projet comme nouveau pour utiliser la version 0.0.1
 cmake_policy(SET CMP0048 NEW)
 # Définir le projet lui-même comme un projet C++ et y rattacher sa version
 project(thunderstruck LANGUAGES CXX VERSION ${THUNDERSTRUCK_VERSION})
 # La version minimale de CMake requise est 3.12. C'est la version utilisée par VS2017.
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 # Activer le système de tests de CMake
 enable_testing()
 # Activer les symboles de déboguage
@@ -17,7 +17,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Compile libWWIII comme une librairie
-file(GLOB WWIII_SOURCE_FILES "libWWIII/*.cpp" "libWWIII/*.h")
+file(GLOB_RECURSE WWIII_SOURCE_FILES "libWWIII/*.cpp" "libWWIII/*.h")
 add_library(WWIII STATIC ${WWIII_SOURCE_FILES})
 # Installe la liste des items dans le fichier de compilation
 configure_file(libWWIII/listes_des_items.txt

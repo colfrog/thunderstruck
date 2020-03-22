@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "Direction.h"
-#include "Shop.h"
-#include "Jeu.h"
+#include <Direction.h>
+#include <Shop.h>
+#include <Jeu.h>
 
 Jeu *jeup;
 Tour *tourp;

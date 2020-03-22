@@ -5,7 +5,7 @@
 #include <string>
 #include <iomanip>
 
-#include "Direction.h"
+#include "../Direction.h"
 #include "Element.h"
 #include "Enemy.h"
 

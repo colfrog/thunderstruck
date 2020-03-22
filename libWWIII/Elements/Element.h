@@ -2,8 +2,8 @@
 
 #include <memory>
 #include <vector>
-#include "Coord.h"
-#include "Niveau.h"
+#include "../Coord.h"
+#include "../Niveau.h"
 
 class Jeu;
 

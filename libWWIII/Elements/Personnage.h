@@ -1,8 +1,8 @@
 #pragma once
-#include "Direction.h"
-#include "Defense.h"
-#include "Weapon.h"
 #include "Element.h"
+#include "../Direction.h"
+#include "../Items/Defense.h"
+#include "../Items/Weapon.h"
 
 class Personnage : public Element
 {
