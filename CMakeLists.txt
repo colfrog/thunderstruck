@@ -1,5 +1,5 @@
 # La version de Thunderstruck est définie ici
-set(THUNDERSTRUCK_VERSION 0.0.6)
+set(THUNDERSTRUCK_VERSION 0.1.0)
 
 # Définir le projet comme nouveau pour utiliser la version 0.0.1
 cmake_policy(SET CMP0048 NEW)
@@ -12,31 +12,49 @@ enable_testing()
 # Activer les symboles de déboguage
 set(CMAKE_BUILD_TYPE Debug)
 
-# Set le standard C++ à 2017 et enforce-le
+### Set le standard C++ à 2017 et enforce-le
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Compile libWWIII comme une librairie
+### Compile libWWIII comme une librairie
 file(GLOB_RECURSE WWIII_SOURCE_FILES "libWWIII/*.cpp" "libWWIII/*.h")
 add_library(WWIII STATIC ${WWIII_SOURCE_FILES})
 # Installe la liste des items dans le fichier de compilation
 configure_file(libWWIII/listes_des_items.txt
 	${CMAKE_CURRENT_BINARY_DIR}/listes_des_items.txt COPYONLY)
 
-# Compile la demo comme exécutable lié à libWWIII
+### Compile la demo comme exécutable lié à libWWIII
 file(GLOB DEMO_SOURCE_FILES "demo/*.cpp" "demo/*.h")
 add_executable(demo ${DEMO_SOURCE_FILES})
 target_link_libraries(demo $<TARGET_FILE:WWIII>)
 add_dependencies(demo WWIII)
 
+### Compile l'interface Qt
+# Utiliser les outils Qt
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+# Trouver les extensions pour une application Qt Widgets
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+# Trouver tous les fichiers .cpp et .h dans qt_ui/
+file(GLOB QT_UI_SOURCE_FILES "qt_ui/*.cpp" "qt_ui/*.h")
+# Définition de l'exécutable à partir des fichiers sources
+add_executable(qt_ui ${QT_UI_SOURCE_FILES})
+# Lie l'interface Qt à libWWIII
+target_link_libraries(qt_ui $<TARGET_FILE:WWIII>)
+# Déclare que l'interface dépend de libWWIII
+add_dependencies(qt_ui WWIII)
+## Liste des librairies Qt utilisées pour l'interface
+target_link_libraries(qt_ui Qt5::Widgets)
+
 # Créer un target test sous lequel tous les tests s'effectueront
 add_custom_target(tests DEPENDS WWIII)
 
-# Trouve les headers et la librairie de WWIII
+### Trouve les headers et la librairie de WWIII
 include_directories(libWWIII)
 link_directories(libWWIII)
 
-# Définit tous les fichiers .cc dans tests/ comme un test
+### Définit tous les fichiers .cc dans tests/ comme un test
 file(GLOB WWIII_TESTS "tests/*.cc")
 # Pour chaque nom de fichier .cc
 foreach(test_source IN ITEMS ${WWIII_TESTS})
