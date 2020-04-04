@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>769</width>
+    <height>712</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Thunderstruck</string>
+  </property>
+  <widget class="QWidget" name="pageWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QWidget" name="gameWidget" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="infoLabels">
+         <item>
+          <widget class="QLabel" name="towerLabel">
+           <property name="text">
+            <string>Tour: 10HP</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="levelLabel">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Niveau 0</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="tableNameLabel">
+         <property name="text">
+          <string>Personnages Actifs</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <row>
+          <property name="text">
+           <string>Joueur</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Ennemi</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Ennemi</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Ennemi</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Ennemi</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Ennemi</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Ennemi</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Nom</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Vie</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Attaque</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Défense</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Position</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Distance</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>John Doe</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="0" column="2">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="0" column="3">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="0" column="4">
+          <property name="text">
+           <string>Tour</string>
+          </property>
+         </item>
+         <item row="0" column="5">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>Zombie</string>
+          </property>
+         </item>
+         <item row="1" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="1" column="2">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="1" column="3">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="1" column="4">
+          <property name="text">
+           <string>Ouest</string>
+          </property>
+         </item>
+         <item row="1" column="5">
+          <property name="text">
+           <string>8</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>Zombie</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="2" column="2">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="2" column="3">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="2" column="4">
+          <property name="text">
+           <string>Ouest</string>
+          </property>
+         </item>
+         <item row="2" column="5">
+          <property name="text">
+           <string>9</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>Zombie</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="3" column="2">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="3" column="3">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="3" column="4">
+          <property name="text">
+           <string>Est</string>
+          </property>
+         </item>
+         <item row="3" column="5">
+          <property name="text">
+           <string>9</string>
+          </property>
+         </item>
+         <item row="4" column="0">
+          <property name="text">
+           <string>Zombie</string>
+          </property>
+         </item>
+         <item row="4" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="4" column="2">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="4" column="3">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="4" column="4">
+          <property name="text">
+           <string>Ouest</string>
+          </property>
+         </item>
+         <item row="4" column="5">
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item row="5" column="0">
+          <property name="text">
+           <string>Zombie</string>
+          </property>
+         </item>
+         <item row="5" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="5" column="2">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="5" column="3">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="5" column="4">
+          <property name="text">
+           <string>Sud</string>
+          </property>
+         </item>
+         <item row="5" column="5">
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item row="6" column="0">
+          <property name="text">
+           <string>Zombie</string>
+          </property>
+         </item>
+         <item row="6" column="1">
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item row="6" column="2">
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item row="6" column="3">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+         <item row="6" column="4">
+          <property name="text">
+           <string>Ouest</string>
+          </property>
+         </item>
+         <item row="6" column="5">
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="attackButtons">
+         <item>
+          <widget class="QPushButton" name="northButton">
+           <property name="text">
+            <string>Attaquer Nord</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="southButton">
+           <property name="text">
+            <string>Attaquer Sud</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="eastButton">
+           <property name="text">
+            <string>Attaquer Est</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="westButton">
+           <property name="text">
+            <string>Attaquer Ouest</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="waitButton">
+         <property name="text">
+          <string>Attendre</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
