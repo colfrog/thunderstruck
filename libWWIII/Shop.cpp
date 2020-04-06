@@ -1,5 +1,5 @@
 #include <cmath>
-
+#include "Jeu.h"
 #include "Shop.h"
 
 
@@ -182,6 +182,15 @@ Defense Shop::buy_defense(int id) {
 	}
 
 	return defense;
+}
+
+int Shop::reparing_tour(int argent) {
+	argent = m_jeu->tour().reparer_tour(argent);
+	return argent;
+}
+int Shop::upgrading_tour(int argent) {
+	argent = m_jeu->tour().upgrade_tour(argent);
+	return argent;
 }
 
 void Shop::show_list() {

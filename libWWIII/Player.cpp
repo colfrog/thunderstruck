@@ -32,14 +32,16 @@ void Player::enter_shop() {
 
 	char option = 'A';
 	char item_sell = 'D';
-	int nb_insult = 0, prix;
+	int nb_insult = 0, prix, argent;
 
 	do {
 		cout << "Choisir une option : \n";
 		cout << "A) Acheter un item\n";
 		cout << "B) Vendre un item\n";
 		cout << "C) Ameliorer l'arme\n";
-		cout << "D) Insulter la vendeuse\n";
+		cout << "D) Reparer la tour\n";
+		cout << "E) Upgrader la tour\n";
+		cout << "F) Insulter la vendeuse\n";
 		cout << "Q) Quitter le magasin\n";
 		cin >> option;
 		option = toupper(option);
@@ -175,6 +177,18 @@ void Player::enter_shop() {
 
 			break;
 		case 'D':
+			argent = m_shop.reparing_tour(m_argent);
+			if (argent != -1) {
+				m_argent = argent;
+			}
+			break;
+		case 'E':
+			argent = m_shop.upgrading_tour(m_argent);
+			if (argent != -1) {
+				m_argent = argent;
+			}
+			break;
+		case 'F':
 			nb_insult++;
 
 			if (nb_insult < 3) {

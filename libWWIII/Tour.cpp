@@ -42,34 +42,34 @@ void Tour::set_player(Player player) {
 	m_player = player;
 }
 
-int Tour::upgrade_tour() {
-	if (m_player.get_argent() >= m_total_hp * 1.5) {
+int Tour::upgrade_tour(int argent) {
+	if (argent >= m_total_hp * 1.5) {
 		cout << "L'amélioration de la tour coute " << m_total_hp * 1.5 << ". Veux-tu améliorer la tour (Oui=O, Non=N)?\n";
 		char choix;
 		cin >> choix;
 		choix = toupper(choix);
 
 		if (choix == 'O') {
-			m_player.set_argent(m_player.get_argent() - m_total_hp * 1.5);
-			m_total_hp *= 2;
+			argent -= m_total_hp * 1.5;
+			m_total_hp += 10;
 			m_hp = m_total_hp;
-			return 0;
+			return argent;
 		}
 	}
 
 	return -1;
 }
-int Tour::reparer_tour() {
-	if (m_player.get_argent() >= m_total_hp * 1.5) {
-		cout << "La reparation de la tour coute " << m_total_hp - m_hp << ". Veux-tu reparer la tour (Oui=O, Non=N)?\n";
+int Tour::reparer_tour(int argent) {
+	if (argent >= (m_total_hp- m_hp)* 1.25) {
+		cout << "La reparation de la tour coute " << (m_total_hp - m_hp)*1.25 << ". Veux-tu reparer la tour (Oui=O, Non=N)?\n";
 		char choix;
 		cin >> choix;
 		choix = toupper(choix);
 
 		if (choix == 'O') {
-			m_player.set_argent(m_player.get_argent() - m_total_hp  + m_hp);
+			argent -= (m_total_hp - m_hp)* 1.25;
 			m_hp = m_total_hp;
-			return 0;
+			return argent;
 		}
 	}
 

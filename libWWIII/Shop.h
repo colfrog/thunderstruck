@@ -46,6 +46,11 @@ public:
 	//Méthode pour acheter une armure du Shop
 	Defense buy_defense(int id);
 
+	//La fonction retourne le montant payé si la tour est reparee et -1 si la tour n'est pas reparee
+	int reparing_tour(int argent);
+	//La fonction retourne le montant payé si la tour est upgradee et -1 si la tour n'est pas upgradee
+	int upgrading_tour(int argent);
+
 	//Méthode pour afficher tous les items du shop
 	void show_list();
 
@@ -66,5 +71,5 @@ private:
 	vector<Weapon> m_list_weapon;
 	vector<Defense> m_list_defense;
 	Personnage m_seller;
-	const Jeu *m_jeu;
+	Jeu *m_jeu;
 };
