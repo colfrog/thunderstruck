@@ -2,8 +2,9 @@
 
 #include <memory>
 #include <vector>
-#include "Coord.h"
-#include "Niveau.h"
+#include "../Coord.h"
+#include "../Niveau.h"
+#include "../Items/Weapon.h"
 
 class Jeu;
 
@@ -18,6 +19,9 @@ public:
 
 	virtual void step() = 0;
 	virtual void show() const = 0;
+
+	virtual int attack(Element &elem, int mod = 0) = 0;
+	virtual int damage(const Weapon &w, int mod = 0) = 0;
 
 	Coord position() const;
 

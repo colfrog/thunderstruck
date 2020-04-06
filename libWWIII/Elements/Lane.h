@@ -5,7 +5,7 @@
 #include <string>
 #include <iomanip>
 
-#include "Direction.h"
+#include "../Direction.h"
 #include "Element.h"
 #include "Enemy.h"
 
@@ -17,7 +17,6 @@ public:
 	Lane(Jeu *jeu, Direction dir = Direction::UP);
 	~Lane();
 
-	int damage(const Weapon &w, int mod = 0);
 	bool is_empty(const Coord &position);
 	bool reached_end(const Enemy *e);
 	void remove_front_enemy();
@@ -38,6 +37,9 @@ public:
 
 	virtual void step();
 	virtual void show() const;
+
+	virtual int attack(Element &elem, int mod = 0);
+	virtual int damage(const Weapon &w, int mod = 0);
 
 private:
 	const Direction m_dir;

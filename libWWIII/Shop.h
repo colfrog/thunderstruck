@@ -5,11 +5,12 @@
 #include <fstream>
 #include <algorithm>
 #include <string>
-#include "Potion.h"
-#include "Weapon.h"
-#include "Defense.h"
-#include "Personnage.h"
 #include <ctype.h>
+
+#include "Items/Potion.h"
+#include "Items/Weapon.h"
+#include "Items/Defense.h"
+#include "Elements/Personnage.h"
 
 //Nom du fichier pour la liste de tous les items du jeu
 #define N0M_FICHIER "listes_des_items.txt"

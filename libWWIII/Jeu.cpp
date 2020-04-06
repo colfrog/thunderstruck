@@ -61,6 +61,10 @@ Niveau &Jeu::niveau() {
 	return m_niveau;
 }
 
+int Jeu::attack(Direction dir) {
+	return m_tour.attack(lane(dir));
+}
+
 Lane &Jeu::lane(Direction dir) {
 	switch (dir) {
 		case Direction::UP:

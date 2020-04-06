@@ -81,29 +81,30 @@ par les ennemis et leur probabilité de spawner. De nouvelles variables
 devraient être ajoutées au fur et à mesure qu'on construit le jeu.
 
 La classe Jeu contient aussi une liste d'éléments.
-Chaque [Élément](libWWIII/Element.h) peut être soit
-un [Personnage](libWWIII/Personnage.h), une [Tour](libWWIII/Tour.h),
-ou une [Lane](libWWIII/Lane.h). Lorsque le jeu avance d'un pas,
-la méthode virtuelle step de chaque élément est appelée pour que chaque
-objet dans le jeu accomplisse un action. La classe Jeu s'expose avec le Niveau
-à chaque Élément pour qu'ils aient accès aux variables.
+Chaque [Élément](libWWIII/Elements/Element.h) peut être soit
+un [Personnage](libWWIII/Elements/Personnage.h),
+une [Tour](libWWIII/Elements/Tour.h), ou une [Lane](libWWIII/Elements/Lane.h).
+Lorsque le jeu avance d'un pas, la méthode virtuelle step de chaque élément
+est appelée pour que chaque objet dans le jeu accomplisse un action.
+La classe Jeu s'expose avec le Niveau à chaque Élément pour
+qu'ils aient accès aux variables.
 
 Chaque Personnage a une direction (où avancer, tirer), un nombre de vie,
 un nom et des attribus.
 
-L'action de la Tour est d'activer l'action du [Player](libWWIII/Player.h),
+L'action de la Tour est d'activer l'action du [Player](libWWIII/Elements/Player.h),
 un Personnage. L'action du Player est de tranquillement regénérer sa vie.
 Le Player sera exposé par la classe Jeu et manipulé directement
 par le programme.
 
 Le Player contient un [Shop](libWWIII/Shop.h). Le Shop contient une liste
-pour chaque type d'[Item](libWWIII/Item.h). Ces types sont la classe
-[Defense](libWWIII/Defense.h), [Weapon](libWWIII/Weapon.h) et
-[Potion](libWWIII/Potion.h). Chacune a ses propres attribus et utilités,
+pour chaque type d'[Item](libWWIII/Items/Item.h). Ces types sont la classe
+[Defense](libWWIII/Items/Defense.h), [Weapon](libWWIII/Items/Weapon.h) et
+[Potion](libWWIII/Items/Potion.h). Chacune a ses propres attribus et utilités,
 et le Player contient une liste de chacune. Le premier de la liste est équipé.
 
-La classe [Lane](libWWIII/Lane.h) contient une liste
-d'[Enemy](libWWIII/Enemy.h), un autre Personnage.
+La classe [Lane](libWWIII/Elements/Lane.h) contient une liste
+d'[Enemy](libWWIII/Elements/Enemy.h), un autre Personnage.
 Puisque Lane et Enemy contiennent tous les deux un pointeur au Niveau
 du fait qu'ils sont des Éléments, Lane peut utiliser Niveau pour décider
 quand spawner les Enemy, et il incrémente le niveau après avoir spawné

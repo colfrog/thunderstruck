@@ -13,7 +13,6 @@ Tour::Tour(Jeu *jeu, std::string player_name) :
 }
 Tour::~Tour() {}
 
-/* damage retourne les dégâts pris */
 int Tour::damage(const Weapon &w, int mod) {
 	int damage = w.get_attack() + mod;
 	if (m_hp > damage) {
@@ -26,6 +25,10 @@ int Tour::damage(const Weapon &w, int mod) {
 		m_hp = 0;
 		return m_player.damage(w, damage - w.get_attack());
 	}
+}
+
+int Tour::attack(Element &elem, int mod) {
+	return m_player.attack(elem, mod);
 }
 
 Player Tour::player() {

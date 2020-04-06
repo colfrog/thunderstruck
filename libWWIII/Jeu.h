@@ -4,10 +4,10 @@
 #include <memory>
 #include <functional>
 
-#include "Element.h"
 #include "Niveau.h"
-#include "Tour.h"
-#include "Lane.h"
+#include "Elements/Element.h"
+#include "Elements/Tour.h"
+#include "Elements/Lane.h"
 
 class Jeu {
 public:
@@ -30,6 +30,8 @@ public:
 
 	void set_niveau(int niveau);
 	void add_element(Element *elem);
+
+	int attack(Direction dir);
 
 private:
 	void prochain_niveau();

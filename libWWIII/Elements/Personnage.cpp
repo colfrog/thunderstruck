@@ -22,6 +22,10 @@ int Personnage::damage(const Weapon &w, int mod) {
 	return hp_initial - m_hp;
 }
 
+int Personnage::attack(Element &elem, int mod) {
+	return elem.damage(m_weapon, mod);
+}
+
 string Personnage::get_name() {
 	return m_name;
 }

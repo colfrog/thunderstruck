@@ -12,9 +12,6 @@ public:
 	Tour(Jeu *jeu, std::string player_name = "");
 	~Tour();
 
-	/* dommage retourne les dégâts pris */
-	int damage(const Weapon &w, int mod = 0);
-
 	Player player();
 	unsigned int hp();
 
@@ -28,6 +25,9 @@ public:
 
 	virtual void step();
 	virtual void show() const;
+
+	virtual int attack(Element &elem, int mod = 0);
+	virtual int damage(const Weapon &w, int mod = 0);
 
 private:
 	unsigned int m_hp = 10;

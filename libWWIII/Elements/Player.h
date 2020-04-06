@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Stats.h"
+#include "../Stats.h"
+#include "../Shop.h"
 #include "Personnage.h"
-#include "Shop.h"
 
 class Player : public Personnage
 {
