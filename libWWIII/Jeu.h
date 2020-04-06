@@ -31,6 +31,8 @@ public:
 	void set_niveau(int niveau);
 	void add_element(Element *elem);
 
+	int attack(Direction dir);
+
 private:
 	void prochain_niveau();
 

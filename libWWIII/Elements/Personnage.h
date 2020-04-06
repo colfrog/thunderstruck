@@ -10,9 +10,6 @@ public:
 	Personnage(Jeu *jeu, string n);
 	~Personnage();
 
-	/* dommage retourne les dégâts pris */
-	int damage(const Weapon &w, int mod = 0);
-
 	string get_name();
 	void set_name(string n);
 
@@ -32,6 +29,9 @@ public:
 
 	virtual void step() {};
 	void show() const;
+
+	virtual int attack(Element &elem, int mod = 0);
+	virtual int damage(const Weapon &w, int mod = 0);
 
 protected:
 	string m_name = "";

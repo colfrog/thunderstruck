@@ -12,7 +12,17 @@ int Lane::damage(const Weapon &w, int mod) {
 	if (m_enemies.empty())
 		return 0;
 
-	return m_enemies.front().damage(w, mod);
+	int dmg = m_enemies.front().damage(w, mod);
+	if (m_enemies.front().get_hp() == 0)
+		remove_front_enemy();
+
+	return dmg;
+}
+
+int Lane::attack(Element &elem, int mod) {
+	int damage = m_enemies.front().attack(elem);
+	remove_front_enemy();
+	return damage;
 }
 
 bool Lane::is_empty(const Coord &position) {
@@ -92,10 +102,8 @@ void Lane::step() {
 	for (Enemy &e : m_enemies)
 		e.step();
 
-	Enemy &front = m_enemies.front();
-	if (reached_end(&front)) {
-		m_jeu->tour().damage(front.get_weapon());
-		remove_front_enemy();
+	if (reached_end(&m_enemies.front())) {
+		attack(m_jeu->tour());
 	}
 }
 

@@ -9,6 +9,7 @@ Tour *tourp;
 
 void callback() {
 	jeup->show();
+	jeup->attack(Direction::UP);
 }
 
 int main() {
