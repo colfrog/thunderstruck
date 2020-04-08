@@ -45,7 +45,8 @@ target_link_libraries(qt_ui $<TARGET_FILE:WWIII>)
 # Déclare que l'interface dépend de libWWIII
 add_dependencies(qt_ui WWIII)
 ## Liste des librairies Qt utilisées pour l'interface
-target_link_libraries(qt_ui Qt5::Widgets)
+#target_link_libraries(qt_ui Qt5::Widgets)
+qt5_use_modules(qt_ui Widgets)
 
 # Créer un target test sous lequel tous les tests s'effectueront
 add_custom_target(tests DEPENDS WWIII)
