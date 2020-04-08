@@ -5,18 +5,15 @@
 
 class GameObject {
 public:
-	GameObject(Jeu* j) { jeu = j; }
-	GameObject() {}
+	GameObject(Jeu* j) : jeu(j) {}
 	virtual ~GameObject() {}
 
 public slots:
-	virtual void update(QString s) = 0;
+	virtual void gameUpdate() = 0;
 
 signals:
-	virtual void updated() = 0;
+	virtual void gameUpdated() {}
 
 private:
 	Jeu* jeu;
-
-
 };

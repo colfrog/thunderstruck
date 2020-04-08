@@ -6,13 +6,9 @@
 
 class GameLabel : public GameObject, public QLabel {
 public:
-	GameLabel(QString);
+	GameLabel(Jeu *j) : GameObject(j) { gameUpdate(); }
 	~GameLabel();
 
-public slots:
-	void update(QString);
-
-signals:
-	void updated();
-
+private:
+	QString m_text;
 };

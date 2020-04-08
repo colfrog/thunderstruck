@@ -5,8 +5,8 @@
 
 #include <QObject>
 #include <QWidget>
-#include "Jeu.h"
-#include "gamewidget.h"
+#include <Jeu.h>
+#include "GameWidget/GameWidget.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -14,15 +14,13 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+	MainWindow(Jeu *j, QWidget *parent = nullptr);
+	~MainWindow();
 private:
-    
-    Jeu jeu();
-    GameWidget *gameWidget;
-
+	Jeu *jeu;
+	GameWidget *gameWidget;
 };
 #endif // MAINWINDOW_H
