@@ -27,6 +27,9 @@ Jeu::~Jeu() {
 }
 
 void Jeu::step() {
+	m_spawned.clear();
+	m_dead.clear();
+
 	if (!m_running)
 		return;
 
@@ -84,6 +87,10 @@ Lane &Jeu::lane(Direction dir) {
 		default:
 			return m_up_lane;
 	}
+}
+
+uint64_t Jeu::new_character_id() {
+	return m_current_character_id++;
 }
 
 void Jeu::set_niveau(int niveau) {

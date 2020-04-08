@@ -1,9 +1,12 @@
 #include "Personnage.h"
+#include "Jeu.h"
 
 Personnage::Personnage(Jeu *jeu, string n) :
 	Element(jeu),
 	m_name(n)
-{}
+{
+	m_id = m_jeu->new_character_id();
+}
 Personnage::~Personnage() {}
 
 int Personnage::damage(const Weapon &w, int mod) {
@@ -24,6 +27,10 @@ int Personnage::damage(const Weapon &w, int mod) {
 
 int Personnage::attack(Element &elem, int mod) {
 	return elem.damage(m_weapon, mod);
+}
+
+uint64_t Personnage::get_id() {
+	return m_id;
 }
 
 string Personnage::get_name() {
@@ -54,6 +61,10 @@ void Personnage::set_weapon(Weapon w) {
 	m_weapon = w;
 }
 
+bool Personnage::is_dead() {
+	return m_hp == 0;
+}
+
 Direction Personnage::direction() {
 	return m_dir;
 }
@@ -71,7 +82,8 @@ void Personnage::turn_right() {
 }
 
 void Personnage::show() const {
-	std::cout << "Personnage: " << m_name << " - " << m_hp << " hp, " <<
+	std::cout << "Personnage: " << m_name << "(" << m_id << ")" <<
+		" - " << m_hp << " hp, " <<
 		m_weapon.get_attack() << " attack, " <<
 		m_defense.get_armure() << " defense, " <<
 		"direction(" << DirTools::dir_names[m_dir] << "), " <<
