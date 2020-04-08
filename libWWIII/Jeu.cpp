@@ -26,16 +26,22 @@ Jeu::~Jeu() {
 		delete elem;
 }
 
+void Jeu::step() {
+	if (!m_running)
+		return;
+
+	for (Element *elem : m_elems)
+		elem->step();
+}
+
 void Jeu::run(std::function<void()> callback) {
 	m_running = true;
 	while (m_running) {
-		for (Element *elem : m_elems)
-			elem->step();
-
+		step();
 		callback();
-
 		std::this_thread::sleep_for(
-			std::chrono::microseconds(1000000/m_frequence_jeu));
+			std::chrono::microseconds(1000000/m_frequence_jeu)
+		);
 	}
 }
 

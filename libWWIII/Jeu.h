@@ -20,6 +20,7 @@ public:
 
 	void run(std::function<void()> callback);
 	void stop();
+	void step();
 	bool running();
 	void show() const;
 
