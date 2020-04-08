@@ -1,9 +1,9 @@
 #include <QApplication>
-#include <QMainWindow>
+#include "mainwindow.h"
 
 int main(int argc, char **argv) {
 	QApplication app(argc, argv);
-	QMainWindow win;
+	MainWindow win;
 
 	win.setWindowTitle("Thunderstruck");
 	win.setMinimumSize(500, 500);
