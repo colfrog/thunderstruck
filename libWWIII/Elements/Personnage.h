@@ -10,6 +10,8 @@ public:
 	Personnage(Jeu *jeu, string n);
 	~Personnage();
 
+	uint64_t get_id();
+
 	string get_name();
 	void set_name(string n);
 
@@ -18,9 +20,11 @@ public:
 
 	Defense get_defense();
 	void set_defense(Defense def);
-	
+
 	Weapon get_weapon();
 	void set_weapon(Weapon w);
+
+	bool is_dead();
 
 	Direction direction();
 	void set_direction(Direction dir);
@@ -34,6 +38,7 @@ public:
 	virtual int damage(const Weapon &w, int mod = 0);
 
 protected:
+	uint64_t m_id;
 	string m_name = "";
 	unsigned long m_hp = 100;
 	Defense m_defense;

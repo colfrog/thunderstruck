@@ -27,6 +27,9 @@ Jeu::~Jeu() {
 }
 
 void Jeu::step() {
+	m_spawned.clear();
+	m_dead.clear();
+
 	if (!m_running)
 		return;
 
@@ -59,6 +62,14 @@ void Jeu::show() const {
 		elem->show();
 }
 
+void Jeu::declare_spawned(const Personnage *perso) {
+	m_spawned.push_back(perso);
+}
+
+void Jeu::declare_dead(const Personnage *perso) {
+	m_dead.push_back(perso);
+}
+
 int Jeu::niveau_actuel() const {
 	return m_niveau.niveau();
 }
@@ -84,6 +95,10 @@ Lane &Jeu::lane(Direction dir) {
 		default:
 			return m_up_lane;
 	}
+}
+
+uint64_t Jeu::new_character_id() {
+	return m_current_character_id++;
 }
 
 void Jeu::set_niveau(int niveau) {
