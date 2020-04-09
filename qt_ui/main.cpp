@@ -1,13 +1,11 @@
 #include <QApplication>
-#include <QMainWindow>
+#include "MainWindow.h"
 
 int main(int argc, char **argv) {
 	QApplication app(argc, argv);
-	QMainWindow win;
+	Jeu jeu("John Doe");
+	MainWindow win(&jeu);
 
-	win.setWindowTitle("Thunderstruck");
-	win.setMinimumSize(500, 500);
-	win.setFixedSize(700, 800);
 	win.show();
 	return app.exec();
 }
