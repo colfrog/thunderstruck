@@ -30,7 +30,7 @@ std::string Coord::to_string() const {
 int Coord::distance(const Coord &other) const {
 	int x = m_x - other.m_x;
 	int y = m_y - other.m_y;
-	return std::sqrt(x*x + y*y);
+	return (int) std::sqrt(x*x + y*y);
 }
 
 bool Coord::operator==(const Coord &other) const {

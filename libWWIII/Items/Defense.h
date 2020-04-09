@@ -8,7 +8,7 @@ public:
 	Defense();
 	~Defense();
 	
-	float get_evasion() const;
+	int get_evasion() const;
 	int  get_armure() const;
 
 	void set_evasion(int evasion);
@@ -16,6 +16,6 @@ public:
 
 	void afficher();
 private:
-	float m_evasion;
+	int m_evasion;
 	int m_armure;
 };
