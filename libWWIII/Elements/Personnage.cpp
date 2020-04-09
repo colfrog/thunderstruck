@@ -32,43 +32,43 @@ int Personnage::attack(Element &elem, int mod) {
 	return elem.damage(m_weapon, mod);
 }
 
-uint64_t Personnage::get_id() {
+uint64_t Personnage::get_id() const {
 	return m_id;
 }
 
-string Personnage::get_name() {
+string Personnage::get_name() const {
 	return m_name;
 }
 void Personnage::set_name(string n) {
 	m_name = n;
 }
 
-unsigned long Personnage::get_hp() {
+unsigned long Personnage::get_hp() const {
 	return m_hp;
 }
 void Personnage::set_hp(unsigned long hp) {
 	m_hp = hp;
 }
 
-Defense Personnage::get_defense() {
+Defense Personnage::get_defense() const {
 	return m_defense;
 }
 void Personnage::set_defense(Defense def) {
 	m_defense = def;
 }
 
-Weapon Personnage::get_weapon() {
+Weapon Personnage::get_weapon() const {
 	return m_weapon;
 }
 void Personnage::set_weapon(Weapon w) {
 	m_weapon = w;
 }
 
-bool Personnage::is_dead() {
+bool Personnage::is_dead() const {
 	return m_hp == 0;
 }
 
-Direction Personnage::direction() {
+Direction Personnage::direction() const {
 	return m_dir;
 }
 

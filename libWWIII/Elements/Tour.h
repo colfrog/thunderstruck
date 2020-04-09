@@ -9,14 +9,14 @@ using namespace std;
 
 class Tour : public Element {
 public:
-	Tour(Jeu *jeu, std::string player_name = "");
+	Tour(Jeu *jeu);
 	~Tour();
 
-	Player player();
-	unsigned int hp();
+	Player &player();
+	unsigned int hp() const;
 
 	void set_hp(unsigned int hp);
-	void set_player(Player player);
+	void set_player(Player *player);
 
 	virtual void step();
 	virtual void show() const;
@@ -26,5 +26,5 @@ public:
 
 private:
 	unsigned int m_hp = 10;
-	Player m_player;
+	Player *m_player;
 };
