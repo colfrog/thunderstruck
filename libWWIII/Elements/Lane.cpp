@@ -12,14 +12,17 @@ int Lane::damage(const Weapon &w, int mod) {
 	if (m_enemies.empty())
 		return 0;
 
-	int dmg = m_enemies.front().damage(w, mod);
+	int damage = m_enemies.front().damage(w, mod);
 	if (m_enemies.front().get_hp() == 0)
 		remove_front_enemy();
 
-	return dmg;
+	return damage;
 }
 
 int Lane::attack(Element &elem, int mod) {
+	if (m_enemies.empty())
+		return 0;
+
 	int damage = m_enemies.front().attack(elem);
 	remove_front_enemy();
 	return damage;
