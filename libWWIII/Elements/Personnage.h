@@ -10,23 +10,23 @@ public:
 	Personnage(Jeu *jeu, string n);
 	~Personnage();
 
-	uint64_t get_id();
+	uint64_t get_id() const;
 
-	string get_name();
+	string get_name() const;
 	void set_name(string n);
 
-	unsigned long get_hp();
+	unsigned long get_hp() const;
 	void set_hp(unsigned long hp);
 
-	Defense get_defense();
+	Defense get_defense() const;
 	void set_defense(Defense def);
 
-	Weapon get_weapon();
+	Weapon get_weapon() const;
 	void set_weapon(Weapon w);
 
-	bool is_dead();
+	bool is_dead() const;
 
-	Direction direction();
+	Direction direction() const;
 	void set_direction(Direction dir);
 	void turn_left();
 	void turn_right();
