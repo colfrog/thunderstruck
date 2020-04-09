@@ -7,7 +7,7 @@
 class GameLabel : public GameObject, public QLabel {
 public:
 	GameLabel(Jeu *j) : GameObject(j) { gameUpdate(); }
-	~GameLabel();
+	~GameLabel() {}
 
 private:
 	QString m_text;

@@ -7,6 +7,8 @@
 
 #include "GameLabel.h"
 #include "GameButton.h"
+#include "TowerLabel.h"
+#include "LevelLabel.h"
 class GameWidget : public QWidget
 {
 	Q_OBJECT
@@ -26,10 +28,10 @@ private:
 	GameButton *ButtonBot;
 	GameButton *ButtonWait;
 
-//	LevelLabel *labelLevel;
-//	TowerLabel *labelTower;
-	QLabel *labelLevel;
-	QLabel *labelTower;
+	LevelLabel *labelLevel;
+	TowerLabel *labelTower;
+	//QLabel *labelLevel;
+	//QLabel *labelTower;
 
 	Jeu *jeu;
 };
