@@ -3,12 +3,12 @@
 
 
 
-AttackButton::AttackButton(Jeu* j, QString s, Direction d):GameButton(Jeu* j, QString s)
+AttackButton::AttackButton(Jeu* j, QString s, Direction d) : GameButton(j, s)
 {
 	dir = d;
-}
+} 
 
 void AttackButton::gameUpdate()
 {
-	cout<<(*j).attack(dir)<<endl;
+	cout<<jeu->attack(dir)<<endl;
 }
