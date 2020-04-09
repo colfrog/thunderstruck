@@ -8,12 +8,21 @@ Jeu::Jeu(std::string player_name, int niveau_depart, int niveau_max, int f) :
 	m_niveau_max(niveau_max),
 	m_frequence_jeu(f),
 	m_niveau(Niveau(m_niveau_depart, m_niveau_max)),
-	m_tour(Tour(this, player_name)),
+	m_tour(Tour(this)),
 	m_left_lane(Lane(this, Direction::LEFT)),
 	m_right_lane(Lane(this, Direction::RIGHT)),
 	m_up_lane(Lane(this, Direction::UP)),
 	m_down_lane(Lane(this, Direction::DOWN))
 {
+	Player *player = new Player(this, player_name);
+	Weapon w;
+	w.set_attack(100);
+	Defense d;
+	d.set_armure(1);
+	player->set_weapon(w);
+	player->set_defense(d);
+
+	m_tour.set_player(player);
 	m_elems.push_back(&m_tour);
 	m_elems.push_back(&m_up_lane);
 	m_elems.push_back(&m_down_lane);
