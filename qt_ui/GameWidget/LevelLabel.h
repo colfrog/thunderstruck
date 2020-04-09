@@ -6,7 +6,7 @@
 
 class LevelLabel : public GameLabel {
 public:
-	LevelLabel(Jeu* j) : GameLabel(j) {}
+	LevelLabel(Jeu* j) : GameLabel(j) { gameUpdate();  }
 	~LevelLabel() {}
 
 	virtual void gameUpdate();
