@@ -11,10 +11,7 @@ public:
 	~GameButton() {}
 
 public slots:
-	virtual void gameUpdate() {}
-
-signals:
-	virtual void gameUpdated();
+	virtual void gameUpdate();
 
 private
 	Direction dir;

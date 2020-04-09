@@ -7,7 +7,8 @@ AttackButton::AttackButton(Jeu* j, QString s, Direction dir):GameButton(Jeu* j, 
 {
 	(*this).dir = dir;
 }
-void AttackButton::gameUpdated()
+
+void AttackButton::gameUpdate()
 {
 	(*j).attack(dir);
 }
