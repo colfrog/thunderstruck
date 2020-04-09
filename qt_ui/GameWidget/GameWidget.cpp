@@ -7,7 +7,6 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxLabel = new QHBoxLayout;
 	HBoxButton = new QHBoxLayout;
 
-	// TODO: Remplacer par CharacterTable lorsque finie
 	Table = new CharacterTable(j);
 
 	ButtonLeft = new GameButton(jeu, "left");

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QTableWidget>
+#include <QString>
 #include <list>
 #include "GameObject.h"
 
@@ -15,4 +16,5 @@ public slots:
 protected:
 	list<Personnage *> m_list_alive;
 	list<Personnage *> m_list_dead;
+	Coord m_player_coord;
 };

@@ -4,35 +4,28 @@ CharacterTable::CharacterTable(Jeu *jeu) : QTableWidget(), GameObject(jeu){
 	insertRow(1);
 	insertColumn(6);
 
-	QLable *title = new QLabel();
+	setHorizontalHeaderItem(0, &QTableWidgetItem(QString("Nom")));
+	setHorizontalHeaderItem(1, &QTableWidgetItem(QString("Vie")));
+	setHorizontalHeaderItem(2, &QTableWidgetItem(QString("Attaque")));
+	setHorizontalHeaderItem(3, &QTableWidgetItem(QString("Defense")));
+	setHorizontalHeaderItem(4, &QTableWidgetItem(QString("Position")));
+	setHorizontalHeaderItem(5, &QTableWidgetItem(QString("Distance")));
 
-	title.setText("Nom");
-	setHorizontalHeaderLabels(0, title);
-	title.setText("Vie");
-	setHorizontalHeaderLabels(1, title);
-	title.setText("Attaque");
-	setHorizontalHeaderLabels(2, title);
-	title.setText("Defense");
-	setHorizontalHeaderLabels(3, title);
-	title.setText("Position");
-	setHorizontalHeaderLabels(4, title);
-	title.setText("Distance");
-	setHorizontalHeaderLabels(5, title);
+	setVerticalHeaderItem(0, &QTableWidgetItem(QString("Joueur")));
 
-	title.setText("Joueur");
-	m_table_potion->setVerticalHeaderLabels(0, title);
+	m_list_alive.push_front(&jeu->tour().player());
+	m_player_coord = m_list_alive.front()->position();
 
-	m_list_alive.push_front(jeu->tour().player());
+	setItem(0, 0, &QTableWidgetItem(QString::fromStdString(m_list_alive.front()->get_name())));
+	setItem(0, 1, &QTableWidgetItem(QString::number(m_list_alive.front()->get_hp())));
+	setItem(0, 2, &QTableWidgetItem(QString::number(m_list_alive.front()->get_weapon().get_attack())));
+	setItem(0, 3, &QTableWidgetItem(QString::number(m_list_alive.front()->get_defense().get_armure())));
+	setItem(0, 4, &QTableWidgetItem(QString("Tour")));
+	setItem(0, 5, &QTableWidgetItem(QString("0")));
 
-	setItem(0, 0, *QTableWidgetItem(QString::fromStdString(m_list_alive.front().get_name())));
-	setItem(0, 1, *QTableWidgetItem(QString::fromStdString(m_list_alive.front().get_hp())));
-	setItem(0, 2, *QTableWidgetItem(QString::fromStdString(m_list_alive.front().get_weapon().get_attack())));
-	setItem(0, 3, *QTableWidgetItem(QString::fromStdString(m_list_alive.front().get_defense().get_armure())));
-	setItem(0, 4, *QTableWidgetItem(QString::fromStdString("Tour")));
-	setItem(0, 5, *QTableWidgetItem(QString::fromStdString("0")));
+	
 }
 CharacterTable::~CharacterTable() {
-	delete m_table;
 	m_list_alive.clear();
 	m_list_dead.clear();
 }
@@ -46,27 +39,40 @@ void CharacterTable::gameUpdate(Jeu jeu) {
 		m_list_dead.push_back(p);
 	}
 	
-	setRowCount(m_list_alive.size());
-	
+	setRowCount((int)m_list_alive.size());
+
+	int index = 0;
 	for (Personnage *p : m_list_alive) {
-		setItem(index, 0, *QTableWidgetItem(QString::fromStdString(p->get_name())));
-		setItem(index, 1, *QTableWidgetItem(QString::fromStdString(p->get_hp())));
-		setItem(index, 2, *QTableWidgetItem(QString::fromStdString(p->get_weapon().get_attack())));
-		setItem(index, 3, *QTableWidgetItem(QString::fromStdString(p->get_defense().get_armure())));
+		setItem(index, 0, &QTableWidgetItem(QString::fromStdString(p->get_name())));
+		setItem(index, 1, &QTableWidgetItem(QString::number(p->get_hp())));
+		setItem(index, 2, &QTableWidgetItem(QString::number(p->get_weapon().get_attack())));
+		setItem(index, 3, &QTableWidgetItem(QString::number(p->get_defense().get_armure())));
 		
 		if (index == 0 && !jeu.tour().player().is_dead()) {
-			title.setText("Joueur");
-			m_table_potion->setVerticalHeaderLabels(index, title);
+			setVerticalHeaderItem(index, &QTableWidgetItem(QString("Joueur")));
 
-			setItem(index, 4, *QTableWidgetItem(QString::fromStdString("Tour")));
-			setItem(index, 5, *QTableWidgetItem(QString::fromStdString("0")));
+			setItem(index, 4, &QTableWidgetItem(QString("Tour")));
+			setItem(index, 5, &QTableWidgetItem(QString("0")));
 		}
 		else {
-			title.setText("Ennemi");
-			m_table_potion->setVerticalHeaderLabels(index, title);
+			setVerticalHeaderItem(index, &QTableWidgetItem(QString("Ennemi")));
 
-			setItem(index, 4, *QTableWidgetItem(QString::fromStdString(p->direction()));
-			setItem(index, 5, *QTableWidgetItem(QString::fromStdString(p->position().distance();)));
+			if (p->direction() == Direction::UP) {
+				setItem(index, 4, &QTableWidgetItem(QString("North")));
+			}
+			else if (p->direction() == Direction::DOWN) {
+				setItem(index, 4, &QTableWidgetItem(QString("South")));
+			}
+			else if (p->direction() == Direction::LEFT) {
+				setItem(index, 4, &QTableWidgetItem(QString("West")));
+			}
+			else if(p->direction() == Direction::RIGHT) {
+				setItem(index, 4, &QTableWidgetItem(QString("East")));
+			}
+			setItem(index, 5, &QTableWidgetItem(QString::number(p->position().distance(m_player_coord))));
 		}
+
+		index++;
 	}
+	sortItems(5, Qt::AscendingOrder);
 }
