@@ -16,6 +16,6 @@ public:
 
 	void afficher();
 private:
-	int m_evasion;
+	float m_evasion;
 	int m_armure;
 };

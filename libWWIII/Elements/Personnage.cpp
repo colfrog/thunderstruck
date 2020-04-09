@@ -11,7 +11,7 @@ Personnage::Personnage(Jeu *jeu, string n) :
 Personnage::~Personnage() {}
 
 int Personnage::damage(const Weapon &w, int mod) {
-	int damage = w.get_attack() + mod;
+	unsigned int damage = w.get_attack() + mod;
 	int armor = m_defense.get_armure();
 	unsigned int hp_initial = m_hp;
 

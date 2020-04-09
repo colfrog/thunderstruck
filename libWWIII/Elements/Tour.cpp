@@ -4,7 +4,7 @@ Tour::Tour(Jeu *jeu) : Element(jeu) {}
 Tour::~Tour() {}
 
 int Tour::damage(const Weapon &w, int mod) {
-	int damage = w.get_attack() + mod;
+	unsigned int damage = w.get_attack() + mod;
 	if (m_hp > damage) {
 		/* On attaque la tour */
 		m_hp -= damage;	

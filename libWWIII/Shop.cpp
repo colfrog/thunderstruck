@@ -30,7 +30,7 @@ Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 						id[i] = id_char[i] - 48;
 					}
 				}
-				actual_potion.set_id(POTION * pow(10,2) + id[0]*pow(10,1) + id[1]) ;
+				actual_potion.set_id((int)(POTION * pow(10,2) + id[0]*pow(10,1) + id[1])) ;
 				// attribut1 est l'attribut pour la vie donnee par la potion
 				file >> buy >> sell >> name >> attribut1; 
 
@@ -50,7 +50,7 @@ Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 						id[i] = id_char[i] - 48;
 					}
 				}
-				actual_weapon.set_id(WEAPON * pow(10, 2) + id[0] * pow(10, 1) + id[1]);
+				actual_weapon.set_id((int)(WEAPON * pow(10, 2) + id[0] * pow(10, 1) + id[1]));
 				// attribut1 est l'attribut pour les degats d'attaque de l'arme
 				// attribut2 est l'attribut pour la frequence d'attaque de l'arme
 				//	upgrade1 est la variable pour l'upgrade de l'attack
@@ -75,7 +75,7 @@ Shop::Shop(Jeu *jeu) : m_jeu(jeu), m_seller(jeu, "Melania Trump") {
 						id[i] = id_char[i] - 48;
 					}
 				}
-				actual_defense.set_id(DEFENSE * pow(10, 2) + id[0] * pow(10, 1) + id[1]);
+				actual_defense.set_id((int)(DEFENSE * pow(10, 2) + id[0] * pow(10, 1) + id[1]));
 				// attribut1 est l'attribut pour l'armure de la defense actuel
 				// attribut2 est l'attribut pour l'evasion de la defense actuel
 				file >> buy >> sell >> name >> attribut1 >> attribut2;
@@ -291,7 +291,7 @@ int Shop::find_potion(int id) {
 	for (unsigned int i = 0; i < m_list_potion.size(); i++) {
 		if (m_list_potion.at(i).get_id() == id) {
 			index = i;
-			i = m_list_potion.size();
+			i = (unsigned int) m_list_potion.size();
 		}
 	}
 
@@ -303,7 +303,7 @@ int Shop::find_weapon(int id) {
 	for (unsigned int i = 0; i < m_list_weapon.size(); i++) {
 		if (m_list_weapon.at(i).get_id() == id) {
 			index = i;
-			i = m_list_weapon.size();
+			i = (unsigned int) m_list_weapon.size();
 		}
 	}
 
@@ -315,7 +315,7 @@ int Shop::find_defense(int id) {
 	for (unsigned int i = 0; i < m_list_defense.size(); i++) {
 		if (m_list_defense.at(i).get_id() == id) {
 			index = i;
-			i = m_list_defense.size();
+			i = (unsigned int) m_list_defense.size();
 		}
 	}
 	return index;
