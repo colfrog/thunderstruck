@@ -1,19 +1,18 @@
 #pragma once
 
-#include <string>
 
 #include "GameButton.h"
 #include "Direction.h"
 
 class AttackButton : public GameButton{
 public:
-	AttackButton(Jeu* j, QString s, Direction dir);
-	~GameButton() {}
+	AttackButton(Jeu* j, QString s, Direction d);
+	~AttackButton() {}
 
 public slots:
 	virtual void gameUpdate();
 
-private
+private:
 	Direction dir;
 
 };
