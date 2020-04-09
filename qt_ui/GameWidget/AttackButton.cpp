@@ -11,4 +11,5 @@ AttackButton::AttackButton(Jeu* j, QString s, Direction d) : GameButton(j, s)
 void AttackButton::gameUpdate()
 {
 	cout<<jeu->attack(dir)<<endl;
+	gameUpdated();
 }

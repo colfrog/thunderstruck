@@ -33,7 +33,14 @@ GameWidget::GameWidget(Jeu *j) :
 	VBox->addWidget(Table);
 	VBox->addLayout(HBoxButton);
 	VBox->addWidget(ButtonWait);
+	/*
+	QObject::connect(ButtonTop, SIGNAL(clicked()), ButtonTop, SLOT(gameUpdate()));
+	QObject::connect(ButtonBot, SIGNAL(clicked()), ButtonBot, SLOT(gameUpdate()));
+	QObject::connect(ButtonRight, SIGNAL(clicked()), ButtonRight, SLOT(gameUpdate()));
+	QObject::connect(ButtonLeft, SIGNAL(clicked()), ButtonLeft, SLOT(gameUpdate()));
 
+	QObject::connect(ButtonWait, SIGNAL(clicked()), ButtonWait, SLOT(gameUpdate())); */
+	
 	setLayout(VBox);
 }
 
