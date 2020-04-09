@@ -62,6 +62,14 @@ void Jeu::show() const {
 		elem->show();
 }
 
+void Jeu::declare_spawned(const Personnage *perso) {
+	m_spawned.push_back(perso);
+}
+
+void Jeu::declare_dead(const Personnage *perso) {
+	m_dead.push_back(perso);
+}
+
 int Jeu::niveau_actuel() const {
 	return m_niveau.niveau();
 }

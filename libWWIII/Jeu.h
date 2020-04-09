@@ -24,6 +24,9 @@ public:
 	bool running();
 	void show() const;
 
+	void declare_spawned(const Personnage *);
+	void declare_dead(const Personnage *);
+
 	const std::list<Personnage *> &newly_spawned() const;
 	const std::list<Personnage *> &newly_dead() const;
 	int niveau_actuel() const;
@@ -51,6 +54,6 @@ private:
 	Tour m_tour;
 	Lane m_left_lane, m_right_lane, m_up_lane, m_down_lane;
 	std::list<Element *> m_elems;
-	std::list<Personnage *> m_spawned;
-	std::list<Personnage *> m_dead;
+	std::list<const Personnage *> m_spawned;
+	std::list<const Personnage *> m_dead;
 };

@@ -6,6 +6,7 @@ Personnage::Personnage(Jeu *jeu, string n) :
 	m_name(n)
 {
 	m_id = m_jeu->new_character_id();
+	m_jeu->declare_spawned(this);
 }
 Personnage::~Personnage() {}
 
@@ -17,10 +18,12 @@ int Personnage::damage(const Weapon &w, int mod) {
 	if (armor >= damage)
 		return 0;
 
-	if (m_hp >= damage)
+	if (m_hp >= damage) {
 		m_hp -= w.get_attack() - armor + mod;
-	else
+	} else {
+		m_jeu->declare_dead(this);
 		m_hp = 0;
+	}
 
 	return hp_initial - m_hp;
 }

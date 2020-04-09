@@ -37,7 +37,7 @@ set(CMAKE_AUTOUIC ON)
 # Trouver les extensions pour une application Qt Widgets
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 # Trouver tous les fichiers .cpp et .h dans qt_ui/
-file(GLOB QT_UI_SOURCE_FILES "qt_ui/*.cpp" "qt_ui/*.h")
+file(GLOB_RECURSE QT_UI_SOURCE_FILES "qt_ui/*.cpp" "qt_ui/*.h")
 # Définition de l'exécutable à partir des fichiers sources
 add_executable(qt_ui ${QT_UI_SOURCE_FILES})
 # Lie l'interface Qt à libWWIII
@@ -45,8 +45,7 @@ target_link_libraries(qt_ui $<TARGET_FILE:WWIII>)
 # Déclare que l'interface dépend de libWWIII
 add_dependencies(qt_ui WWIII)
 ## Liste des librairies Qt utilisées pour l'interface
-#target_link_libraries(qt_ui Qt5::Widgets)
-qt5_use_modules(qt_ui Widgets)
+target_link_libraries(qt_ui Qt5::Widgets)
 
 # Créer un target test sous lequel tous les tests s'effectueront
 add_custom_target(tests DEPENDS WWIII)
