@@ -1,3 +1,4 @@
+#pragma once
 #include "TowerLabel.h"
 
 TowerLabel::TowerLabel(Jeu* j) {

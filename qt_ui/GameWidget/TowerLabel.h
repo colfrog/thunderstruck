@@ -6,7 +6,7 @@
 
 class TowerLabel : public GameLabel {
 public:
-	TowerLabel(Jeu* j);
+	TowerLabel(Jeu* j) : GameLabel(j) {}
 	~TowerLabel() {}
 
 	virtual void gameUpdate();

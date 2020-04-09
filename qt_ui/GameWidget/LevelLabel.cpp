@@ -1,4 +1,5 @@
-#include 'LevelLabel.h'
+#pragma once
+#include "LevelLabel.h"
 
 LevelLabel::LevelLabel(Jeu* j) {
 	jeu = j;
