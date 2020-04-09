@@ -39,20 +39,20 @@ CharacterTable::~CharacterTable() {
 
 void CharacterTable::gameUpdate() {}
 void CharacterTable::gameUpdate(Jeu jeu) {
-	for (list<Personnage *>::iterator it = jeu.newly_spawned().begin(); it != jeu.newly_spawned().end(); it++) {
-		m_list_alive.push_back(*it);
+	for (Personnage *p : m_list_alive) {
+		m_list_alive.push_back(p);
 	}
-	for (list<Personnage *>::iterator it = jeu.newly_dead().begin(); it != jeu.newly_dead().end(); it++) {
-		m_list_dead.push_back(*it);
+	for (Personnage *p : m_list_alive) {
+		m_list_dead.push_back(p);
 	}
 	
 	setRowCount(m_list_alive.size());
 	
-	for (list<Personnage *>::iterator it = m_list_alive.front().begin(); it != m_list_alive.end(); it++) {
-		setItem(index, 0, *QTableWidgetItem(QString::fromStdString(it->get_name())));
-		setItem(index, 1, *QTableWidgetItem(QString::fromStdString(it->get_hp())));
-		setItem(index, 2, *QTableWidgetItem(QString::fromStdString(it->get_weapon().get_attack())));
-		setItem(index, 3, *QTableWidgetItem(QString::fromStdString(it->get_defense().get_armure())));
+	for (Personnage *p : m_list_alive) {
+		setItem(index, 0, *QTableWidgetItem(QString::fromStdString(p->get_name())));
+		setItem(index, 1, *QTableWidgetItem(QString::fromStdString(p->get_hp())));
+		setItem(index, 2, *QTableWidgetItem(QString::fromStdString(p->get_weapon().get_attack())));
+		setItem(index, 3, *QTableWidgetItem(QString::fromStdString(p->get_defense().get_armure())));
 		
 		if (index == 0 && !jeu.tour().player().is_dead()) {
 			title.setText("Joueur");
@@ -65,8 +65,8 @@ void CharacterTable::gameUpdate(Jeu jeu) {
 			title.setText("Ennemi");
 			m_table_potion->setVerticalHeaderLabels(index, title);
 
-			setItem(index, 4, *QTableWidgetItem(QString::fromStdString(it->direction()));
-			setItem(index, 5, *QTableWidgetItem(QString::fromStdString(it->position().distance();)));
+			setItem(index, 4, *QTableWidgetItem(QString::fromStdString(p->direction()));
+			setItem(index, 5, *QTableWidgetItem(QString::fromStdString(p->position().distance();)));
 		}
 	}
 }
