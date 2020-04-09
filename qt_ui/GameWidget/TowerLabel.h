@@ -9,9 +9,8 @@ public:
 	TowerLabel(Jeu* j) : GameLabel(j) { gameUpdate(); }
 	~TowerLabel() {}
 
-	virtual void gameUpdate();
-
-private:
-	QString m_text;
-	Jeu *jeu;
+public slots:
+	virtual void gameUpdate() {
+		setText("HP: " + jeu->tour().hp());
+	}
 };
