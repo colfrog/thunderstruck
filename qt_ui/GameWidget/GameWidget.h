@@ -5,6 +5,7 @@
 #include <QHBoxLayout>
 #include <QTableWidget>
 
+#include "CharacterTable.h"
 #include "GameLabel.h"
 #include "GameButton.h"
 class GameWidget : public QWidget
@@ -18,7 +19,8 @@ private:
 	QHBoxLayout *HBoxLabel;
 	QHBoxLayout *HBoxButton;
 	// TODO: Remplacer par CharacterTable lorsque finie
-	QTableWidget *Table;
+	//QTableWidget *Table;
+	CharacterTable *Table;
 
 	GameButton *ButtonLeft;
 	GameButton *ButtonRight;

@@ -10,6 +10,7 @@ public:
 	~CharacterTable();
 
 public slots:
+	void gameUpdate();
 	void gameUpdate(Jeu jeu);
 protected:
 	list<Personnage *> m_list_alive;

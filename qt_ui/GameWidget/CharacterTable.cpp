@@ -37,6 +37,7 @@ CharacterTable::~CharacterTable() {
 	m_list_dead.clear();
 }
 
+void CharacterTable::gameUpdate() {}
 void CharacterTable::gameUpdate(Jeu jeu) {
 	for (list<Personnage *>::iterator it = jeu.newly_spawned().begin(); it != jeu.newly_spawned().end(); it++) {
 		m_list_alive.push_back(*it);
