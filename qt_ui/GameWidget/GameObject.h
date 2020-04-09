@@ -12,6 +12,6 @@ public slots:
 signals:
 	virtual void gameUpdated() {}
 
-private:
+protected:
 	Jeu* jeu;
 };
