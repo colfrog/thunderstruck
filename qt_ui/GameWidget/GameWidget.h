@@ -8,6 +8,8 @@
 #include "GameLabel.h"
 #include "GameButton.h"
 #include "AttackButton.h"
+#include "TowerLabel.h"
+#include "LevelLabel.h"
 class GameWidget : public QWidget
 {
 	Q_OBJECT
