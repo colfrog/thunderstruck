@@ -33,11 +33,11 @@ ShopTable::ShopTable(Jeu jeu*) {
 
 	index = 0;
 	for (Weapon w : jeu.tour().player().get_shop().get_list_weapon()) {
-		m_table->setItem(index, 0, new QTableWidgetItem(QString::number(p.get_id())));
-		m_table->setItem(index, 1, new QTableWidgetItem(QString::fromStdString()));
-		m_table->setItem(index, 2, new QTableWidgetItem(QString::number()));
-		m_table->setItem(index, 3, new QTableWidgetItem(QString::number()));
-		m_table->setItem(index, 4, new QTableWidgetItem(QString::number()));
+		m_table->setItem(index, 0, new QTableWidgetItem(QString::number(w.get_id())));
+		m_table->setItem(index, 1, new QTableWidgetItem(QString::fromStdString(w.get_name())));
+		m_table->setItem(index, 2, new QTableWidgetItem(QString::number(w.get_price_buy())));
+		m_table->setItem(index, 3, new QTableWidgetItem(QString::number(w.get_price_sell())));
+		m_table->setItem(index, 4, new QTableWidgetItem(QString::number(w.get_attack())));
 		index++;
 	}
 
@@ -54,11 +54,11 @@ ShopTable::ShopTable(Jeu jeu*) {
 
 	index = 0;
 	for (Defense d : jeu.tour().player().get_shop().get_list_defense()) {
-		m_table->setItem(index, 0, new QTableWidgetItem(QString::number(p.get_id())));
-		m_table->setItem(index, 1, new QTableWidgetItem(QString::fromStdString()));
-		m_table->setItem(index, 2, new QTableWidgetItem(QString::number()));
-		m_table->setItem(index, 3, new QTableWidgetItem(QString::number()));
-		m_table->setItem(index, 4, new QTableWidgetItem(QString::number()));
+		m_table->setItem(index, 0, new QTableWidgetItem(QString::number(d.get_id())));
+		m_table->setItem(index, 1, new QTableWidgetItem(QString::fromStdString(d.get_name())));
+		m_table->setItem(index, 2, new QTableWidgetItem(QString::number(d.get_price_buy())));
+		m_table->setItem(index, 3, new QTableWidgetItem(QString::number(d.get_price_sell())));
+		m_table->setItem(index, 4, new QTableWidgetItem(QString::number(d.get_armure())));
 		index++;
 	}
 }
