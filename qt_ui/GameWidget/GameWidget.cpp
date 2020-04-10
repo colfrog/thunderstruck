@@ -9,29 +9,28 @@ GameWidget::GameWidget(Jeu *j) :
 
 	Table = new CharacterTable(jeu);
 
-	ButtonLeft = new GameButton(jeu, "left");
-	ButtonRight = new GameButton(jeu, "Right");
-	ButtonTop = new GameButton(jeu, "Top");
-	ButtonBot = new GameButton(jeu, "Bottom");
+	ButtonLeft = new AttackButton(jeu, "Attaquer Ouest", Direction::LEFT);
+	ButtonRight = new AttackButton(jeu, "Attaquer Est", Direction::RIGHT);
+	ButtonTop = new AttackButton(jeu, "Attaquer Nord", Direction::UP);
+	ButtonBot = new AttackButton(jeu, "Attaquer Sud", Direction::DOWN);
 	ButtonWait = new GameButton(jeu, "Attendre");
 
-	// labelLevel = new LevelLabel(jeu);
-	// labelTower = new towerLabel(jeu);
-	labelLevel = new QLabel("niveau");
-	labelTower = new QLabel("tour");
+	labelLevel = new LevelLabel(jeu, "Niveau: ");
+	labelTower = new TowerLabel(jeu, "Vie de la Tour: ");
 
-	HBoxLabel->addWidget(labelLevel);
-	HBoxLabel->addWidget(labelTower, 0, Qt::AlignRight);
 
-	HBoxButton->addWidget(ButtonLeft);
-	HBoxButton->addWidget(ButtonTop);
-	HBoxButton->addWidget(ButtonBot);
-	HBoxButton->addWidget(ButtonRight);
+	HBoxLabel->addWidget(labelLevel->widget());
+	HBoxLabel->addWidget(labelTower->widget(), 0, Qt::AlignRight);
+
+	HBoxButton->addWidget(ButtonLeft->widget());
+	HBoxButton->addWidget(ButtonTop->widget());
+	HBoxButton->addWidget(ButtonBot->widget());
+	HBoxButton->addWidget(ButtonRight->widget());
 
 	VBox->addLayout(HBoxLabel);
 	VBox->addWidget(Table->widget());
 	VBox->addLayout(HBoxButton);
-	VBox->addWidget(ButtonWait);
+	VBox->addWidget(ButtonWait->widget());
 
 	setLayout(VBox);
 

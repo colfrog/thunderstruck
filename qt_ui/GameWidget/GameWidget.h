@@ -8,6 +8,9 @@
 #include "CharacterTable.h"
 #include "GameLabel.h"
 #include "GameButton.h"
+#include "AttackButton.h"
+#include "TowerLabel.h"
+#include "LevelLabel.h"
 class GameWidget : public QWidget
 {
 	Q_OBJECT
@@ -22,16 +25,14 @@ private:
 	//QTableWidget *Table;
 	CharacterTable *Table;
 
-	GameButton *ButtonLeft;
-	GameButton *ButtonRight;
-	GameButton *ButtonTop;
-	GameButton *ButtonBot;
+	AttackButton *ButtonLeft;
+	AttackButton *ButtonRight;
+	AttackButton *ButtonTop;
+	AttackButton *ButtonBot;
 	GameButton *ButtonWait;
 
-//	LevelLabel *labelLevel;
-//	TowerLabel *labelTower;
-	QLabel *labelLevel;
-	QLabel *labelTower;
+	GameLabel *labelLevel;
+	GameLabel *labelTower;
 
 	Jeu *jeu;
 };
