@@ -18,21 +18,21 @@ GameWidget::GameWidget(Jeu *j) :
 
 	// labelLevel = new LevelLabel(jeu);
 	// labelTower = new towerLabel(jeu);
-	labelLevel = new QLabel("niveau");
-	labelTower = new QLabel("tour");
+	labelLevel = new GameLabel(jeu, "niveau");
+	labelTower = new GameLabel(jeu, "tour");
 
-	HBoxLabel->addWidget(labelLevel);
-	HBoxLabel->addWidget(labelTower, 0, Qt::AlignRight);
+	HBoxLabel->addWidget(labelLevel->widget());
+	HBoxLabel->addWidget(labelTower->widget(), 0, Qt::AlignRight);
 
-	HBoxButton->addWidget(ButtonLeft);
-	HBoxButton->addWidget(ButtonTop);
-	HBoxButton->addWidget(ButtonBot);
-	HBoxButton->addWidget(ButtonRight);
+	HBoxButton->addWidget(ButtonLeft->widget());
+	HBoxButton->addWidget(ButtonTop->widget());
+	HBoxButton->addWidget(ButtonBot->widget());
+	HBoxButton->addWidget(ButtonRight->widget());
 
 	VBox->addLayout(HBoxLabel);
 	VBox->addWidget(Table);
 	VBox->addLayout(HBoxButton);
-	VBox->addWidget(ButtonWait);
+	VBox->addWidget(ButtonWait->widget());
 
 	setLayout(VBox);
 }

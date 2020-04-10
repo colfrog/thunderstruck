@@ -4,11 +4,20 @@
 
 #include "GameObject.h"
 
-class GameLabel : public GameObject, public QLabel {
+class GameLabel : public GameObject {
 public:
-	GameLabel(Jeu *j) : GameObject(j) { gameUpdate(); }
-	~GameLabel();
+	GameLabel(Jeu *j, QString s = "") : GameObject(j), label(s) {
+		gameUpdate();
+	}
+	virtual ~GameLabel() {}
+
+	virtual QWidget *widget() {
+		return &label;
+	}
+
+public slots:
+	virtual void gameUpdate() {}
 
 private:
-	QString m_text;
+	QLabel label;
 };
