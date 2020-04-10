@@ -10,10 +10,10 @@ GameWidget::GameWidget(Jeu *j) :
 	// TODO: Remplacer par CharacterTable lorsque finie
 	Table = new QTableWidget();
 
-	ButtonLeft = new GameButton(jeu, "left");
-	ButtonRight = new GameButton(jeu, "Right");
-	ButtonTop = new GameButton(jeu, "Top");
-	ButtonBot = new GameButton(jeu, "Bottom");
+	ButtonLeft = new AttackButton(jeu, "left", Direction::LEFT);
+	ButtonRight = new AttackButton(jeu, "Right", Direction::RIGHT);
+	ButtonTop = new AttackButton(jeu, "Top", Direction::UP);
+	ButtonBot = new AttackButton(jeu, "Bottom", Direction::DOWN);
 	ButtonWait = new GameButton(jeu, "Attendre");
 
 	// labelLevel = new LevelLabel(jeu);

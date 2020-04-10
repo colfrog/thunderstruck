@@ -6,11 +6,16 @@
 
 class AttackButton : public GameButton{
 public:
-	AttackButton(Jeu* j, QString s, Direction d);
+	AttackButton(Jeu* j, QString s, Direction d) : GameButton(j, s) {
+		dir = d;
+	}
 	~AttackButton() {}
 
 public slots:
-	virtual void gameUpdate();
+	virtual void gameUpdate() {
+		cout << jeu->attack(dir) << endl;
+		emit gameUpdated();
+	}
 
 private:
 	Direction dir;
