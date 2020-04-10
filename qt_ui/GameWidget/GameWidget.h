@@ -28,8 +28,10 @@ private:
 	GameButton *ButtonBot;
 	GameButton *ButtonWait;
 
-	LevelLabel *labelLevel;
-	TowerLabel *labelTower;
+//	LevelLabel *labelLevel;
+//	TowerLabel *labelTower;
+	GameLabel *labelLevel;
+	GameLabel *labelTower;
 
 	Jeu *jeu;
 };
