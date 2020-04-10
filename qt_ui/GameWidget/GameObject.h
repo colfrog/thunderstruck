@@ -1,9 +1,11 @@
 #pragma once
 #include "Jeu.h"
 //#include "GameWidget.h"
+#include <QObject>
 
 
-class GameObject {
+class GameObject : public QObject {
+	Q_OBJECT
 public:
 	GameObject(Jeu* j) : jeu(j) {}
 	virtual ~GameObject() {}
@@ -12,7 +14,7 @@ public slots:
 	virtual void gameUpdate() = 0;
 
 signals:
-	virtual void gameUpdated() {}
+	void gameUpdated();
 
 protected:
 	Jeu* jeu;

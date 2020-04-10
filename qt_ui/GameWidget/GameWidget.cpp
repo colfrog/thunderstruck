@@ -7,7 +7,7 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxLabel = new QHBoxLayout;
 	HBoxButton = new QHBoxLayout;
 
-	Table = new CharacterTable(j);
+	Table = new CharacterTable(jeu);
 
 	ButtonLeft = new GameButton(jeu, "left");
 	ButtonRight = new GameButton(jeu, "Right");
@@ -29,7 +29,7 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxButton->addWidget(ButtonRight);
 
 	VBox->addLayout(HBoxLabel);
-	VBox->addWidget(Table);
+	VBox->addWidget(Table->widget());
 	VBox->addLayout(HBoxButton);
 	VBox->addWidget(ButtonWait);
 
