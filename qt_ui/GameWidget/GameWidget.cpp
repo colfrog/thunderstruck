@@ -34,6 +34,8 @@ GameWidget::GameWidget(Jeu *j) :
 	VBox->addWidget(ButtonWait);
 
 	setLayout(VBox);
+
+	QObject::connect(ButtonWait, SIGNAL(gameUpdated()), Table, SLOT(gameUpdate()));
 }
 
 GameWidget::~GameWidget(){
