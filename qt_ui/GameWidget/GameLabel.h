@@ -18,6 +18,6 @@ public:
 public slots:
 	virtual void gameUpdate() {}
 
-private:
+protected:
 	QLabel label;
 };
