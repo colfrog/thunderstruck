@@ -4,13 +4,14 @@
 #include "Jeu.h"
 
 class GameAction : public GameObject {
+	Q_OBJECT
 public:
 	GameAction(Jeu* j) : GameObject(j) {}
-	~GameAction() {}
+	virtual ~GameAction() {}
 
 public slots:
 	virtual void gameUpdate() {
 		jeu->step();
-		gameUpdated();
+		emit gameUpdated();
 	};
 };

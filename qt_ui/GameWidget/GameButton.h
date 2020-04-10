@@ -1,15 +1,27 @@
 #pragma once
 
-#include <string>
+#include <iostream>
 #include <QPushButton>
 
 #include "GameObject.h"
 
-class GameButton : public GameObject, public QPushButton {
+class GameButton : public GameObject {
+	Q_OBJECT
 public:
-	GameButton(Jeu *j, QString s) : GameObject(j), QPushButton(s) {}
-	~GameButton() {}
+	GameButton(Jeu *j, QString s) : GameObject(j), button(s) {
+		QObject::connect(&button, SIGNAL(clicked()), this, SLOT(gameUpdate()));
+	}
+	virtual ~GameButton() {}
+
+	virtual QWidget *widget() {
+		return &button;
+	}
 
 public slots:
-	virtual void gameUpdate() {}
+	virtual void gameUpdate() {
+		emit gameUpdated();
+	}
+
+protected:
+	QPushButton button;
 };
