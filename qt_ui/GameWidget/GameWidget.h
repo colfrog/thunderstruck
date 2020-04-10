@@ -7,6 +7,7 @@
 
 #include "GameLabel.h"
 #include "GameButton.h"
+#include "AttackButton.h"
 class GameWidget : public QWidget
 {
 	Q_OBJECT
@@ -20,10 +21,10 @@ private:
 	// TODO: Remplacer par CharacterTable lorsque finie
 	QTableWidget *Table;
 
-	GameButton *ButtonLeft;
-	GameButton *ButtonRight;
-	GameButton *ButtonTop;
-	GameButton *ButtonBot;
+	AttackButton *ButtonLeft;
+	AttackButton *ButtonRight;
+	AttackButton *ButtonTop;
+	AttackButton *ButtonBot;
 	GameButton *ButtonWait;
 
 //	LevelLabel *labelLevel;
