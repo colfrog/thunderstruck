@@ -16,13 +16,11 @@ GameWidget::GameWidget(Jeu *j) :
 	ButtonBot = new GameButton(jeu, "Bottom");
 	ButtonWait = new GameButton(jeu, "Attendre");
 
-	labelLevel = new LevelLabel(jeu);
-	labelTower = new TowerLabel(jeu);
-	//labelLevel = new QLabel("niveau");
-	//labelTower = new QLabel("tour");
+	labelLevel = new LevelLabel(jeu, "Niveau: ");
+	labelTower = new TowerLabel(jeu, "HP: ");
 
 	HBoxLabel->addWidget(labelLevel);
-	HBoxLabel->addWidget(labelTower, 0, Qt::AlignRight);
+	HBoxLabel->addWidget(labelTower, 1, Qt::AlignRight);
 
 	HBoxButton->addWidget(ButtonLeft);
 	HBoxButton->addWidget(ButtonTop);

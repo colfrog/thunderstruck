@@ -30,8 +30,6 @@ private:
 
 	LevelLabel *labelLevel;
 	TowerLabel *labelTower;
-	//QLabel *labelLevel;
-	//QLabel *labelTower;
 
 	Jeu *jeu;
 };
