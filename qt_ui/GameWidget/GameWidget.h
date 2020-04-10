@@ -29,8 +29,6 @@ private:
 	AttackButton *ButtonBot;
 	GameButton *ButtonWait;
 
-//	LevelLabel *labelLevel;
-//	TowerLabel *labelTower;
 	GameLabel *labelLevel;
 	GameLabel *labelTower;
 

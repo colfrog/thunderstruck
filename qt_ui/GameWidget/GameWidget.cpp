@@ -10,14 +10,14 @@ GameWidget::GameWidget(Jeu *j) :
 	// TODO: Remplacer par CharacterTable lorsque finie
 	Table = new QTableWidget();
 
-	ButtonLeft = new AttackButton(jeu, "left", Direction::LEFT);
-	ButtonRight = new AttackButton(jeu, "Right", Direction::RIGHT);
-	ButtonTop = new AttackButton(jeu, "Top", Direction::UP);
-	ButtonBot = new AttackButton(jeu, "Bottom", Direction::DOWN);
+	ButtonLeft = new AttackButton(jeu, "Attaquer Ouest", Direction::LEFT);
+	ButtonRight = new AttackButton(jeu, "Attaquer Est", Direction::RIGHT);
+	ButtonTop = new AttackButton(jeu, "Attaquer Nord", Direction::UP);
+	ButtonBot = new AttackButton(jeu, "Attaquer Sud", Direction::DOWN);
 	ButtonWait = new GameButton(jeu, "Attendre");
 
 	labelLevel = new LevelLabel(jeu, "Niveau: ");
-	labelTower = new TowerLabel(jeu, "HP: ");
+	labelTower = new TowerLabel(jeu, "Vie de la Tour: ");
 
 
 	HBoxLabel->addWidget(labelLevel->widget());

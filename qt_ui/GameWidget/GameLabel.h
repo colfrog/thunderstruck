@@ -6,7 +6,7 @@
 
 class GameLabel : public GameObject {
 public:
-	GameLabel(Jeu *j, QString s = "") : GameObject(j), label(s) {
+	GameLabel(Jeu *j, QString s = "") : GameObject(j), label(s), text(s) {
 		gameUpdate();
 	}
 	virtual ~GameLabel() {}
@@ -20,4 +20,5 @@ public slots:
 
 protected:
 	QLabel label;
+	QString text;
 };

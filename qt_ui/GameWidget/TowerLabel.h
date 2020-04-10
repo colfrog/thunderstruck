@@ -6,11 +6,11 @@
 
 class TowerLabel : public GameLabel {
 public:
-	TowerLabel(Jeu* j, QString s) : GameLabel(j, s) { gameUpdate(s); }
+	TowerLabel(Jeu* j, QString s) : GameLabel(j, s) { gameUpdate(); }
 	~TowerLabel() {}
 
 public slots:
-	virtual void gameUpdate(QString s) {
-		label.setText(s + QString::number(jeu->tour().player().get_hp()));
+	virtual void gameUpdate() {
+		label.setText(text + QString::number(jeu->tour().player().get_hp()));
 	}
 };

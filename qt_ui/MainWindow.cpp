@@ -7,6 +7,7 @@ MainWindow::MainWindow(Jeu *j, QWidget *parent)
 	gameWidget = new GameWidget(jeu);
 
 	setWindowTitle("TowerDefense");
+	setWindowIcon(QIcon(":icon.png"));
 	setCentralWidget(gameWidget);
 
 	setMinimumSize(500, 500);

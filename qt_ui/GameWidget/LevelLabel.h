@@ -6,11 +6,11 @@
 
 class LevelLabel : public GameLabel {
 public:
-	LevelLabel(Jeu* j, QString s) : GameLabel(j, s) { gameUpdate(s); }
+	LevelLabel(Jeu* j, QString s) : GameLabel(j, s) { gameUpdate(); }
 	~LevelLabel() {}
 
 public slots:
-	virtual void gameUpdate(QString s) {
-		label.setText(s + QString::number(jeu->niveau_actuel()));
+	virtual void gameUpdate() {
+		label.setText(text + QString::number(jeu->niveau_actuel()));
 	}
 };
