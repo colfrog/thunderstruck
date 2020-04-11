@@ -18,8 +18,8 @@ void Player::set_argent(int arg) {
 	m_argent = arg;
 }
 
-Shop Player::get_shop() {
-	return m_shop;
+Shop *Player::get_shop() {
+	return &m_shop;
 }
 void Player::set_shop(Shop s) {
 	m_shop = s;
