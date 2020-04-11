@@ -34,7 +34,7 @@ QWidget *CharacterTable::widget() {
 }
 
 void CharacterTable::gameUpdate() {
-	for (Personnage *p : jeu->newly_spawned()) {
+	/*for (Personnage *p : jeu->newly_spawned()) {
 		m_list_alive.push_back(p);
 		m_table->setRowCount(m_table->rowCount() + 1);
 
@@ -126,5 +126,5 @@ void CharacterTable::gameUpdate() {
 		index++;
 	}*/
 
-	m_table->sortItems(5, Qt::AscendingOrder);
+	//m_table->sortItems(5, Qt::AscendingOrder);
 }
