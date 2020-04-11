@@ -7,7 +7,7 @@
 class ShopTable : public QObject{
 	Q_OBJECT
 public:
-	ShopTable(Jeu jeu*);
+	ShopTable(Jeu *jeu);
 	~ShopTable();
 
 	QWidget *widgetPotion();

@@ -15,6 +15,7 @@
 #include <QTableWidget>
 
 #include "Jeu.h"
+#include "ShopTable.h"
 
 class ShopWidget : public QWidget
 {
@@ -32,9 +33,9 @@ private:
 	QLabel *enterIDLabel;
 	QLabel *playerMoneyLabel;
 
-	QTextBrowser *potionsBrowser;
-	QTextBrowser *weaponsBrowser;
-	QTextBrowser *armorsBrowser;
+	QTableWidget *potionsTable;
+	QTableWidget *weaponsTable;
+	QTableWidget *armorsTable;
 
 	QTextEdit *itemIDTextEdit;
 

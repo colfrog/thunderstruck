@@ -3,6 +3,7 @@
 ShopWidget::ShopWidget(Jeu *j) :
 	jeu(j)
 {
+	ShopTable *shopTable = new ShopTable(jeu);
 	gridLayout = new QGridLayout;
 
 	shopLabel = new QLabel("Magasin");
@@ -12,10 +13,9 @@ ShopWidget::ShopWidget(Jeu *j) :
 	enterIDLabel = new QLabel("Entrer l'ID de l'item");
 	playerMoneyLabel = new QLabel("Argent: 100");
 
-	potionsBrowser = new QTextBrowser();
-	weaponsBrowser = new QTextBrowser();
-	armorsBrowser = new QTextBrowser();
-	potionsBrowser = new QTextBrowser();
+	potionsBrowser = shopTable->widgetPotion();
+	weaponsBrowser = shopTable->widgetWeapon();
+	armorsBrowser = shopTable->widgetDefense();
 
 	itemIDTextEdit = new QTextEdit();
 
