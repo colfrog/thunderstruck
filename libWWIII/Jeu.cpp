@@ -69,7 +69,7 @@ void Jeu::declare_spawned(const Personnage *perso) {
 	m_spawned.push_back(perso);
 }
 
-const std::list<const Personnage *> &Jeu::newly_spawned() const {
+std::list<const Personnage *> &Jeu::newly_spawned() {
 	return m_spawned;
 }
 

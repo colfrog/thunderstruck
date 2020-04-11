@@ -135,6 +135,8 @@ void CharacterTable::gameUpdate() {
 
 	for (const Personnage *p : jeu->newly_spawned())
 		addCharacter(p);
+	// Clear so that we can call gameUpdate multiple times per step
+	jeu->newly_spawned().clear();
 
 	for (const Personnage *p : m_alive)
 		updateCharacter(p);
