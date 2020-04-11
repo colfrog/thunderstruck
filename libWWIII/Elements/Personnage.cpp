@@ -18,7 +18,7 @@ int Personnage::damage(const Weapon &w, int mod) {
 	if (armor >= damage)
 		return 0;
 
-	if (m_hp >= damage) {
+	if ((signed) m_hp >= damage) {
 		m_hp -= w.get_attack() - armor + mod;
 	} else {
 		m_jeu->declare_dead(this);

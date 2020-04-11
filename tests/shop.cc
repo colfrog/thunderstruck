@@ -13,9 +13,9 @@ int main() {
 	Potion potion, potion_vide;
 	Weapon arme, arme_vide;
 	Defense defense, defense_vide;/**/
-	int potion_id = POTION * pow(10, 2) + 01, nb_list_potion;
-	int arme_id = WEAPON * pow(10, 2) + 04, nb_list_arme;
-	int defense_id = DEFENSE * pow(10, 2) + 06, nb_list_defense;/**/
+	int potion_id = (int) (POTION * pow(10, 2) + 01);
+	int arme_id = (int) (WEAPON * pow(10, 2) + 04);
+	int defense_id = (int) (DEFENSE * pow(10, 2) + 06);/**/
 
 	//Test les items initialisé
 		cout << "Test des items vide" << endl;

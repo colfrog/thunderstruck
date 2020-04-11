@@ -3,6 +3,7 @@
 ShopWidget::ShopWidget(Jeu *j) :
 	jeu(j)
 {
+	ShopTable *shopTable = new ShopTable(j);
 	gridLayout = new QGridLayout;
 
 	shopLabel = new QLabel("Magasin");
@@ -12,23 +13,24 @@ ShopWidget::ShopWidget(Jeu *j) :
 	enterIDLabel = new QLabel("Entrer l'ID de l'item");
 	playerMoneyLabel = new QLabel("Argent: 100");
 
-	potionsBrowser = new QTextBrowser();
-	weaponsBrowser = new QTextBrowser();
-	armorsBrowser = new QTextBrowser();
-	potionsBrowser = new QTextBrowser();
+	potionsTable = shopTable->widgetPotion();
+	weaponsTable = shopTable->widgetWeapon();
+	armorsTable = shopTable->widgetDefense();
 
-	itemIDTextEdit = new QTextEdit();
+	itemIDTextEdit = new QLineEdit();
 
 	buyButton = new QPushButton("Acheter");
 	sellButton = new QPushButton("Vendre");
 
+	itemIDTextEdit->setValidator(new QIntValidator(0, 999, this));
+
 	gridLayout->addWidget(shopLabel, 0, 0, 1, 2, Qt::AlignCenter);
 	gridLayout->addWidget(potionsLabel, 1, 0, Qt::AlignLeft);
-	gridLayout->addWidget(potionsBrowser, 2, 0, 1, 2);
+	gridLayout->addWidget(potionsTable, 2, 0, 1, 2);
 	gridLayout->addWidget(weaponsLabel, 3, 0, 1, 2, Qt::AlignLeft);
-	gridLayout->addWidget(weaponsBrowser, 4, 0, 1, 2);
+	gridLayout->addWidget(weaponsTable, 4, 0, 1, 2);
 	gridLayout->addWidget(armorsLabel, 5, 0, 1, 2, Qt::AlignLeft);
-	gridLayout->addWidget(armorsBrowser, 6, 0, 1, 2);
+	gridLayout->addWidget(armorsTable, 6, 0, 1, 2);
 	gridLayout->addWidget(enterIDLabel, 7, 0, 1, 2, Qt::AlignCenter);
 	gridLayout->addWidget(itemIDTextEdit, 8, 0, 1, 2);
 	gridLayout->addWidget(buyButton, 9, 0,1,1);
@@ -44,5 +46,3 @@ ShopWidget::ShopWidget(Jeu *j) :
 ShopWidget::~ShopWidget() {
 
 }
-
-

@@ -81,7 +81,7 @@ int Lane::get_lane_id() {
 	return m_lane_id;
 }
 int Lane::get_enemy_count() {
-	return m_enemies.size();
+	return (int) m_enemies.size();
 }
 
 Enemy Lane::make_enemy(string name, int drop) {

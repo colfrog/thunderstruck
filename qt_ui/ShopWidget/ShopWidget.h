@@ -3,11 +3,9 @@
 
 #include <QLabel>
 #include <QWidget>
-#include <QTextEdit>
+#include <QLineEdit>
 #include <QGridLayout>
 #include <QPushButton>
-#include <QTextBrowser>
-
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -15,6 +13,7 @@
 #include <QTableWidget>
 
 #include "Jeu.h"
+#include "ShopTable.h"
 
 class ShopWidget : public QWidget
 {
@@ -32,11 +31,11 @@ private:
 	QLabel *enterIDLabel;
 	QLabel *playerMoneyLabel;
 
-	QTextBrowser *potionsBrowser;
-	QTextBrowser *weaponsBrowser;
-	QTextBrowser *armorsBrowser;
+	QTableWidget *potionsTable;
+	QTableWidget *weaponsTable;
+	QTableWidget *armorsTable;
 
-	QTextEdit *itemIDTextEdit;
+	QLineEdit *itemIDTextEdit;
 
 	QPushButton *buyButton;
 	QPushButton *sellButton;

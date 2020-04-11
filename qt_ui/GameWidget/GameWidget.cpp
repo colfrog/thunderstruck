@@ -7,8 +7,7 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxLabel = new QHBoxLayout;
 	HBoxButton = new QHBoxLayout;
 
-	// TODO: Remplacer par CharacterTable lorsque finie
-	Table = new QTableWidget();
+	Table = new CharacterTable(jeu);
 
 	ButtonLeft = new AttackButton(jeu, "Attaquer Ouest", Direction::LEFT);
 	ButtonRight = new AttackButton(jeu, "Attaquer Est", Direction::RIGHT);
@@ -29,11 +28,13 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxButton->addWidget(ButtonRight->widget());
 
 	VBox->addLayout(HBoxLabel);
-	VBox->addWidget(Table);
+	VBox->addWidget(Table->widget());
 	VBox->addLayout(HBoxButton);
 	VBox->addWidget(ButtonWait->widget());
 
 	setLayout(VBox);
+
+	QObject::connect(ButtonWait, SIGNAL(gameUpdated()), Table, SLOT(gameUpdate()));
 }
 
 GameWidget::~GameWidget(){

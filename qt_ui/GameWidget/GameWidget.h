@@ -5,6 +5,7 @@
 #include <QHBoxLayout>
 #include <QTableWidget>
 
+#include "CharacterTable.h"
 #include "GameLabel.h"
 #include "GameButton.h"
 #include "AttackButton.h"
@@ -21,7 +22,8 @@ private:
 	QHBoxLayout *HBoxLabel;
 	QHBoxLayout *HBoxButton;
 	// TODO: Remplacer par CharacterTable lorsque finie
-	QTableWidget *Table;
+	//QTableWidget *Table;
+	CharacterTable *Table;
 
 	AttackButton *ButtonLeft;
 	AttackButton *ButtonRight;
