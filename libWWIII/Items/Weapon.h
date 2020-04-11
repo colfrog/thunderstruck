@@ -6,6 +6,7 @@ class Weapon : public Item
 {
 public:
 	Weapon();
+	Weapon(int);
 	~Weapon();
 	
 	int get_attack() const;

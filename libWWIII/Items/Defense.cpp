@@ -6,11 +6,17 @@ Defense::Defense() : Item()
 	m_armure = 0;
 }
 
+Defense::Defense(int armure) : Item()
+{
+	m_evasion = 0;
+	m_armure = armure;
+}
+
 Defense::~Defense()
 {
 }
 
-float Defense::get_evasion() const {
+int Defense::get_evasion() const {
 	return m_evasion;
 }
 int  Defense::get_armure() const {
