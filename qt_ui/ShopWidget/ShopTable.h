@@ -10,9 +10,9 @@ public:
 	ShopTable(Jeu *jeu);
 	~ShopTable();
 
-	QWidget *widgetPotion();
-	QWidget *widgetWeapon();
-	QWidget *widgetDefense();
+	QTableWidget *widgetPotion();
+	QTableWidget *widgetWeapon();
+	QTableWidget *widgetDefense();
 public slots:
 	void shopUpdateBuy(int id);
 	void shopUpdateSell(int id);
@@ -21,6 +21,7 @@ signals:
 	void selled(string s);
 	void not_id();
 	void not_enough_money();
+	void no_item();
 
 protected:
 	QTableWidget *m_table_potion;
