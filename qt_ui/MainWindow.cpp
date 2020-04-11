@@ -10,8 +10,7 @@ MainWindow::MainWindow(Jeu *j, QWidget *parent)
 	setWindowIcon(QIcon(":icon.png"));
 	setCentralWidget(gameWidget);
 
-	setMinimumSize(500, 500);
-	setFixedSize(700, 800);
+	setMinimumSize(800, 600);
 }
 
 MainWindow::~MainWindow()

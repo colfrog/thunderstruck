@@ -11,6 +11,6 @@ public:
 
 public slots:
 	virtual void gameUpdate() {
-		label.setText(text + QString::number(jeu->tour().player().get_hp()));
+		label.setText(text + QString::number(jeu->tour().hp()));
 	}
 };
