@@ -21,6 +21,12 @@ class ShopWidget : public QWidget
 public:
 	ShopWidget(Jeu *j);
 	~ShopWidget();
+public slots:
+	void getId();
+	void updateMoneyLabel();
+signals:
+	void idBuy(int id);
+	void idSell(int id);
 private:
 	QGridLayout *gridLayout;
 
@@ -41,5 +47,6 @@ private:
 	QPushButton *sellButton;
 
 	Jeu *jeu;
+	ShopTable *shopTable;
 };
 #endif // SHOPWIDGET_H

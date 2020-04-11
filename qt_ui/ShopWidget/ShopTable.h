@@ -13,9 +13,11 @@ public:
 	QTableWidget *widgetPotion();
 	QTableWidget *widgetWeapon();
 	QTableWidget *widgetDefense();
+
 public slots:
-	void shopUpdateBuy(int id);
-	void shopUpdateSell(int id);
+	void shopUpdateBuy(int);
+	void shopUpdateSell(int);
+
 signals:
 	void bought(string s);
 	void selled(string s);

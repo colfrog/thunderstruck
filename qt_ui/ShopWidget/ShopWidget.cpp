@@ -3,15 +3,16 @@
 ShopWidget::ShopWidget(Jeu *j) :
 	jeu(j)
 {
-	ShopTable *shopTable = new ShopTable(j);
-	gridLayout = new QGridLayout;
+	shopTable = new ShopTable(j);
+	gridLayout = new QGridLayout();
 
 	shopLabel = new QLabel("Magasin");
 	potionsLabel = new QLabel("Potions");
 	weaponsLabel = new QLabel("Armes");
 	armorsLabel = new QLabel("Armures");
 	enterIDLabel = new QLabel("Entrer l'ID de l'item");
-	playerMoneyLabel = new QLabel("Argent: 100");
+	playerMoneyLabel = new QLabel();
+	playerMoneyLabel->setText(QString::fromStdString("Argent : ") + QString::number(j->tour().player().get_argent()));
 
 	potionsTable = shopTable->widgetPotion();
 	weaponsTable = shopTable->widgetWeapon();
@@ -37,12 +38,23 @@ ShopWidget::ShopWidget(Jeu *j) :
 	gridLayout->addWidget(sellButton, 9, 1,1,1);
 	gridLayout->addWidget(playerMoneyLabel, 10, 0,1,2, Qt::AlignCenter);
 
+	QObject::connect(buyButton, SIGNAL(clicked()), this, SLOT(getId()));
+	QObject::connect(this, SIGNAL(id(int)), shopTable, SLOT(updateShopBuy(int)));
 
+	QObject::connect(sellButton, SIGNAL(clicked()), this, SLOT(updateMoneyLabel()));
 
 	setLayout(gridLayout);
-
 }
 
 ShopWidget::~ShopWidget() {
 
+}
+
+void ShopWidget::getId() {
+	emit idBuy(itemIDTextEdit->text().toInt());
+}
+
+void ShopWidget::updateMoneyLabel() {
+	playerMoneyLabel->setText(QString::fromStdString("Argent : ") + QString::number(jeu->tour().player().get_argent()));
+	
 }
