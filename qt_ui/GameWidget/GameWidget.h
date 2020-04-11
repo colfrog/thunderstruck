@@ -6,6 +6,7 @@
 #include <QTableWidget>
 
 #include "CharacterTable.h"
+#include "GameAction.h"
 #include "GameLabel.h"
 #include "GameButton.h"
 #include "AttackButton.h"
@@ -34,6 +35,7 @@ private:
 	GameLabel *labelLevel;
 	GameLabel *labelTower;
 
+	GameAction *gameAction;
 	Jeu *jeu;
 };
 

@@ -6,6 +6,12 @@ Defense::Defense() : Item()
 	m_armure = 0;
 }
 
+Defense::Defense(int armure) : Item()
+{
+	m_evasion = 0;
+	m_armure = armure;
+}
+
 Defense::~Defense()
 {
 }

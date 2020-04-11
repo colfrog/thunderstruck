@@ -34,7 +34,13 @@ GameWidget::GameWidget(Jeu *j) :
 
 	setLayout(VBox);
 
-	QObject::connect(ButtonWait, SIGNAL(gameUpdated()), Table, SLOT(gameUpdate()));
+	gameAction = new GameAction(jeu);
+
+	// Connection des boutons à gameAction
+	QObject::connect(ButtonWait, SIGNAL(gameUpdated()), gameAction, SLOT(gameUpdate()));
+
+	// Connection de gameAction à chaque objet qui n'est pas un bouton
+	QObject::connect(gameAction, SIGNAL(gameUpdated()), Table, SLOT(gameUpdate()));
 }
 
 GameWidget::~GameWidget(){

@@ -27,8 +27,8 @@ public:
 	void declare_spawned(const Personnage *);
 	void declare_dead(const Personnage *);
 
-	const std::list<Personnage *> &newly_spawned() const;
-	const std::list<Personnage *> &newly_dead() const;
+	const std::list<const Personnage *> &newly_spawned() const;
+	const std::list<const Personnage *> &newly_dead() const;
 	int niveau_actuel() const;
 	Niveau &niveau();
 	Tour &tour();

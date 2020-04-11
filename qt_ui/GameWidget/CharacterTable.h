@@ -17,7 +17,7 @@ public slots:
 	virtual void gameUpdate();
 protected:
 	QTableWidget *m_table;
-	list<Personnage *> m_list_alive;
-	list<Personnage *> m_list_dead;
+	list<const Personnage *> m_list_alive;
+	list<const Personnage *> m_list_dead;
 	Coord m_player_coord;
 };

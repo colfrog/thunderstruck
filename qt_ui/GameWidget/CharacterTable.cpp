@@ -34,7 +34,7 @@ QWidget *CharacterTable::widget() {
 }
 
 void CharacterTable::gameUpdate() {
-	for (Personnage *p : jeu->newly_spawned()) {
+	for (const Personnage *p : jeu->newly_spawned()) {
 		m_list_alive.push_back(p);
 		m_table->setRowCount(m_table->rowCount() + 1);
 
@@ -64,10 +64,10 @@ void CharacterTable::gameUpdate() {
 		m_table->setItem(m_table->rowCount() - 1, 6, new QTableWidgetItem(QString::number(p->position().distance(m_player_coord))));
 	}
 
-	for (Personnage *p : jeu->newly_dead()) {
-
+	const std::list<const Personnage *> plist = jeu->newly_dead();
+	for (const Personnage *p : plist) {
 		QTableWidgetItem *id_perso = new QTableWidgetItem(QString::number(p->get_id()));
-		list<Personnage *>::iterator it = m_list_alive.begin();
+		list<const Personnage *>::iterator it = m_list_alive.begin();
 		bool list_finish = false, table_finish = false;
 
 		for (int index = 0; index < m_table->rowCount(); index++) {
@@ -92,7 +92,7 @@ void CharacterTable::gameUpdate() {
 		m_list_dead.push_back(p);
 	}
 
-	/*int index = 0;
+	/* int index = 0;
 	for (Personnage *p : m_list_alive) {
 		m_table->setItem(index, 0, new QTableWidgetItem(QString::fromStdString(p->get_name())));
 		m_table->setItem(index, 1, new QTableWidgetItem(QString::number(p->get_hp())));
