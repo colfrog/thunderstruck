@@ -5,7 +5,6 @@ Enemy::Enemy(Jeu *jeu, Lane *lane, string n) :
 	Personnage(jeu, n),
 	m_lane(lane)
 {
-	std::cout << "Enemy spawned" << std::endl;
 }
 Enemy::~Enemy() {}
 

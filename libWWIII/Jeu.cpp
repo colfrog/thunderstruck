@@ -34,13 +34,10 @@ Jeu::~Jeu() {
 }
 
 void Jeu::step() {
-	std::cout << "Jeu::step called" << std::endl;
 	m_spawned.clear();
 
 	for (Element *elem : m_elems)
 		elem->step();
-
-	std::cout << "Game stepped" << std::endl;
 }
 
 void Jeu::run(std::function<void()> callback) {
