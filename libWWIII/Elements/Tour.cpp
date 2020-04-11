@@ -1,6 +1,8 @@
 #include "Tour.h"
 
-Tour::Tour(Jeu *jeu) : Element(jeu) {}
+Tour::Tour(Jeu *jeu) : Element(jeu) {
+	m_position = Coord(0, 0);
+}
 Tour::~Tour() {}
 
 int Tour::damage(const Weapon &w, int mod) {
@@ -34,6 +36,7 @@ void Tour::set_hp(unsigned int hp) {
 }
 void Tour::set_player(Player *player) {
 	m_player = player;
+	player->set_position(m_position);
 }
 
 void Tour::step() {

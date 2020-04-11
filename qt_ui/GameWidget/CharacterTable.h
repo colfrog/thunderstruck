@@ -15,9 +15,14 @@ public:
 
 public slots:
 	virtual void gameUpdate();
+
 protected:
+	int getCharacterRow(const Personnage *p) const;
+	void addCharacter(const Personnage *p);
+	void removeDeadCharacters();
+	void updateCharacter(const Personnage *p, int row = -1);
+
 	QTableWidget *m_table;
-	list<const Personnage *> m_list_alive;
-	list<const Personnage *> m_list_dead;
+	list<const Personnage *> m_alive;
 	Coord m_player_coord;
 };

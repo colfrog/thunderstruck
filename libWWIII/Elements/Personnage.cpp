@@ -11,17 +11,16 @@ Personnage::Personnage(Jeu *jeu, string n) :
 Personnage::~Personnage() {}
 
 int Personnage::damage(const Weapon &w, int mod) {
-	int damage = w.get_attack() + mod;
 	int armor = m_defense.get_armure();
+	int damage = (w.get_attack() - armor) + mod;
 	unsigned int hp_initial = m_hp;
 
 	if (armor >= damage)
 		return 0;
 
-	if ((signed) m_hp >= damage) {
+	if (m_hp >= damage) {
 		m_hp -= w.get_attack() - armor + mod;
 	} else {
-		m_jeu->declare_dead(this);
 		m_hp = 0;
 	}
 

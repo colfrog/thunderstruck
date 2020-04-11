@@ -34,11 +34,8 @@ Jeu::~Jeu() {
 }
 
 void Jeu::step() {
+	std::cout << "Jeu::step called" << std::endl;
 	m_spawned.clear();
-	m_dead.clear();
-
-	if (!m_running)
-		return;
 
 	for (Element *elem : m_elems)
 		elem->step();
@@ -75,16 +72,8 @@ void Jeu::declare_spawned(const Personnage *perso) {
 	m_spawned.push_back(perso);
 }
 
-void Jeu::declare_dead(const Personnage *perso) {
-	m_dead.push_back(perso);
-}
-
 const std::list<const Personnage *> &Jeu::newly_spawned() const {
 	return m_spawned;
-}
-
-const std::list<const Personnage *> &Jeu::newly_dead() const {
-	return m_dead;
 }
 
 int Jeu::niveau_actuel() const {
