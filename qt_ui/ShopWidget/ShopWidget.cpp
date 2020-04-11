@@ -17,10 +17,12 @@ ShopWidget::ShopWidget(Jeu *j) :
 	weaponsTable = shopTable->widgetWeapon();
 	armorsTable = shopTable->widgetDefense();
 
-	itemIDTextEdit = new QTextEdit();
+	itemIDTextEdit = new QLineEdit();
 
 	buyButton = new QPushButton("Acheter");
 	sellButton = new QPushButton("Vendre");
+
+	itemIDTextEdit->setValidator(new QIntValidator(0, 999, this));
 
 	gridLayout->addWidget(shopLabel, 0, 0, 1, 2, Qt::AlignCenter);
 	gridLayout->addWidget(potionsLabel, 1, 0, Qt::AlignLeft);
@@ -44,5 +46,3 @@ ShopWidget::ShopWidget(Jeu *j) :
 ShopWidget::~ShopWidget() {
 
 }
-
-

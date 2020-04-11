@@ -3,11 +3,9 @@
 
 #include <QLabel>
 #include <QWidget>
-#include <QTextEdit>
+#include <QLineEdit>
 #include <QGridLayout>
 #include <QPushButton>
-#include <QTextBrowser>
-
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -37,7 +35,7 @@ private:
 	QTableWidget *weaponsTable;
 	QTableWidget *armorsTable;
 
-	QTextEdit *itemIDTextEdit;
+	QLineEdit *itemIDTextEdit;
 
 	QPushButton *buyButton;
 	QPushButton *sellButton;
