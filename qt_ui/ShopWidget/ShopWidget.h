@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QGridLayout>
 #include <QPushButton>
+#include <QMessageBox>
 
 #include <QWidget>
 #include <QVBoxLayout>

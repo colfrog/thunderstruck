@@ -44,8 +44,6 @@ ShopWidget::ShopWidget(Jeu *j) :
 	QObject::connect(sellButton, SIGNAL(clicked()), this, SLOT(getIdSell()));
 	QObject::connect(this, SIGNAL(idSell(int)), shopTable, SLOT(shopUpdateSell(int)));
 
-	//QObject::connect(sellButton, SIGNAL(clicked()), this, SLOT(updateMoneyLabel()));
-
 	setLayout(gridLayout);
 }
 
@@ -59,8 +57,30 @@ void ShopWidget::getIdBuy() {
 }
 
 void ShopWidget::getIdSell() {
-	int id = itemIDTextEdit->text().toInt();
-	emit idBuy(id);
+	QMessageBox messageBox;
+	messageBox.setWindowTitle("Vendre");
+	messageBox.setText("Quelle item voulez-vous vendre?");
+	QAbstractButton *yesButton = messageBox.addButton(trUtf8("Arme"), QMessageBox::YesRole);
+	QAbstractButton *noButton = messageBox.addButton(trUtf8("Armure"), QMessageBox::NoRole);
+	QAbstractButton *cancelButton = messageBox.addButton(QMessageBox::Cancel);
+	cancelButton->setText("Annuler");
+	messageBox.setIcon(QMessageBox::Question);
+	messageBox.exec();
+
+	int id;
+	if (messageBox.clickedButton() == yesButton) {
+		id = jeu->tour().player().get_weapon().get_id();
+	}
+	else if (messageBox.clickedButton() == noButton) {
+		id = jeu->tour().player().get_defense().get_id();
+	}
+	else {
+		id = -1;
+	}
+
+	messageBox.close();
+
+	emit idSell(id);
 }
 
 void ShopWidget::updateMoneyLabel() {

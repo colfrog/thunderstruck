@@ -46,7 +46,7 @@ ShopTable::ShopTable(Jeu *jeu) {
 		m_table_weapon->setItem(index, 4, new QTableWidgetItem(QString::number(w.get_attack())));
 		index++;
 	}
-
+	m_table_weapon->sortItems(0, Qt::AscendingOrder);
 
 	m_table_defense = new QTableWidget(0, 5);
 	informations.clear();
@@ -69,7 +69,7 @@ ShopTable::ShopTable(Jeu *jeu) {
 		m_table_defense->setItem(index, 4, new QTableWidgetItem(QString::number(d.get_armure())));
 		index++;
 	}
-	
+	m_table_defense->sortItems(0, Qt::AscendingOrder);
 }
 ShopTable::~ShopTable() {
 	delete m_table_potion;
@@ -173,13 +173,15 @@ void ShopTable::shopUpdateBuy(int id) {
 }
 
 void ShopTable::shopUpdateSell(int id) {
+	printf("id : %d\n", id);
 	int category = m_jeu->tour().player().get_shop()->find_category(id);
 	int argent = m_jeu->tour().player().get_argent();
 	Weapon weaponVide, weaponPlayer = m_jeu->tour().player().get_weapon();
 	Defense defenseVide, defensePlayer = m_jeu->tour().player().get_defense();
 
 	switch (category) {
-	case 2://Vente de l'arme du joueur		
+	case 2://Vente de l'arme du joueur
+		printf("arme\n");
 		m_table_weapon->setRowCount(m_table_weapon->rowCount() + 1);
 
 		m_table_weapon->setItem(m_table_weapon->rowCount() - 1, 0, new QTableWidgetItem(QString::number(weaponPlayer.get_id())));
@@ -188,7 +190,7 @@ void ShopTable::shopUpdateSell(int id) {
 		m_table_weapon->setItem(m_table_weapon->rowCount() - 1, 3, new QTableWidgetItem(QString::number(weaponPlayer.get_price_sell())));
 		m_table_weapon->setItem(m_table_weapon->rowCount() - 1, 4, new QTableWidgetItem(QString::number(weaponPlayer.get_attack())));
 
-		m_table_weapon->sortItems(2, Qt::AscendingOrder);
+		m_table_weapon->sortItems(0, Qt::AscendingOrder);
 
 		m_jeu->tour().player().get_shop()->sell_weapon(weaponPlayer);
 		m_jeu->tour().player().set_argent(argent + weaponPlayer.get_price_sell());
@@ -197,6 +199,7 @@ void ShopTable::shopUpdateSell(int id) {
 
 		break;
 	case 3://Vente de l'armure du joueur
+		printf("armure\n");
 		m_table_defense->setRowCount(m_table_defense->rowCount() + 1);
 
 		m_table_defense->setItem(m_table_defense->rowCount() - 1, 0, new QTableWidgetItem(QString::number(defensePlayer.get_id())));
@@ -205,7 +208,7 @@ void ShopTable::shopUpdateSell(int id) {
 		m_table_defense->setItem(m_table_defense->rowCount() - 1, 3, new QTableWidgetItem(QString::number(defensePlayer.get_price_sell())));
 		m_table_defense->setItem(m_table_defense->rowCount() - 1, 4, new QTableWidgetItem(QString::number(defensePlayer.get_armure())));
 
-		m_table_defense->sortItems(2, Qt::AscendingOrder);
+		m_table_defense->sortItems(0, Qt::AscendingOrder);
 
 		m_jeu->tour().player().get_shop()->sell_defense(defensePlayer);
 		m_jeu->tour().player().set_argent(argent + defensePlayer.get_price_sell());
@@ -213,6 +216,7 @@ void ShopTable::shopUpdateSell(int id) {
 
 		break;
 	case -1://L'id de l'item n'existe pas
+		printf("not id\n");
 		emit no_item();
 		break;
 	}
