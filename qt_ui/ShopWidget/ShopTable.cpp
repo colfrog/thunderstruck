@@ -181,7 +181,6 @@ void ShopTable::shopUpdateSell(int id) {
 
 	switch (category) {
 	case 2://Vente de l'arme du joueur
-		printf("arme\n");
 		m_table_weapon->setRowCount(m_table_weapon->rowCount() + 1);
 
 		m_table_weapon->setItem(m_table_weapon->rowCount() - 1, 0, new QTableWidgetItem(QString::number(weaponPlayer.get_id())));
@@ -196,10 +195,11 @@ void ShopTable::shopUpdateSell(int id) {
 		m_jeu->tour().player().set_argent(argent + weaponPlayer.get_price_sell());
 		m_jeu->tour().player().set_weapon(weaponVide);
 
+		emit selled(weaponPlayer.get_name());
+		printf("signal");
 
 		break;
 	case 3://Vente de l'armure du joueur
-		printf("armure\n");
 		m_table_defense->setRowCount(m_table_defense->rowCount() + 1);
 
 		m_table_defense->setItem(m_table_defense->rowCount() - 1, 0, new QTableWidgetItem(QString::number(defensePlayer.get_id())));
@@ -214,9 +214,10 @@ void ShopTable::shopUpdateSell(int id) {
 		m_jeu->tour().player().set_argent(argent + defensePlayer.get_price_sell());
 		m_jeu->tour().player().set_defense(defenseVide);
 
+		emit selled(defensePlayer.get_name());
+
 		break;
 	case -1://L'id de l'item n'existe pas
-		printf("not id\n");
 		emit no_item();
 		break;
 	}

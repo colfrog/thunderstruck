@@ -27,10 +27,19 @@ public:
 public slots:
 	void getIdBuy();
 	void getIdSell();
+
+	void boughtItem(string);
+	void selledItem(string);
+	void invalidId();
+	void needMoreMoney();
+	void playerNoItem();
+
 	void updateMoneyLabel();
 signals:
 	void idBuy(int id);
 	void idSell(int id);
+
+	void updateLabels();
 private:
 	QGridLayout *gridLayout;
 
