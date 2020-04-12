@@ -22,8 +22,6 @@ private:
 	QVBoxLayout *VBox;
 	QHBoxLayout *HBoxLabel;
 	QHBoxLayout *HBoxButton;
-	// TODO: Remplacer par CharacterTable lorsque finie
-	//QTableWidget *Table;
 	CharacterTable *Table;
 
 	AttackButton *ButtonLeft;
