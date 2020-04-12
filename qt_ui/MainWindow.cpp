@@ -1,16 +1,15 @@
 #include "MainWindow.h"
 
-MainWindow::MainWindow(Jeu *j, QWidget *parent)
-	: QMainWindow(parent),
-	jeu(j)
+MainWindow::MainWindow(Jeu *j, QWidget *parent) :
+	QMainWindow(parent),
+	jeu(j),
+	gameGraphics(jeu)
 {
-	gameWidget = new GameWidget(jeu);
-
 	setWindowTitle("TowerDefense");
 	setWindowIcon(QIcon(":icon.png"));
-	setCentralWidget(gameWidget);
+	setCentralWidget(gameGraphics.widget());
 
-	setMinimumSize(800, 600);
+	setMinimumSize(800, 800);
 }
 
 MainWindow::~MainWindow()

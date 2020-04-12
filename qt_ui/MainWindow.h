@@ -6,7 +6,8 @@
 #include <QObject>
 #include <QWidget>
 #include <Jeu.h>
-#include "GameWidget/GameWidget.h"
+
+#include "GameGraphics/GameGraphics.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -21,6 +22,6 @@ public:
 	~MainWindow();
 private:
 	Jeu *jeu;
-	GameWidget *gameWidget;
+	GameGraphics gameGraphics;
 };
 #endif // MAINWINDOW_H
