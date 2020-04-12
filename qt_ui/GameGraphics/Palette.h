@@ -1,4 +1,9 @@
-enum class Palette {
+#pragma once
+#include <QRgba64>
+
+#define PALETTE(col) QRgba64::fromArgb32((uint) Palette::col)
+
+enum class Palette : uint {
 	ORANGE_BRIGHT = 0xff8b07,
 	ORANGE = 0xd27305,
 	ORANGE_DARK = 0xaf6005,
@@ -21,4 +26,4 @@ enum class Palette {
 
 	BLACK = 0x000000,
 	WHITE = 0xffffff
-}
+};

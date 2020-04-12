@@ -15,7 +15,7 @@ public:
 	string get_name() const;
 	void set_name(string n);
 
-	unsigned long get_hp() const;
+	const unsigned long &get_hp() const;
 	void set_hp(unsigned long hp);
 
 	Defense get_defense() const;

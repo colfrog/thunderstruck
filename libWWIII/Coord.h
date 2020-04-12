@@ -7,8 +7,8 @@ public:
 	Coord() {}
 	~Coord() {}
 
-	int x();
-	int y();
+	int x() const;
+	int y() const;
 	void set_coords(int x, int y);
 
 	void show() const;

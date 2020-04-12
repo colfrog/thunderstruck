@@ -82,7 +82,11 @@ Coord Lane::get_end_position() const {
 	return m_position + DirTools::vectors[DirTools::opposites[m_dir]]*m_distance;
 }
 int Lane::get_distance() const {
-	return m_distance;
+	Tour &tour = m_jeu->tour();
+	if (tour.hp() == 0)
+		return m_distance + tour.radius();
+	else
+		return m_distance;
 }
 int Lane::get_lane_id() const {
 	return m_lane_id;

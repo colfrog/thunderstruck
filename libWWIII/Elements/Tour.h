@@ -13,7 +13,8 @@ public:
 	~Tour();
 
 	Player &player();
-	unsigned int hp() const;
+	const unsigned int &hp() const;
+	const unsigned int &radius() const;
 
 	void set_hp(unsigned int hp);
 	void set_player(Player *player);
@@ -25,6 +26,7 @@ public:
 	virtual int damage(const Weapon &w, int mod = 0);
 
 private:
-	unsigned int m_hp = 10;
+	unsigned int m_hp = 1000;
+	unsigned int m_radius = 250;
 	Player *m_player;
 };

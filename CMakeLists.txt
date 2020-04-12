@@ -45,7 +45,7 @@ target_link_libraries(qt_ui $<TARGET_FILE:WWIII>)
 # Déclare que l'interface dépend de libWWIII
 add_dependencies(qt_ui WWIII)
 # Liste des librairies Qt utilisées pour l'interface
-target_link_libraries(qt_ui Qt5::Widgets)
+target_link_libraries(qt_ui pthread Qt5::Widgets)
 # Ajoute l'icone à côté de l'exécutable
 configure_file(qt_ui/icon.png ${CMAKE_CURRENT_BINARY_DIR}/icon.png COPYONLY)
 

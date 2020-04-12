@@ -44,6 +44,6 @@ public:
 private:
 	const Direction m_dir;
 	int m_lane_id = 0;
-	int m_distance = 10;
+	int m_distance = 150;
 	list<Enemy *> m_enemies;
 };

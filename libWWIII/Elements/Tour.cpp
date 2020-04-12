@@ -27,8 +27,12 @@ Player &Tour::player() {
 	return *m_player;
 }
 
-unsigned int Tour::hp() const {
+const unsigned int &Tour::hp() const {
 	return m_hp;
+}
+
+const unsigned int &Tour::radius() const {
+	return m_radius;
 }
 
 void Tour::set_hp(unsigned int hp) {

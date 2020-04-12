@@ -23,7 +23,7 @@ public:
 	virtual int attack(Element &elem, int mod = 0) = 0;
 	virtual int damage(const Weapon &w, int mod = 0) = 0;
 
-	Coord position() const;
+	const Coord &position() const;
 
 	void set_position(Coord position);
 	void set_position(int x, int y);

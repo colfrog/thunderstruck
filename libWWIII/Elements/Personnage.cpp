@@ -42,7 +42,7 @@ void Personnage::set_name(string n) {
 	m_name = n;
 }
 
-unsigned long Personnage::get_hp() const {
+const unsigned long &Personnage::get_hp() const {
 	return m_hp;
 }
 void Personnage::set_hp(unsigned long hp) {

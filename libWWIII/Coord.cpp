@@ -4,11 +4,11 @@
 
 #include "Coord.h"
 
-int Coord::x() {
+int Coord::x() const {
 	return m_x;
 }
 
-int Coord::y() {
+int Coord::y() const {
 	return m_y;
 }
 
