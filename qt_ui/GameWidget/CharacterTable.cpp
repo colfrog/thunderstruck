@@ -61,18 +61,27 @@ void CharacterTable::addCharacter(const Personnage *p) {
 }
 
 void CharacterTable::removeDeadCharacters() {
-	std::list<std::list<const Personnage *>::iterator> dead;
+	std::list<const Personnage *> dead;
 	std::list<const Personnage *>::iterator it = m_alive.begin();
+
 	while (it != m_alive.end()) {
 		if ((*it)->get_hp() == 0)
-			dead.push_back(it);
+			dead.push_back(*it);
 
 		it++;
 	}
 
-	for (auto &item : dead) {
-		m_table->removeRow(std::distance(it, m_alive.begin()));
-		m_alive.erase(item);
+	for (std::list<const Personnage *>::iterator it = dead.begin(); it != dead.end(); it++) {
+		int index = 0;
+		while (index < m_table->rowCount()) {
+			if (m_table->item(index, 1)->text().toInt() == (*it)->get_id()) {
+				m_table->removeRow(index);
+				index = m_table->rowCount();
+			}
+			index++;
+		}
+
+		m_alive.remove(*it);
 	}
 }
 

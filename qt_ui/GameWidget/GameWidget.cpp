@@ -50,5 +50,17 @@ GameWidget::GameWidget(Jeu *j) :
 }
 
 GameWidget::~GameWidget(){
-
+	delete Table;
+	delete ButtonLeft;
+	delete ButtonRight;
+	delete ButtonTop;
+	delete ButtonBot;
+	delete ButtonWait;
+	delete labelLevel;
+	delete labelTower;
+	delete gameAction;
+	delete jeu;
+	delete HBoxLabel;
+	delete HBoxButton;
+	delete VBox;
 }
