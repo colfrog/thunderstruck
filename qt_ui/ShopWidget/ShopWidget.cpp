@@ -37,11 +37,14 @@ ShopWidget::ShopWidget(Jeu *j) :
 	gridLayout->addWidget(buyButton, 9, 0,1,1);
 	gridLayout->addWidget(sellButton, 9, 1,1,1);
 	gridLayout->addWidget(playerMoneyLabel, 10, 0,1,2, Qt::AlignCenter);
+	
+	QObject::connect(buyButton, SIGNAL(clicked()), this, SLOT(getIdBuy()));
+	QObject::connect(this, SIGNAL(idBuy(int)), shopTable, SLOT(shopUpdateBuy(int)));
 
-	QObject::connect(buyButton, SIGNAL(clicked()), this, SLOT(getId()));
-	QObject::connect(this, SIGNAL(id(int)), shopTable, SLOT(updateShopBuy(int)));
+	QObject::connect(sellButton, SIGNAL(clicked()), this, SLOT(getIdSell()));
+	QObject::connect(this, SIGNAL(idSell(int)), shopTable, SLOT(shopUpdateSell(int)));
 
-	QObject::connect(sellButton, SIGNAL(clicked()), this, SLOT(updateMoneyLabel()));
+	//QObject::connect(sellButton, SIGNAL(clicked()), this, SLOT(updateMoneyLabel()));
 
 	setLayout(gridLayout);
 }
@@ -50,8 +53,14 @@ ShopWidget::~ShopWidget() {
 
 }
 
-void ShopWidget::getId() {
-	emit idBuy(itemIDTextEdit->text().toInt());
+void ShopWidget::getIdBuy() {
+	int id = itemIDTextEdit->text().toInt();
+	emit idBuy(id);
+}
+
+void ShopWidget::getIdSell() {
+	int id = itemIDTextEdit->text().toInt();
+	emit idBuy(id);
 }
 
 void ShopWidget::updateMoneyLabel() {

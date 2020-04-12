@@ -1,6 +1,7 @@
 #ifndef SHOPWIDGET_H
 #define SHOPWIDGET_H
 
+#include <iostream>
 #include <QLabel>
 #include <QWidget>
 #include <QLineEdit>
@@ -14,6 +15,7 @@
 
 #include "Jeu.h"
 #include "ShopTable.h"
+using namespace std;
 
 class ShopWidget : public QWidget
 {
@@ -22,7 +24,8 @@ public:
 	ShopWidget(Jeu *j);
 	~ShopWidget();
 public slots:
-	void getId();
+	void getIdBuy();
+	void getIdSell();
 	void updateMoneyLabel();
 signals:
 	void idBuy(int id);

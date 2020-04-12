@@ -95,7 +95,7 @@ void ShopTable::shopUpdateBuy(int id) {
 	if (category == 1) {//Achat d'une potion
 		Potion potion = m_jeu->tour().player().get_shop()->buy_potion(id);
 
-		if (potion.get_id() != -1) { //Vérifie si l'id de l'item existe
+		if (potion.get_id() == -1) { //Vérifie si l'id de l'item existe
 			emit not_id();
 		}
 		else {
@@ -103,9 +103,8 @@ void ShopTable::shopUpdateBuy(int id) {
 				m_jeu->tour().player().set_argent(argent - potion.get_price_buy());
 				m_jeu->tour().player().set_hp(m_jeu->tour().player().get_hp() + potion.get_hp_restore());
 
-				QTableWidgetItem *potionItem = new QTableWidgetItem(QString::number(potion.get_id()));
 				for (int index = 0; index < m_table_potion->rowCount(); index++) {//Enleve l'item du QTableWidget
-					if (potionItem == m_table_potion->item(index, 0)) {
+					if (potion.get_id() == m_table_potion->item(index, 0)->text().toInt()) {
 						m_table_potion->removeRow(index);
 					}
 				}
@@ -113,6 +112,7 @@ void ShopTable::shopUpdateBuy(int id) {
 				emit bought(potion.get_name());
 			}
 			else {
+				
 				m_jeu->tour().player().get_shop()->sell_potion(potion); //retourne la potion au shop
 				emit not_enough_money();
 			}
@@ -121,7 +121,7 @@ void ShopTable::shopUpdateBuy(int id) {
 	else if (category == 2) {//Achat d'une arme
 		Weapon weapon = m_jeu->tour().player().get_shop()->buy_weapon(id);
 
-		if (weapon.get_id() != -1) { //Vérifie si l'id de l'item existe
+		if (weapon.get_id() == -1) { //Vérifie si l'id de l'item existe
 			emit not_id();
 		}
 		else {
@@ -129,9 +129,8 @@ void ShopTable::shopUpdateBuy(int id) {
 				m_jeu->tour().player().set_argent(argent - weapon.get_price_buy());
 				m_jeu->tour().player().set_weapon(weapon);
 
-				QTableWidgetItem *weaponItem = new QTableWidgetItem(QString::number(weapon.get_id()));
 				for (int index = 0; index < m_table_weapon->rowCount(); index++) {//Enleve l'item du QTableWidget
-					if (weaponItem == m_table_weapon->item(index, 0)) {
+					if (weapon.get_id() == m_table_weapon->item(index, 0)->text().toInt()) {
 						m_table_weapon->removeRow(index);
 					}
 				}
@@ -147,7 +146,7 @@ void ShopTable::shopUpdateBuy(int id) {
 	else if (category == 3) {//Achat d'une armure
 		Defense defense = m_jeu->tour().player().get_shop()->buy_defense(id);
 
-		if (defense.get_id() != -1) { //Vérifie si l'id de l'item existe
+		if (defense.get_id() == -1) { //Vérifie si l'id de l'item existe
 			emit not_id();
 		}
 		else {
@@ -155,9 +154,8 @@ void ShopTable::shopUpdateBuy(int id) {
 				m_jeu->tour().player().set_argent(argent - defense.get_price_buy());
 				m_jeu->tour().player().set_defense(defense);
 
-				QTableWidgetItem *defenseItem = new QTableWidgetItem(QString::number(defense.get_id()));
 				for (int index = 0; index < m_table_defense->rowCount(); index++) {//Enleve l'item du QTableWidget
-					if (defenseItem == m_table_defense->item(index, 0)) {
+					if (defense.get_id() == m_table_defense->item(index, 0)->text().toInt()) {
 						m_table_defense->removeRow(index);
 					}
 				}
