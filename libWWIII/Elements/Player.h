@@ -16,7 +16,7 @@ public:
 	int get_argent();
 	void set_argent(int arg);
 
-	Shop get_shop();
+	Shop *get_shop();
 	void set_shop(Shop s);
 
 	// Méthode pour entrer dans le magasin
