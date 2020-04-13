@@ -14,6 +14,7 @@ GameWidget::GameWidget(Jeu *j) :
 	ButtonTop = new AttackButton(jeu, "Attaquer Nord", Direction::UP);
 	ButtonBot = new AttackButton(jeu, "Attaquer Sud", Direction::DOWN);
 	ButtonWait = new GameButton(jeu, "Attendre");
+	shopButton = new QPushButton("Shop");
 
 	labelLevel = new LevelLabel(jeu, "Niveau: ");
 	labelTower = new TowerLabel(jeu, "Vie de la Tour: ");
@@ -31,6 +32,7 @@ GameWidget::GameWidget(Jeu *j) :
 	VBox->addWidget(Table->widget());
 	VBox->addLayout(HBoxButton);
 	VBox->addWidget(ButtonWait->widget());
+	VBox->addWidget(shopButton);
 
 	setLayout(VBox);
 
@@ -40,3 +42,4 @@ GameWidget::GameWidget(Jeu *j) :
 GameWidget::~GameWidget(){
 
 }
+

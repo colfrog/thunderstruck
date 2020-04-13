@@ -17,6 +17,7 @@ class GameWidget : public QWidget
 public:
 	GameWidget(Jeu *j);
 	~GameWidget();
+	QPushButton *shopButton;
 private:
 	QVBoxLayout *VBox;
 	QHBoxLayout *HBoxLabel;
