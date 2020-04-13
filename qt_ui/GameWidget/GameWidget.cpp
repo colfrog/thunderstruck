@@ -7,6 +7,7 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxLabel = new QHBoxLayout;
 	HBoxButton = new QHBoxLayout;
 
+
 	Table = new CharacterTable(jeu);
 
 	ButtonLeft = new AttackButton(jeu, "Attaquer Ouest", Direction::LEFT);
@@ -19,18 +20,27 @@ GameWidget::GameWidget(Jeu *j) :
 	labelLevel = new LevelLabel(jeu, "Niveau: ");
 	labelTower = new TowerLabel(jeu, "Vie de la Tour: ");
 
+	ShortCutTop = new QShortcut(Qt::Key_W, this);
+	ShortCutLeft = new QShortcut(Qt::Key_A, this);
+	ShortCutRight = new QShortcut(Qt::Key_D, this);
+	ShortCutBot = new QShortcut(Qt::Key_S, this);
+	ShortCutWait = new QShortcut(Qt::Key_Space, this);
+	//To add when the button for the shop will be implemented
+	//ShortCutShop = new QShortcut(Qt::Key_M, this);
+
 
 	HBoxLabel->addWidget(labelLevel->widget());
 	HBoxLabel->addWidget(labelTower->widget(), 0, Qt::AlignRight);
 
 	HBoxButton->addWidget(ButtonLeft->widget());
-	HBoxButton->addWidget(ButtonBot->widget());
-	HBoxButton->addWidget(ButtonTop->widget());
 	HBoxButton->addWidget(ButtonRight->widget());
+	
 
 	VBox->addLayout(HBoxLabel);
 	VBox->addWidget(Table->widget());
+	VBox->addWidget(ButtonTop->widget());
 	VBox->addLayout(HBoxButton);
+	VBox->addWidget(ButtonBot->widget());
 	VBox->addWidget(ButtonWait->widget());
 	VBox->addWidget(shopButton);
 
@@ -38,12 +48,22 @@ GameWidget::GameWidget(Jeu *j) :
 
 	gameAction = new GameAction(jeu);
 
+	// Connection des shortcut à gameAction
+	QObject::connect(ShortCutWait, SIGNAL(activated()), ButtonWait, SLOT(shortCutActivated()));
+	QObject::connect(ShortCutLeft, SIGNAL(activated()), ButtonLeft, SLOT(shortCutActivated()));
+	QObject::connect(ShortCutRight, SIGNAL(activated()), ButtonRight, SLOT(shortCutActivated()));
+	QObject::connect(ShortCutTop, SIGNAL(activated()), ButtonTop, SLOT(shortCutActivated()));
+	QObject::connect(ShortCutBot, SIGNAL(activated()), ButtonBot, SLOT(shortCutActivated()));/**/
+	//QObject::connect(ShortCutShop, SIGNAL(activated()), ButtonBot, SLOT(shortCutActivated()));
+
 	// Connection des boutons à gameAction
 	QObject::connect(ButtonWait, SIGNAL(gameUpdated()), gameAction, SLOT(gameUpdate()));
 	QObject::connect(ButtonLeft, SIGNAL(gameUpdated()), gameAction, SLOT(gameUpdate()));
 	QObject::connect(ButtonRight, SIGNAL(gameUpdated()), gameAction, SLOT(gameUpdate()));
 	QObject::connect(ButtonTop, SIGNAL(gameUpdated()), gameAction, SLOT(gameUpdate()));
 	QObject::connect(ButtonBot, SIGNAL(gameUpdated()), gameAction, SLOT(gameUpdate()));
+	
+	
 
 	// Connection de gameAction à chaque objet qui n'est pas un bouton
 	QObject::connect(gameAction, SIGNAL(gameUpdated()), labelLevel, SLOT(gameUpdate()));
@@ -52,6 +72,12 @@ GameWidget::GameWidget(Jeu *j) :
 }
 
 GameWidget::~GameWidget(){
+	delete ShortCutBot;
+	delete ShortCutLeft;
+	delete ShortCutRight;
+	//delete ShortCutShop;
+	delete ShortCutTop;
+	delete ShortCutWait;
 	delete Table;
 	delete ButtonLeft;
 	delete ButtonRight;
