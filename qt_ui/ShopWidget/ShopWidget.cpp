@@ -22,6 +22,10 @@ ShopWidget::ShopWidget(Jeu *j) :
 
 	buyButton = new QPushButton("Acheter");
 	sellButton = new QPushButton("Vendre");
+	QObject::connect(buyButton, SIGNAL(clicked()), shopTable, SLOT(shopUpdateBuy(302)));
+	QObject::connect(sellButton, SIGNAL(clicked()), shopTable, SLOT(shopUpdateSell(302)));
+
+
 
 	itemIDTextEdit->setValidator(new QIntValidator(0, 999, this));
 
