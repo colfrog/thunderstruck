@@ -92,14 +92,14 @@ void ShopWidget::getIdSell() {
 }
 
 void ShopWidget::boughtItem(string name) {
+	jeu->step();
 	QMessageBox::information(this, "Item achete", QString::fromStdString("Vous avez achete l'item ") + QString::fromStdString(name));
-
 	emit updateLabels();
 }
 
 void ShopWidget::selledItem(string name) {
+	jeu->step();
 	QMessageBox::information(this, "Item vendu", QString::fromStdString("Vous avez vendu l'item ") + QString::fromStdString(name));
-
 	emit updateLabels();
 }
 
