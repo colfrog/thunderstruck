@@ -17,6 +17,12 @@ public slots:
 		emit gameUpdated();
 	}
 
+	virtual void shortCutActivated() {
+		cout << jeu->attack(dir) << endl;
+		emit gameUpdated();
+		emit gameUpdated();
+	}
+
 private:
 	Direction dir;
 
