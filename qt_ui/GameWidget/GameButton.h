@@ -22,6 +22,10 @@ public slots:
 		emit gameUpdated();
 	}
 
+	virtual void shortCutActivated() {
+		emit gameUpdated();
+	}
+
 protected:
 	QPushButton button;
 };

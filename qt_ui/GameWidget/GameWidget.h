@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QTableWidget>
+#include <QShortcut>
 
 #include "CharacterTable.h"
 #include "GameAction.h"
@@ -33,6 +34,13 @@ private:
 	AttackButton *ButtonTop;
 	AttackButton *ButtonBot;
 	GameButton *ButtonWait;
+
+	QShortcut *ShortCutTop;
+	QShortcut *ShortCutLeft;
+	QShortcut *ShortCutRight;
+	QShortcut *ShortCutBot;
+	QShortcut *ShortCutWait;
+	QShortcut *ShortCutShop;
 
 	GameLabel *labelLevel;
 	GameLabel *labelTower;
