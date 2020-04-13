@@ -30,6 +30,8 @@ HEADERS += \
 	qt_ui/GameWidget/TowerLabel.h \
 	qt_ui/GameWidget/CharacterTable.h \
 	qt_ui/GameWidget/GameWidget.h \
+	qt_ui/ShopWidget/ShopTable.h \
+	qt_ui/ShopWidget/ShopWidget.h \
 	qt_ui/MainWindow.h
 
 SOURCES += \
@@ -50,6 +52,8 @@ SOURCES += \
 	libWWIII/Jeu.cpp \
 	qt_ui/GameWidget/CharacterTable.cpp \
 	qt_ui/GameWidget/GameWidget.cpp \
+	qt_ui/ShopWidget/ShopTable.cpp \
+	qt_ui/ShopWidget/ShopWidget.cpp \
 	qt_ui/MainWindow.cpp \
 	qt_ui/main.cpp
 
