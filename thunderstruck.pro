@@ -1,7 +1,7 @@
-TEMPLATE = app
+TEMPLATE = vcapp
 QT += widgets
 RESOURCES = resources.qrc
-
+CONFIG      += warn_on qt debug_and_release windows console
 INCLUDEPATH += libWWIII
 
 HEADERS += \
