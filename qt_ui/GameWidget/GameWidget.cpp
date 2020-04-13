@@ -67,3 +67,8 @@ GameWidget::~GameWidget(){
 	delete VBox;
 }
 
+void GameWidget::updateTable()
+{
+	Table->gameUpdate();
+}
+

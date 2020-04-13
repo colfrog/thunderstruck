@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::openShop() {
-	shopWidget = new ShopWidget(jeu);
+	shopWidget = new ShopWidget(jeu, gameWidget);
 	
 	shopWidget->setWindowTitle("Shop");
 	shopWidget->setWindowIcon(QIcon(":icon.png"));

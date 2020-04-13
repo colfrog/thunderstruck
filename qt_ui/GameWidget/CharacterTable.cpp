@@ -19,7 +19,7 @@ CharacterTable::CharacterTable(Jeu *jeu) : GameObject(jeu) {
 
 	const Personnage *player = &jeu->tour().player();
 	m_player_coord = player->position();
-	addCharacter(player);
+	gameUpdate();
 }
 CharacterTable::~CharacterTable() {
 	delete m_table;
@@ -94,6 +94,8 @@ void CharacterTable::updateCharacter(const Personnage *p, int row) {
 	QString itemName;
 	if (p->get_id() == 0)
 		itemName = "Joueur";
+	else if (p->get_id() == 1)
+		itemName = "Vendeur";	
 	else
 		itemName = "Ennemi";
 
@@ -113,6 +115,12 @@ void CharacterTable::updateCharacter(const Personnage *p, int row) {
 	if (p->get_id() == 0) {
 		m_table->item(row, 5)->setText("Tour");
 		m_table->item(row, 6)->setText("0");
+		return;
+	}
+
+	if (p->get_id() == 1) {
+		m_table->item(row, 5)->setText("Magasin");
+		m_table->item(row, 6)->setText("1");
 		return;
 	}
 

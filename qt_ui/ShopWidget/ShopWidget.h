@@ -16,13 +16,15 @@
 
 #include "Jeu.h"
 #include "ShopTable.h"
+#include "../GameWidget/GameWidget.h"
+
 using namespace std;
 
 class ShopWidget : public QWidget
 {
 	Q_OBJECT
 public:
-	ShopWidget(Jeu *j);
+	ShopWidget(Jeu *j, GameWidget *gameWidget);
 	~ShopWidget();
 public slots:
 	void getIdBuy();
@@ -61,5 +63,6 @@ private:
 
 	Jeu *jeu;
 	ShopTable *shopTable;
+	GameWidget *gameWidget;
 };
 #endif // SHOPWIDGET_H

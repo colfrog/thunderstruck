@@ -1,8 +1,9 @@
 #include "ShopWidget.h"
 
-ShopWidget::ShopWidget(Jeu *j) :
+ShopWidget::ShopWidget(Jeu *j, GameWidget *gw) :
 	jeu(j)
 {
+	gameWidget = gw;
 	shopTable = new ShopTable(j);
 	gridLayout = new QGridLayout();
 
@@ -92,13 +93,13 @@ void ShopWidget::getIdSell() {
 }
 
 void ShopWidget::boughtItem(string name) {
-	jeu->step();
+	gameWidget->updateTable();
 	QMessageBox::information(this, "Item achete", QString::fromStdString("Vous avez achete l'item ") + QString::fromStdString(name));
 	emit updateLabels();
 }
 
 void ShopWidget::selledItem(string name) {
-	jeu->step();
+	gameWidget->updateTable();
 	QMessageBox::information(this, "Item vendu", QString::fromStdString("Vous avez vendu l'item ") + QString::fromStdString(name));
 	emit updateLabels();
 }
