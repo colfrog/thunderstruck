@@ -10,9 +10,7 @@ MainWindow::MainWindow(Jeu *j, QWidget *parent)
 	setWindowIcon(QIcon(":icon.png"));
 	setCentralWidget(gameWidget);
 
-	setMinimumSize(500, 500);
-	setFixedSize(700, 800);
-
+	setMinimumSize(800, 600);
 	shopButton = gameWidget->shopButton;
 	connect(shopButton, SIGNAL(clicked()), this, SLOT(openShop()));
 }
@@ -27,8 +25,7 @@ void MainWindow::openShop() {
 	shopWidget->setWindowTitle("Shop");
 	shopWidget->setWindowIcon(QIcon(":icon.png"));
 
-	shopWidget->setMinimumSize(500, 500);
-	shopWidget->setFixedSize(500, 800);
+	shopWidget->setMinimumSize(600, 500);
 
 	shopWidget->show();
 }

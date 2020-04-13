@@ -15,10 +15,8 @@ Jeu::Jeu(std::string player_name, int niveau_depart, int niveau_max, int f) :
 	m_down_lane(Lane(this, Direction::DOWN))
 {
 	Player *player = new Player(this, player_name);
-	Weapon w;
-	w.set_attack(100);
-	Defense d;
-	d.set_armure(1);
+	Weapon w(100);
+	Defense d(1);
 	player->set_weapon(w);
 	player->set_defense(d);
 
@@ -37,10 +35,6 @@ Jeu::~Jeu() {
 
 void Jeu::step() {
 	m_spawned.clear();
-	m_dead.clear();
-
-	if (!m_running)
-		return;
 
 	for (Element *elem : m_elems)
 		elem->step();
@@ -75,8 +69,8 @@ void Jeu::declare_spawned(const Personnage *perso) {
 	m_spawned.push_back(perso);
 }
 
-void Jeu::declare_dead(const Personnage *perso) {
-	m_dead.push_back(perso);
+std::list<const Personnage *> &Jeu::newly_spawned() {
+	return m_spawned;
 }
 
 int Jeu::niveau_actuel() const {

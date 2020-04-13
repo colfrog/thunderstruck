@@ -28,12 +28,12 @@ public:
 
 	Direction get_direction() const;
 	Coord get_end_position() const;
-	int get_lane_id();
-	int get_distance();
-	int get_enemy_count();
+	int get_lane_id() const;
+	int get_distance() const;
+	int get_enemy_count() const;
 
-	Enemy make_enemy(string name, int drop);
-	Enemy make_enemy(string name, int drop, Weapon weapon, Defense defense);
+	Enemy *make_enemy(string name, int drop);
+	Enemy *make_enemy(string name, int drop, Weapon weapon, Defense defense);
 
 	virtual void step();
 	virtual void show() const;
@@ -45,5 +45,5 @@ private:
 	const Direction m_dir;
 	int m_lane_id = 0;
 	int m_distance = 10;
-	list<Enemy> m_enemies;
+	list<Enemy *> m_enemies;
 };

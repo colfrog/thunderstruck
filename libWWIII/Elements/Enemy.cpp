@@ -4,7 +4,8 @@
 Enemy::Enemy(Jeu *jeu, Lane *lane, string n) :
 	Personnage(jeu, n),
 	m_lane(lane)
-{}
+{
+}
 Enemy::~Enemy() {}
 
 int Enemy::get_drop() {

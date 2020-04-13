@@ -1,8 +1,16 @@
 #include "Weapon.h"
 
-Weapon::Weapon() : Item()
+Weapon::Weapon()
 {
 	m_attack = 0;
+	m_frequence = 1;
+	m_upgrade_attack = 0;
+	m_upgrade_frequence = 0;
+}
+
+Weapon::Weapon(int attack)
+{
+	m_attack = attack;
 	m_frequence = 1;
 	m_upgrade_attack = 0;
 	m_upgrade_frequence = 0;

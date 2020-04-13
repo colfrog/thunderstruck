@@ -6,6 +6,7 @@ class Defense : public Item
 {
 public:
 	Defense();
+	Defense(int);
 	~Defense();
 	
 	int get_evasion() const;
