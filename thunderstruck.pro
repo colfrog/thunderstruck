@@ -1,5 +1,6 @@
 TEMPLATE = app
 QT += widgets
+RESOURCES = resources.qrc
 
 INCLUDEPATH += libWWIII
 
