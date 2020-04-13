@@ -7,6 +7,7 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxLabel = new QHBoxLayout;
 	HBoxButton = new QHBoxLayout;
 
+
 	Table = new CharacterTable(jeu);
 
 	ButtonLeft = new AttackButton(jeu, "Attaquer Ouest", Direction::LEFT);
@@ -23,13 +24,14 @@ GameWidget::GameWidget(Jeu *j) :
 	HBoxLabel->addWidget(labelTower->widget(), 0, Qt::AlignRight);
 
 	HBoxButton->addWidget(ButtonLeft->widget());
-	HBoxButton->addWidget(ButtonBot->widget());
-	HBoxButton->addWidget(ButtonTop->widget());
 	HBoxButton->addWidget(ButtonRight->widget());
+	
 
 	VBox->addLayout(HBoxLabel);
 	VBox->addWidget(Table->widget());
+	VBox->addWidget(ButtonTop->widget());
 	VBox->addLayout(HBoxButton);
+	VBox->addWidget(ButtonBot->widget());
 	VBox->addWidget(ButtonWait->widget());
 
 	setLayout(VBox);
