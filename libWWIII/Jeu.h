@@ -32,6 +32,9 @@ public:
 	Tour &tour();
 	Lane &lane(Direction dir);
 
+	void enemy_killed(const Personnage *p);
+	const uint64_t &kill_count() const;
+
 	uint64_t new_character_id();
 	void set_niveau(int niveau);
 	void add_element(Element *elem);
@@ -48,6 +51,7 @@ private:
 	const int m_niveau_max;
 
 	uint64_t m_current_character_id = 0;
+	uint64_t m_kill_count = 0;
 	Niveau m_niveau;
 	Tour m_tour;
 	Lane m_left_lane, m_right_lane, m_up_lane, m_down_lane;

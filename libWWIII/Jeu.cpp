@@ -100,6 +100,14 @@ Lane &Jeu::lane(Direction dir) {
 	}
 }
 
+void Jeu::enemy_killed(const Personnage *p) {
+	m_kill_count += 1;
+}
+
+const uint64_t &Jeu::kill_count() const {
+	return m_kill_count;
+}
+
 uint64_t Jeu::new_character_id() {
 	return m_current_character_id++;
 }
