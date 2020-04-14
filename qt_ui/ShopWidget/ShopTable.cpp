@@ -173,7 +173,6 @@ void ShopTable::shopUpdateBuy(int id) {
 }
 
 void ShopTable::shopUpdateSell(int id) {
-	printf("id : %d\n", id);
 	int category = m_jeu->tour().player().get_shop()->find_category(id);
 	int argent = m_jeu->tour().player().get_argent();
 	Weapon weaponVide, weaponPlayer = m_jeu->tour().player().get_weapon();
@@ -196,7 +195,6 @@ void ShopTable::shopUpdateSell(int id) {
 		m_jeu->tour().player().set_weapon(weaponVide);
 
 		emit selled(weaponPlayer.get_name());
-		printf("signal");
 
 		break;
 	case 3://Vente de l'armure du joueur
