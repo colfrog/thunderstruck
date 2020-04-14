@@ -45,9 +45,16 @@ bool Lane::reached_end(const Enemy *e) {
 void Lane::remove_front_enemy() {
 	// Commence par tuer l'ennemi
 	m_enemies.front()->set_hp(0);
+	// Ajouter Enemy::get_drop au joueur
+	Player &p = m_jeu->tour().player();
+	p.set_argent(p.get_argent() + m_enemies.front()->get_drop());
+
+	m_jeu->enemy_killed(m_enemies.front());
+	if (m_jeu->kill_count() % 10 == 0)
+		m_jeu->niveau().prochain();
+
 	// Ne pas libérer la mémoire, ils appartiennent à l'application
 	m_enemies.pop_front();
-
 	if (m_enemies.size() != 0)
 		m_enemies.front()->set_next_enemy(nullptr);
 }
