@@ -5,6 +5,8 @@ Enemy::Enemy(Jeu *jeu, Lane *lane, string n) :
 	Personnage(jeu, n),
 	m_lane(lane)
 {
+	if (m_jeu->niveau().should_drop())
+		m_drop = 10;
 }
 Enemy::~Enemy() {}
 
