@@ -29,5 +29,6 @@ private:
 	ShopWidget *shopWidget;
 
 	QPushButton *shopButton;
+	QShortcut *ShortCutShop;
 };
 #endif // MAINWINDOW_H

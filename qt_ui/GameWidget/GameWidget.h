@@ -40,7 +40,6 @@ private:
 	QShortcut *ShortCutRight;
 	QShortcut *ShortCutBot;
 	QShortcut *ShortCutWait;
-	QShortcut *ShortCutShop;
 
 	GameLabel *labelLevel;
 	GameLabel *labelTower;
