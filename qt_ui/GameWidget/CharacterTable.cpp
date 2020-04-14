@@ -16,6 +16,7 @@ CharacterTable::CharacterTable(Jeu *jeu) : GameObject(jeu) {
 		m_table->setHorizontalHeaderItem(i, new QTableWidgetItem(info));
 		i++;
 	}
+	m_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 	const Personnage *player = &jeu->tour().player();
 	m_player_coord = player->position();

@@ -23,6 +23,7 @@ ShopTable::ShopTable(Jeu *jeu) {
 		m_table_potion->setItem(index, 4, new QTableWidgetItem(QString::number(p.get_hp_restore())));
 		index++;
 	}
+	m_table_potion->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 
 	m_table_weapon = new QTableWidget(0, 5);
@@ -47,6 +48,8 @@ ShopTable::ShopTable(Jeu *jeu) {
 		index++;
 	}
 	m_table_weapon->sortItems(0, Qt::AscendingOrder);
+	m_table_weapon->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
 
 	m_table_defense = new QTableWidget(0, 5);
 	informations.clear();
@@ -70,6 +73,7 @@ ShopTable::ShopTable(Jeu *jeu) {
 		index++;
 	}
 	m_table_defense->sortItems(0, Qt::AscendingOrder);
+	m_table_defense->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 ShopTable::~ShopTable() {
 	delete m_table_potion;
