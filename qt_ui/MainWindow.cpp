@@ -5,6 +5,7 @@ MainWindow::MainWindow(Jeu *j, QWidget *parent)
 	jeu(j)
 {
 	gameWidget = new GameWidget(jeu);
+	ShortCutShop = new QShortcut(Qt::Key_M, this);
 
 	setWindowTitle("TowerDefense");
 	setWindowIcon(QIcon(":icon.png"));
@@ -13,6 +14,7 @@ MainWindow::MainWindow(Jeu *j, QWidget *parent)
 	setMinimumSize(800, 600);
 	shopButton = gameWidget->shopButton;
 	connect(shopButton, SIGNAL(clicked()), this, SLOT(openShop()));
+	connect(ShortCutShop, SIGNAL(activated()), this, SLOT(openShop()));
 }
 
 MainWindow::~MainWindow()

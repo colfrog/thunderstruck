@@ -84,12 +84,14 @@ void ShopWidget::getIdSell() {
 		id = jeu->tour().player().get_defense().get_id();
 	}
 	else {
-		id = -1;
+		id = -2;
 	}
 
 	messageBox.close();
-
-	emit idSell(id);
+	if (id != -2) {
+		emit idSell(id);
+	}
+	
 }
 
 void ShopWidget::boughtItem(string name) {
@@ -113,7 +115,7 @@ void ShopWidget::needMoreMoney() {
 }
 
 void ShopWidget::playerNoItem() {
-	QMessageBox::information(this, "Pas d'item", "Vous n'avez pas de cette sorte d'item sur vous");
+	QMessageBox::information(this, "Pas d'item", "Vous n'avez pas d'item de cette sorte a vendre");
 }
 
 void ShopWidget::updateMoneyLabel() {
